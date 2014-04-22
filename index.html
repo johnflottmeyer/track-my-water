@@ -8,8 +8,10 @@
         <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
         <script type="text/javascript">
             var pushNotification;
-            
+            pushNotification.setApplicationIconBadgeNumber(successCallback, errorCallback, 4);
+
             function onDeviceReady() {
+            	alert("ready");
                 $("#app-status-ul").append('<li>deviceready event received</li>');
                 
 				document.addEventListener("backbutton", function(e)
