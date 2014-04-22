@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.gibsonwater.tracker"
         version   = "1.0.0">
-    <name>PhoneGapBuild Tester</name>
+    <name>Water Tracker</name>
 
     <description>
         Track daily water intake and set reminders.
