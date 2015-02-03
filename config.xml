@@ -1,29 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.gibsonwater.tracker"
-        version   = "1.0.0">
-    <name>Water Tracker</name>
-
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.watertack"
+        versionCode = "10" 
+        version     = "1.0.6" >
+	
+    <name>Gibsons Water Tracking</name>
     <description>
-        Track daily water intake and set reminders.
+        Set water alerts and track your water goal progress.
     </description>
 
-    <author href="http://voilamediagroup.com" email="john@voilamediagroup.com">
-        Voila! Media Group
+    <author href="https://build.phonegap.com" email="johnflottmeyer@gmail.com">
+        John Flottmeyer
     </author>
-
-    <!-- third party plugins -->
-    <gap:plugin name="org.apache.cordova.statusbar"/>
-
-    <!-- universal preferences -->
-    <preference name="phonegap-version"           value="3.3.0" />         
-    <preference name="orientation"                value="default" />        
-    <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
-    <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
     
-    <!-- ios preferences -->
-    <!-- control whether the screen 'bounces' when scrolled beyond the top --> 
-    <preference name="ios-statusbarstyle"         value="black-opaque" />  
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+    
+    <!-- third party plugins -->
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.4" />
+    <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.5.2" />
+    
+    <!-- universal preferences -->
+    <preference name="phonegap-version"           value="3.6.3" />         
+    <preference name="fullscreen"                 value="true" />
+	
+	<!-- ios preferences --> 
+    <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->     
+    <preference name="ios-statusbarstyle"         value="black-opaque" />
+    
+    <!-- ios icons -->
+    <icon src="icons/ios/apple-touch-icon-57-precomposed.png" gap:platform="ios" width="57" height="57"/>
+    <icon src="icons/ios/apple-touch-icon-72-precomposed.png" gap:platform="ios" width="72" height="72"/>
+    <icon src="icons/ios/apple-touch-icon-114-precomposed.png" gap:platform="ios" width="114" height="114"/>
+    
+    <!-- android icons -->
+    <!--icon src="icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />-->
 
 </widget>
