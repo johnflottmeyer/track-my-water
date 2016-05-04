@@ -17,6 +17,10 @@ function phoneReady() {
     dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000); //First, open our db
     dbShell.transaction(setupTable,dbErrorHandler,getSettings); //Set it up if not set up - callback success is getSettings
     window.plugin.notification.badge.setClearOnTap(true);
+    //window.plugin.notification.local.hasPermission(function (granted) {
+    // console.log('Permission has been granted: ' + granted);
+	//});
+	window.plugin.notification.local.promptForPermission();
 }
 function phoneResume(){
 	window.plugin.notification.badge.clear(); //clear the badges
@@ -578,6 +582,7 @@ $(document).ready(function() {
 		
 		evt.preventDefault();
 	});
+	
     /*ON PAGE LOAD SHOW THE FOLLOWING*/
     $(document).on("pagecontainerbeforeshow", function( event, ui ) {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
