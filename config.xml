@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.watertack"
         versionCode = "10" 
-        version     = "1.0.6" >
+        version     = "2" >
 	
     <name>Gibsons Water Tracking</name>
     <description>
@@ -19,11 +19,11 @@
     
     <!-- third party plugins -->
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.4" />
-    <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.5.2" />
+    <gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.1" />
+    <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.4" />
     
     <!-- universal preferences -->
-    <preference name="phonegap-version"           value="3.6.3" />         
+    <preference name="phonegap-version"           value="5.2.0" />         
     <preference name="fullscreen"                 value="true" />
 	
 	<!-- ios preferences --> 
