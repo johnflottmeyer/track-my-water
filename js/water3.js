@@ -259,6 +259,7 @@ function createNotifications(){
 				
 				var d = new Date();
 				var n = d.getTime();
+				console.log(dn);
     
 				//ADD THE ALERTS TO THE NOTIFICATION QUE
 				window.plugin.notification.local.add({
