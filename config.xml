@@ -23,7 +23,7 @@
     <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.4" />
     
     <!-- universal preferences -->
-    <preference name="phonegap-version"           value="5.2.0" />         
+    <preference name="phonegap-version"           value="cli-5.2.0" />         
     <preference name="fullscreen"                 value="true" />
 	
 	<!-- ios preferences --> 
