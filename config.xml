@@ -19,8 +19,8 @@
     
     <!-- third party plugins -->
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.2" source="plugins.cordova.io" />
-	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.8" source="plugins.cordova.io" />
+    <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.2" />
+	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.8" />
 
     <!-- universal preferences -->
     <preference name="phonegap-version"           value="cli-5.2.0" />         
