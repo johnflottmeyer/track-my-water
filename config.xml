@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.watertack"
+        id          = "com.phonegap.watertrack"
         versionCode = "10" 
         version     = "2" >
 	
-    <name>Gibsons Water Tracking</name>
+    <name>Gibson's Water Tracking</name>
     <description>
         Set water alerts and track your water goal progress.
     </description>
 
-    <author href="https://build.phonegap.com" email="johnflottmeyer@gmail.com">
+    <author href="https://build.phonegap.com" email="j_flottmeyer@voilamediagroup.com">
         John Flottmeyer
     </author>
     
     <gap:platform name="ios" />
-    <gap:platform name="android" />
+    <!--<gap:platform name="android" />-->
     
     <!-- third party plugins -->
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.2" />
 	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.8" />
+	<plugin name="com.synsormed.plugins.healthkit" spec="0.3.5" source="pgb" />
 
     <!-- universal preferences -->
     <preference name="phonegap-version"           value="cli-5.2.0" />         
