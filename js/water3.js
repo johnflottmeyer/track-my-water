@@ -20,7 +20,30 @@ function phoneReady() {
     //window.plugin.notification.local.hasPermission(function (granted) {
     // console.log('Permission has been granted: ' + granted);
 	//});
-	window.plugin.notification.local.promptForPermission();
+	window.plugin.notification.local.promptForPermission(); //bring up the permission thing
+	
+	window.plugins.healthkit.available( //is healthkit available
+	  function(isAvailable == true){ //lets ask for permission to store data there.
+	      
+	    window.plugins.healthkit.requestAuthorization({
+		        "readTypes"  : ["HKQuantityTypeIdentifierDietaryWater"],
+		        "writeTypes" : ["HKQuantityTypeIdentifierDietaryWater"]
+	    },
+	    function(){
+	        //accepted
+	        console.log("allowed healthkit");
+	    },
+	    function(){
+	        //rejected
+	        console.log("no healthkit allowed");
+	    }
+	);
+	  }
+	  else
+	  {
+	      //doesn't support
+	  }
+	);
 }
 function phoneResume(){
 	window.plugin.notification.badge.clear(); //clear the badges
