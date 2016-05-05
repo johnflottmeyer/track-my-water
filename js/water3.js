@@ -27,7 +27,7 @@ function phoneReady() {
 	  	function(isAvailable == true)
 	  	{ //lets ask for permission to store data there.
 		    console.log("available");
-		    window.plugins.healthkit.requestAuthorization({
+		    /*window.plugins.healthkit.requestAuthorization({
 			        "readTypes"  : ["HKQuantityTypeIdentifierDietaryWater"],
 			        "writeTypes" : ["HKQuantityTypeIdentifierDietaryWater"]
 		    },
@@ -38,11 +38,12 @@ function phoneReady() {
 		    function(){
 		        //rejected
 		        console.log("no healthkit allowed");
-		    }
+		    }*/
 		);
 		}
 		else
 		{
+		      console.log("not available");
 		      //doesn't support
 		}
 	);
