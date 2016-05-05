@@ -23,37 +23,14 @@ function phoneReady() {
 	
 	window.plugin.notification.local.promptForPermission(); //bring up the permission thing
 	
-	/*window.plugin.healthkit.available( //is healthkit available
-	  	function(isAvailable == true)
-	  	{ //lets ask for permission to store data there.
-		    console.log("available");
-		    window.plugins.healthkit.requestAuthorization({
-			        "readTypes"  : ["HKQuantityTypeIdentifierDietaryWater"],
-			        "writeTypes" : ["HKQuantityTypeIdentifierDietaryWater"]
-		    },
-		    function(){
-		        //accepted
-		        console.log("allowed healthkit");
-		    },
-		    function(){
-		        //rejected
-		        console.log("no healthkit allowed");
-		    }
-		);
-		}
-		else
-		{
-		      console.log("not available");
-		      //doesn't support
-		}
-	);*/
+	
 	  var callback = function (msg) {
 	    // wrapping in a timeout because of a possbile native UI element blocking the webview
 	    setTimeout(function () {
-	      alert(JSON.stringify(msg))
+	      console.log(JSON.stringify(msg))
 	    }, 0);
 	  };
-		function requestAuthorization() {
+	function requestAuthorization() {
 	    window.plugins.healthkit.requestAuthorization(
 	        {
 	          'readTypes': ['HKCharacteristicTypeIdentifierDateOfBirth',
@@ -64,6 +41,7 @@ function phoneReady() {
 	        callback
 	    );
 	  }
+	  callback("run");
 }
 function phoneResume(){
 	window.plugin.notification.badge.clear(); //clear the badges
