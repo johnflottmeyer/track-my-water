@@ -23,25 +23,27 @@ function phoneReady() {
 	
 	window.plugin.notification.local.promptForPermission(); //bring up the permission thing
 	
+	function onSuccess(result) {
+	  alert("OK: " + JSON.stringify(result));
+	};
 	
-	  var callback = function (msg) {
-	    // wrapping in a timeout because of a possbile native UI element blocking the webview
-	    setTimeout(function () {
-	      console.log(JSON.stringify(msg))
-	    }, 0);
-	  };
-	function requestAuthorization() {
-	    window.plugins.healthkit.requestAuthorization(
-	        {
-	          'readTypes': ['HKCharacteristicTypeIdentifierDateOfBirth',
-	            'HKCategoryTypeIdentifierSleepAnalysis', 'HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight'],
-	          'writeTypes': ['HKQuantityTypeIdentifierDietaryEnergyConsumed','HKQuantityTypeIdentifierDietaryFatTotal','HKQuantityTypeIdentifierStepCount','HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight', 'HKQuantityTypeIdentifierDistanceCycling']
-	        },
-	        callback,
-	        callback
-	    );
+	function onError(result) {
+	  alert("Error: " + JSON.stringify(result));
+	};
+	window.plugins.healthkit.available(
+	  function(isAvailable) {
+	    alert(isAvailable ? "HealthKit available :)" : "No HealthKit on this device :(")
 	  }
-	  callback("run");
+	);
+	window.plugins.healthkit.requestAuthorization(
+	  {
+	    // both these are optional, so you can f.i. only request readTypes
+	    'readTypes'  : ['HKCharacteristicTypeIdentifierDateOfBirth', 'HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight'],
+	    'writeTypes' : ['HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight', 'HKQuantityTypeIdentifierDistanceCycling']
+	  },
+	  onSuccess,
+	  onError
+	);
 }
 function phoneResume(){
 	window.plugin.notification.badge.clear(); //clear the badges
