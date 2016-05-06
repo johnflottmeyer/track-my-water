@@ -27,7 +27,7 @@ function phoneReady() {
 	window.plugin.notification.local.promptForPermission(); //request authorization to allow the app to send local notifications
 	//###Plugins - HEALTHKIT
 	function onSuccess(result) { //these are test functions
-	  alert("OK: " + JSON.stringify(result));
+	  alert("OK: Authorized" + JSON.stringify(result));
 	};
 	
 	function onError(result) {
