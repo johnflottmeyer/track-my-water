@@ -16,40 +16,60 @@ var saveCalled = "false"; //This is a flag for determining when to set the alert
 function phoneReady() {
     dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000); //First, open our db
     dbShell.transaction(setupTable,dbErrorHandler,getSettings); //Set it up if not set up - callback success is getSettings
-    window.plugin.notification.badge.setClearOnTap(true);
-    //window.plugin.notification.local.hasPermission(function (granted) {
-    // console.log('Permission has been granted: ' + granted);
-	//});
+    //###Plugins - BADGE
+    window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
+    //###Plugins - NOTIFICATIONS
+    window.plugin.notification.local.hasPermission(function (granted) {
+     	//console.log('Permission has been granted: ' + granted);
+	 	alert("OK: " + JSON.stringify(granted)); //lets send out the message as a test
+	});
 	
-	window.plugin.notification.local.promptForPermission(); //bring up the permission thing
-	
-	function onSuccess(result) {
+	window.plugin.notification.local.promptForPermission(); //request authorization to allow the app to send local notifications
+	//###Plugins - HEALTHKIT
+	function onSuccess(result) { //these are test functions
 	  alert("OK: " + JSON.stringify(result));
 	};
 	
 	function onError(result) {
 	  alert("Error: " + JSON.stringify(result));
 	};
+	
+	function onPermissionSuccess(result) {
+	  if(result == "authorized"){ //already authorized continue
+	  }else if(result == "undeterminded" || result == "denied"){
+		  window.plugins.healthkit.requestAuthorization( //lets request authorization to store water data on healthkit
+				  {
+				    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
+				    'writeTypes' : ['HKQuantityTypeIdentifierDietaryWater']
+				  },
+				  onSuccess,
+				  onError
+			  );
+	  	  }
+	  };
+	
+	function onPermissionError(result) {//not able to test if we have permission
+	  alert("Error: " + JSON.stringify(result));
+	};
 	window.plugins.healthkit.available(
 	  function(isAvailable) {
-	    alert(isAvailable ? "HealthKit available :)" : "No HealthKit on this device :(")
+		  if(isAvailable){
+			 window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
+			  {
+			    'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
+			  },
+			  onPermissionSuccess, // will be one of 'undetermined', 'denied', or 'authorized'
+			  onPermissionError
+			);
+		  }else{
+			  alert("healthkit not available :(");
+		  }
+	    //alert(isAvailable ? "HealthKit available :)" : "No HealthKit on this device :(")
 	  }
 	);
-	window.plugins.healthkit.requestAuthorization(
-	  {
-	    // both these are optional, so you can f.i. only request readTypes
-	    //'readTypes'  : ['HKCharacteristicTypeIdentifierDateOfBirth', 'HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight'],
-	    //'writeTypes' : ['HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight', 'HKQuantityTypeIdentifierDistanceCycling']
-	    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
-	    'writeTypes' : ['HKQuantityTypeIdentifierDietaryWater']
-	  },
-	  onSuccess,
-	  onError
-	);
-	//HKQuantityTypeIdentifierDietaryWater
 }
-function phoneResume(){
-	window.plugin.notification.badge.clear(); //clear the badges
+function phoneResume(){ //clear the badges
+	window.plugin.notification.badge.clear(); 
 }
 
 
