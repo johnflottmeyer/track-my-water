@@ -4,16 +4,14 @@
 <title>Gibsons Water Tracker</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
-
-	<link rel="stylesheet" type="text/css" media="all" href="css/black-sidebar.css"/>
-	<link rel="stylesheet" type="text/css" media="all" href="css/jquery.mobile-1.4.5.min.css"/>
-	<link rel="stylesheet" type="text/css" media="all" href="css/jquery-clockpicker.min.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/toastr.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/whhg.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/styles.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="css/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="css/jquery-clockpicker.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/toastr.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/whhg.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/styles.css"/>
 </head>
 <body>
-
+	
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -136,16 +134,19 @@
 				<button type="submit" class="ui-btn saveSettings option-button">Save Settings</button>
 			</form>
 		</div><!-- / ui-body -->
-		<div data-role="footer" data-position="fixed">
-	<div data-role="navbar" data-iconpos="left" class="top-nav">
-        <ul>
-            <li><a href="#alerts" class="ui-btn-active ui-icon-alert" data-transition="slideup">Alerts</a></li>
-            <li><a href="#track" class="ui-icon-track" data-transition="slideup">Track</a></li>
-            <li><a href="#account" class="ui-icon-goal" data-transition="slideup">Goal</a></li>
-        </ul>
-    </div><!-- /navbar -->
-	</div>
+		
+		
 	</div><!-- / ui-content -->
+	
+		<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-iconpos="left" class="top-nav">
+	        <ul>
+	            <li><a href="#alerts" class="ui-btn-active ui-icon-alert" data-transition="slideup">Alerts</a></li>
+	            <li><a href="#track" class="ui-icon-track" data-transition="slideup">Track</a></li>
+	            <li><a href="#account" class="ui-icon-goal" data-transition="slideup">Goal</a></li>
+	        </ul>
+	    </div><!-- /navbar -->
+		</div>
 </div><!-- / alerts page -->
 
 <!-- track page -->
@@ -204,15 +205,16 @@
 				<button class="ui-btn cancel option-button" style="display:none;">Cancel</button>
 			</form>
 		</div><!-- / ui-body -->
-	<div data-role="footer" data-position="fixed">
-	<div data-role="navbar" data-iconpos="bottom" class="top-nav">
-        <ul>
-        	<li><a href="#alerts" class="ui-icon-alert" data-transition="slideup">Alerts</a></li>
-            <li><a href="#track" class="ui-btn-active ui-icon-track" data-transition="slideup">Track</a></li>
-            <li><a href="#account" class="ui-icon-goal" data-transition="slideup">Goal</a></li>
-        </ul>
-    </div><!-- /navbar -->
-	</div>
+		
+		<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-iconpos="bottom" class="top-nav">
+	        <ul>
+	        	<li><a href="#alerts" class="ui-icon-alert" data-transition="slideup">Alerts</a></li>
+	            <li><a href="#track" class="ui-btn-active ui-icon-track" data-transition="slideup">Track</a></li>
+	            <li><a href="#account" class="ui-icon-goal" data-transition="slideup">Goal</a></li>
+	        </ul>
+	    </div><!-- /navbar -->
+		</div>
 	</div><!-- / ui-content -->
 </div><!-- / track page -->
 
@@ -236,19 +238,20 @@
 				</form>
 				<p>Here is where you are at with your daily water goal.</p>
 			</div><!-- / ui-body -->
+			
 			<div data-role="footer" data-position="fixed">
-	<div data-role="navbar" data-iconpos="bottom" class="top-nav">
-        <ul>
-        	<li><a href="#alerts" class="ui-icon-alert" data-transition="slideup">Alerts</a></li>
-            <li><a href="#track" class="ui-icon-track" data-transition="slideup">Track</a></li>
-            <li><a href="#account" class="ui-btn-active ui-icon-goal" data-transition="slideup">Goal</a></li>
-        </ul>
-	</div>
-	<!-- /navbar -->
-	</div>
+			<div data-role="navbar" data-iconpos="bottom" class="top-nav">
+		        <ul>
+		        	<li><a href="#alerts" class="ui-icon-alert" data-transition="slideup">Alerts</a></li>
+		            <li><a href="#track" class="ui-icon-track" data-transition="slideup">Track</a></li>
+		            <li><a href="#account" class="ui-btn-active ui-icon-goal" data-transition="slideup">Goal</a></li>
+		        </ul>
+			</div>
+			<!-- /navbar -->
+			</div>
 
 	</div><!-- / ui-content -->
-		</div><!-- / track page -->
+</div><!-- / track page -->
 
 <script src="js/jquery-1.12.3.min.js"></script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
