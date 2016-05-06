@@ -152,16 +152,7 @@
 
 <!-- track page -->
 <div data-role="page" id="track" data-theme="a">
-	<!-- debug panel -->
-	<div data-role="panel" id="waterset" data-display="push" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g">
-	<a href="#track" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
-	<div class="ui-panel-inny">
-		<h3>Saved Items</h3>
-		<p id="waterstatus"></p>
-		<p class="waterdata"></p>
-	</div>
-	</div><!-- /panel -->
-	<a href="#landing" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-alt-icon ui-btn-inline" id="btnHome2" data-transition="flow">Home</a>
+		<a href="#landing" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-alt-icon ui-btn-inline" id="btnHome2" data-transition="flow">Home</a>
 	
 	<div role="main" class="ui-content">
 		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
@@ -217,6 +208,16 @@
 	    </div><!-- /navbar -->
 		</div>
 	</div><!-- / ui-content -->
+	<!-- debug panel -->
+	<div data-role="panel" id="waterset" data-display="push" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
+	<a href="#track" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
+	<div class="ui-panel-inny">
+		<h3>Saved Items</h3>
+		<p id="waterstatus"></p>
+		<p class="waterdata"></p>
+	</div>
+	</div><!-- /panel -->
+
 </div><!-- / track page -->
 
 <!-- track page -->
