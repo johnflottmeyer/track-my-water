@@ -11,17 +11,19 @@
 
 /* INCLUDED FONTS */
 @font-face {
-  font-family: "Open Sans Regular";
-  src: url('../fonts/OpenSans-Regular.ttf');/* relative path from the css file */
+  font-family: "Yanone Kaffeesatz";
+  src: url('../fonts/Yanone_Kaffeesatz/YanoneKaffeesatz-Regular.ttf');/* relative path from the css file */
 }
 
 html, body, .ui-page {
     border: none !important;
     height: 100%;
-    background:#FFF;
+    background:none !important;
 }
 body{
-	font-family:Open Sans Regular, Arial, Helvetica;
+	font-family:Yanone Kaffeesatz, Arial, Helvetica;
+    background:url('../images/background.png') no-repeat !important;
+    background-size:contain;
 }
 .ui-bar-b{
 	background:#4581c2;/*00549f*/
@@ -33,9 +35,11 @@ body{
 	border-color:#265471;
 }
 .ui-body-a{
-	background-color:#b5dbe6;/**/
+	/*background-color:#b5dbe6;/**/
 	/*background-color:#FFF;*/
 	/*border:none;*/
+	border:none;
+	background:transparent;
 }
 .ui-content{
 	padding:0px;
@@ -104,7 +108,7 @@ strong.alertlabel{
 	height:45px;
 	font-size:20px;
 	text-align:left;
-	padding-left:82px;
+	/*padding-left:82px;*/
 }
 .homebtn span{
 	font-size:12px;
@@ -115,7 +119,7 @@ strong.alertlabel{
 
 /*HOME PAGE - Custom Icons*/
 .icon-alerts:after{
-	content:'\f233';
+	/*content:'\f233';
 	margin:-30px 0px 0px -10px;
 	padding:3px 5px;
 	font-family:'WebHostingHub-Glyphs';
@@ -126,10 +130,10 @@ strong.alertlabel{
 	font-size:40px;
 	color:#FFF;
 	color:#f8981d;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
 }
 .icon-track:after{
-	content:'\f208';
+	/*content:'\f208';
 	margin:-30px 0px 0px -10px;
 	padding:3px 5px;
 	font-family:'WebHostingHub-Glyphs';
@@ -139,10 +143,10 @@ strong.alertlabel{
 	background:none;
 	font-size:40px;
 	color:#ffc423;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
 }
 .icon-goal:after{
-	content:'\f5eb';
+	/*content:'\f5eb';
 	margin:-30px 0px 0px -10px;
 	padding:3px 5px;
 	font-family:'WebHostingHub-Glyphs';
@@ -152,21 +156,21 @@ strong.alertlabel{
 	background:none;
 	font-size:40px;
 	color:#ffd984;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
 }
 .ui-icon-track:before{
-	content:'\f208';
+	/*content:'\f208';
 	font-family:'WebHostingHub-Glyphs';
 	width:auto;
 	height:auto;
 	font-style:normal;
 	padding:5px;
-	background:none;
+	background:none;*/
 }
 
 /*TOP / BOTTOM NAV*/
 .top-nav .ui-btn{
-	background:#4581c2;
+	background:#003366;
 	color:#FFF;
 	text-shadow:none !important;
 	border:none !important;
@@ -178,75 +182,67 @@ strong.alertlabel{
 	border:none !important;
 }
 .ui-icon-alert:before{
-	content:'\f233';
+	/*content:'\f233';
 	font-family:'WebHostingHub-Glyphs';
 	width:auto;
 	height:auto;
 	font-style:normal;
 	padding:5px;
-	background:none;
+	background:none;*/
 }
 .ui-icon-goal:before{
-	content:'\f5eb';
+	/*content:'\f5eb';
 	font-family:'WebHostingHub-Glyphs';
 	width:auto;
 	height:auto;
 	font-style:normal;
 	padding:5px;
-	background:none;
+	background:none;*/
 }
 .icon-goal p, .icon-track p, .icon-alerts p{
-	font-family:Open Sans Regular, Arial, Helvetica;
+	font-family:Yanone Kaffeesatz, Arial, Helvetica;
 	margin:0px;
 	padding:0px;
-	color:#FFF;
+	color:#00;
 	text-shadow:none;
 	text-shadow:2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 /*Home Page Styles*/
 .icon-goal h2, .icon-track h2, .icon-alerts h2{
-	font-family:Open Sans Regular, Arial, Helvetica;
+	font-family:Yanone Kaffeesatz, Arial, Helvetica;
 	text-transform:uppercase;
 	font-size:18px;
 	font-weight:bold;
 	margin:0px;
 	padding:0px;
-	color:#FFF;
+	color:#000;
 	text-shadow:none;
 	text-shadow:2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .icon-alerts{
-	background:#f8981d !important;
-	background: rgb(57,126,170) !important; /* Old browsers */
-	background: -moz-linear-gradient(left,  rgba(57,126,170,1) 0%, rgba(248,152,29,1) 100%) !important; /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(57,126,170,1)), color-stop(100%,rgba(248,152,29,1))) !important; /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  rgba(57,126,170,1) 0%,rgba(248,152,29,1) 100%) !important; /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  rgba(57,126,170,1) 0%,rgba(248,152,29,1) 100%) !important; /* Opera 11.10+ */
-	background: linear-gradient(to right,  rgba(57,126,170,1) 0%,rgba(248,152,29,1) 100%) !important; /* W3C */
-	margin:0px;
+	/*background:#f8981d !important;*/
+	background:transparent;
+	background:rgba(255, 255, 255, 0.8) !important;
+	border-radius:10px;
+	border:none;
+	
 }
 .icon-track{
-	background:#ffc423 !important;
-	background: rgb(57,126,170) !important; /* Old browsers */
-	background: -moz-linear-gradient(left,  rgba(57,126,170,1) 0%, rgba(255,196,35,1) 100%) !important; /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(57,126,170,1)), color-stop(100%,rgba(255,196,35,1))) !important; /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  rgba(57,126,170,1) 0%,rgba(255,196,35,1) 100%) !important; /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  rgba(57,126,170,1) 0%,rgba(255,196,35,1) 100%) !important; /* Opera 11.10+ */
-	background: linear-gradient(to right,  rgba(57,126,170,1) 0%,rgba(255,196,35,1) 100%) !important; /* W3C */
-
-	margin:0px;
+	/*background:#ffc423 !important;*/
+	background:transparent;
+	background:rgba(255, 255, 255, 0.8) !important;
+	border-radius:10px;
+	border:none;
+	
 }
 .icon-goal{
 	/*background:#ffd984 !important;*/
-	background: rgb(57,126,170) !important; /* Old browsers */
-	background: -moz-linear-gradient(left,  rgba(57,126,170,1) 0%, rgba(255,217,132,1) 100%) !important; /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(57,126,170,1)), color-stop(100%,rgba(255,217,132,1))) !important; /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  rgba(57,126,170,1) 0%,rgba(255,217,132,1) 100%) !important; /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  rgba(57,126,170,1) 0%,rgba(255,217,132,1) 100%) !important; /* Opera 11.10+ */
-	background: linear-gradient(to right,  rgba(57,126,170,1) 0%,rgba(255,217,132,1) 100%) !important; /* W3C */
+	background:transparent;
+	background:rgba(255, 255, 255, 0.8) !important;
+	border-radius:10px;
+	border:none;
 
-	margin:0px;
 }
 
 /*PAGE HEADERS*/
@@ -259,7 +255,7 @@ strong.alertlabel{
 	border-top:2px solid #444;
 }
 .icon-alerts-h2 h2, .icon-track-h2 h2, .icon-goal-h2 h2{
-	font-family:Open Sans Regular, Arial, Helvetica;
+	font-family:Yanone Kaffeesatz, Arial, Helvetica;
 	padding:5px 0px 0px 0px !important;
 	margin:0px !important;
 	color:#FFF;

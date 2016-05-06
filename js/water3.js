@@ -20,11 +20,14 @@ function phoneReady() {
     window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
     //###Plugins - NOTIFICATIONS
     window.plugin.notification.local.hasPermission(function (granted) {
-     	//console.log('Permission has been granted: ' + granted);
-	 	alert("OK: " + JSON.stringify(granted)); //lets send out the message as a test
+	 	if(granted == true){//permission is granted
+		}else{
+		 	window.plugin.notification.local.promptForPermission();
+		 	//request authorization to allow the app to send local notifications
+	 	}
 	});
 	
-	window.plugin.notification.local.promptForPermission(); //request authorization to allow the app to send local notifications
+	 
 	//###Plugins - HEALTHKIT
 	function onSuccess(result) { //these are test functions
 	  alert("OK: Authorized" + JSON.stringify(result));
@@ -54,6 +57,7 @@ function phoneReady() {
 	window.plugins.healthkit.available(
 	  function(isAvailable) {
 		  if(isAvailable){
+			  alert("HealthKit available :)");
 			 window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
 			  {
 			    'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
