@@ -38,12 +38,15 @@ function phoneReady() {
 	window.plugins.healthkit.requestAuthorization(
 	  {
 	    // both these are optional, so you can f.i. only request readTypes
-	    'readTypes'  : ['HKCharacteristicTypeIdentifierDateOfBirth', 'HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight'],
-	    'writeTypes' : ['HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight', 'HKQuantityTypeIdentifierDistanceCycling']
+	    //'readTypes'  : ['HKCharacteristicTypeIdentifierDateOfBirth', 'HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight'],
+	    //'writeTypes' : ['HKQuantityTypeIdentifierActiveEnergyBurned', 'HKQuantityTypeIdentifierHeight', 'HKQuantityTypeIdentifierDistanceCycling']
+	    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
+	    'writeTypes' : ['HKQuantityTypeIdentifierDietaryWater']
 	  },
 	  onSuccess,
 	  onError
 	);
+	//HKQuantityTypeIdentifierDietaryWater
 }
 function phoneResume(){
 	window.plugin.notification.badge.clear(); //clear the badges
