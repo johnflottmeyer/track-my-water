@@ -55,7 +55,7 @@ body{
 	width:60%;
 	margin:10px auto;
 }
-.alertSettings{
+.alertSettings, .trackSettings, .goalSettings{
 	background:#444;
 	color:#FFF;
 	display:block;
