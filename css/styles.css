@@ -309,12 +309,15 @@ strong.alertlabel{
 }
 .icon-alerts-h2{
 	color:#f8981d;
+	color:#FFF;
 }
 .icon-track-h2{
 	color:#ffc423;
+	color:#FFF;
 }
 .icon-goal-h2{
 	color:#ffd984;
+	color:#FFF;
 }
 h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	padding-top:0px !important;
