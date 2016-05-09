@@ -181,14 +181,14 @@ strong.alertlabel{
 	text-shadow:none !important;
 	border:none !important;
 }
-.ui-icon-alert:before{
-	/*content:'\f233';
+.ui-icon-alert:after{
+	content:'\f233';
 	font-family:'WebHostingHub-Glyphs';
 	width:auto;
 	height:auto;
 	font-style:normal;
 	padding:5px;
-	background:none;*/
+	background:none;
 }
 .ui-icon-goal:before{
 	/*content:'\f5eb';
