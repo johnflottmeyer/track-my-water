@@ -23,15 +23,8 @@
 				<div class="ui-block-a">
 		<a href="#alerts" data-transition="flow" class="ui-btn homebtn icon-alerts ui-inline"><h2>Set Alerts</h2><p><span>Set daily reminders.</span></p></a>
 		<div class="alertSettings">
-			<div class="ui-grid-a">
-				
-			    <div class="ui-block-a">
 			    	<strong>Alerts are:</strong> <span>off</span>
-			    </div>
-			    <div class="ui-block-b">
 			    	<a href="#alerts" class="ui-btn ui-btn-inline ui-corner-all ui-mini change-alerts option-button">change</a>
-			    </div>
-			</div><!-- /grid-a -->
 			</div>
 				</div>
 				<div class="ui-block-b">
@@ -61,6 +54,17 @@
 
 <!-- alerts page -->
 <div data-role="page" id="alerts" data-theme="a">
+	<div data-role="panel" id="alertset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true"><!-- debug panel -->
+	<a href="#alerts" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
+		<div class="ui-panel-inny">
+		<h3>Alerts Currently Set:</h3>
+		<p class="addeddata"></p>
+		<div id="mainContent"></div>
+		<div id="alerttime"></div>
+		<div id="alertstatus"></div>
+		</div>
+	</div><!-- /panel -->
+
 		<a href="#landing" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-alt-icon ui-btn-inline" id="btnHome1" data-transition="flow">Home</a>
 	
 	<div role="main" class="ui-content">
@@ -125,7 +129,7 @@
 		</div><!-- / ui-body -->
 		
 	</div><!-- / ui-content -->
-	<div data-role="footer" data-position="fixed">
+	<div data-role="footer" data-position="fixed"><!-- footer -->
 		<div data-role="navbar" data-iconpos="left" class="top-nav">
 	        <ul>
 	            <li><a href="#alerts" class="ui-btn-active ui-icon-alert" data-transition="slideup">Alerts</a></li>
@@ -133,26 +137,11 @@
 	            <li><a href="#account" class="ui-icon-goal" data-transition="slideup">Goal</a></li>
 	        </ul>
 	    </div><!-- /navbar -->
-		</div>
-		
-	<!-- debug panel -->
-	<div data-role="panel" id="alertset" data-display="push" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
-	<a href="#alerts" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
-		<div class="ui-panel-inny">
-		<h3>Alerts Currently Set:</h3>
-		<p class="addeddata"></p>
-		<div id="mainContent"></div>
-		<div id="alerttime"></div>
-		<div id="alertstatus"></div>
-		</div>
-	</div>
-	<!-- /panel -->
-
-</div><!-- / alerts page -->
+	</div><!-- /footer -->
+</div><!-- /alerts page -->
 
 <!-- track page -->
 <div data-role="page" id="track" data-theme="a">
-		<a href="#landing" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-alt-icon ui-btn-inline" id="btnHome2" data-transition="flow">Home</a>
 	<!-- debug panel -->
 	<div data-role="panel" id="waterset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
 	<a href="#track" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
@@ -162,7 +151,8 @@
 		<p class="waterdata"></p>
 	</div>
 	</div><!-- /panel -->
-	<div role="main" class="ui-content">
+		<a href="#landing" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-alt-icon ui-btn-inline" id="btnHome2" data-transition="flow">Home</a>
+		<div role="main" class="ui-content">
 		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
 		<div class="ui-body ui-body-a ui-center"> 
 			<div class="messages-water"></div>
