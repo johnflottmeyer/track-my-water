@@ -190,14 +190,23 @@ strong.alertlabel{
 	padding:5px;
 	background:none;
 }
-.ui-icon-goal:before{
-	/*content:'\f5eb';
+.ui-icon-goal:after{
+	content:'\f5eb';
 	font-family:'WebHostingHub-Glyphs';
 	width:auto;
 	height:auto;
 	font-style:normal;
 	padding:5px;
-	background:none;*/
+	background:none;
+}
+.ui-icon-track:after{
+	content:'\f208';
+	margin:-30px 0px 0px -10px;
+	padding:3px 5px;
+	font-family:'WebHostingHub-Glyphs';
+	width:auto;
+	height:auto;
+	font-style:normal;
 }
 .icon-goal p, .icon-track p, .icon-alerts p{
 	font-family:Yanone Kaffeesatz, Arial, Helvetica;
