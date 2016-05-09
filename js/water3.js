@@ -39,6 +39,7 @@ function phoneReady() {
 	
 	function onPermissionSuccess(result) {
 	  if(result == "authorized"){ //already authorized continue
+		  alert("OK: Authorized" + JSON.stringify(result));
 	  }else if(result == "undeterminded" || result == "denied"){
 		  window.plugins.healthkit.requestAuthorization( //lets request authorization to store water data on healthkit
 				  {
@@ -57,7 +58,7 @@ function phoneReady() {
 	window.plugins.healthkit.available(
 	  function(isAvailable) {
 		  if(isAvailable){
-			  alert("HealthKit available :)");
+			 //alert("HealthKit available :)");
 			 window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
 			  {
 			    'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
@@ -66,9 +67,8 @@ function phoneReady() {
 			  onPermissionError
 			);
 		  }else{
-			  alert("healthkit not available :(");
+			  //alert("healthkit not available :(");
 		  }
-	    //alert(isAvailable ? "HealthKit available :)" : "No HealthKit on this device :(")
 	  }
 	);
 }

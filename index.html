@@ -40,7 +40,7 @@
 		<p class="ui-body small">Always consult with a doctor before starting a change in your diet. Disclaimer information here.</p>
 	
 	<div data-role="footer" data-position="fixed"><!-- footer-nav -->
-	<div data-role="navbar" data-iconpos="left" class="top-nav">
+	<div data-role="navbar" data-iconpos="top" class="top-nav">
         <ul>
 	        <li><a href="#landing" class="ui-btn-active ui-icon-home" data-transition="slideup">Home</a></li>
             <li><a href="#alerts" class="ui-icon-alert" data-transition="slideup">Alerts</a></li>
@@ -55,30 +55,31 @@
 
 <!-- alerts page -->
 <div data-role="page" id="alerts" data-theme="a">
+	
 	<div data-role="panel" id="alertset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true"><!-- debug panel -->
 	<a href="#alerts" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
 		<div class="ui-panel-inny">
-		<h3>Alerts Currently Set:</h3>
-		<p class="addeddata"></p>
-		<div id="mainContent"></div>
-		<div id="alerttime"></div>
-		<div id="alertstatus"></div>
+			<h3>Alerts Currently Set:</h3>
+			<p class="addeddata"></p>
+			<div id="mainContent"></div>
+			<div id="alerttime"></div>
+			<div id="alertstatus"></div>
 		</div>
 	</div><!-- /panel -->
 	
-	<div role="main" class="ui-content">
+	<div role="main" class="ui-content"><!-- ui-content -->
 		<div class="icon-alerts-h2"><i></i><h2><span>Set / Edit Alerts</span></h2> <a href="#alertset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Alerts</a></div>
-		<div class="ui-body ui-body-a ui-center"> 
+		<div class="ui-body ui-body-a ui-center"> <!-- ui-body -->
 			<div class="messages-alerts"></div>
 			<p>Use the controls below to set water reminder alerts.</p>
 			<div class="errors"></div>
 			<form id="editNoteForm" method="post">
 				<div class="ui-grid-a  my-grid">
-				<div class="ui-block-a"><strong class="alertlabel">Alerts:</strong></div>
-				<div class="ui-block-b"><select name="slider2" id="slider2" data-role="slider" data-mini="true">
-				    <option value="off">Off</option>
-				    <option value="on">On</option>
-				</select></div>
+					<div class="ui-block-a"><strong class="alertlabel">Alerts:</strong></div>
+					<div class="ui-block-b"><select name="slider2" id="slider2" data-role="slider" data-mini="true">
+					    <option value="off">Off</option>
+					    <option value="on">On</option>
+					</select></div>
 				</div>
 				<div class="ui-grid-a my-grid">
 					<div class="ui-block-a">
@@ -128,8 +129,9 @@
 		</div><!-- / ui-body -->
 		
 	</div><!-- / ui-content -->
+	
 	<div data-role="footer" data-position="fixed"><!-- footer -->
-		<div data-role="navbar" data-iconpos="left" class="top-nav">
+		<div data-role="navbar" data-iconpos="top" class="top-nav"><!--navbar-->
 	        <ul>
 		        <li><a href="#landing" class="ui-icon-home" data-transition="slideup">Home</a></li>
 	            <li><a href="#alerts" class="ui-btn-active ui-icon-alert" data-transition="slideup">Alerts</a></li>
@@ -138,6 +140,7 @@
 	        </ul>
 	    </div><!-- /navbar -->
 	</div><!-- /footer -->
+	
 </div><!-- /alerts page -->
 
 <!-- track page -->
@@ -151,7 +154,6 @@
 		<p class="waterdata"></p>
 	</div>
 	</div><!-- /panel -->
-		<a href="#landing" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-alt-icon ui-btn-inline" id="btnHome2" data-transition="flow">Home</a>
 		<div role="main" class="ui-content">
 		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
 		<div class="ui-body ui-body-a ui-center"> 
@@ -197,7 +199,7 @@
 		</div><!-- / ui-body -->
 		
 		<div data-role="footer" data-position="fixed">
-		<div data-role="navbar" data-iconpos="bottom" class="top-nav">
+		<div data-role="navbar" data-iconpos="top" class="top-nav">
 	        <ul>
 		        <li><a href="#landing" class="ui-icon-home" data-transition="slideup">Home</a></li>
 	        	<li><a href="#alerts" class="ui-icon-alert" data-transition="slideup">Alerts</a></li>
@@ -232,7 +234,7 @@
 			</div><!-- / ui-body -->
 			
 			<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" data-iconpos="bottom" class="top-nav">
+			<div data-role="navbar" data-iconpos="top" class="top-nav">
 		        <ul>
 		        	<li><a href="#landing" class="ui-icon-home" data-transition="slideup">Home</a></li>
 		        	<li><a href="#alerts" class="ui-icon-alert" data-transition="slideup">Alerts</a></li>
