@@ -349,6 +349,7 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	display:table-cell;
 	background: rgba(0,0,0,0.6) !important;
 	background:#444 !important;
+	background:#f8981d !important;
 	margin:0px !important;
 	right:0px;
 	padding:10px 5px;
@@ -386,6 +387,7 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	content:'\f304';
 	content:'\f473';
 	background:#444;
+	background:#f8981d;
 	border-top-left-radius: 50%;
 	border-bottom-left-radius: 50%;
 	font-family:'WebHostingHub-Glyphs';
@@ -400,7 +402,7 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	z-index:300;
 	text-shadow:none;
 	position:absolute;
-	border:1px solid #444 !important;
+	/*border:1px solid #444 !important;*/
 	left:-25px;
 	top:7px;
 }
