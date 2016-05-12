@@ -37,7 +37,7 @@ function phoneReady() {
 	  alert("Error: " + JSON.stringify(result));
 	};
 	
-	function onPermissionSuccess(result) {
+	function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
 		  alert("OK: Authorized" + JSON.stringify(result));
 	  }else if(result == "undeterminded" || result == "denied"){
@@ -71,6 +71,7 @@ function phoneReady() {
 		  }
 	  }
 	);
+	checkhealthkit();//temporary - check to see if we have access to healthkit
 }
 function phoneResume(){ //clear the badges
 	window.plugin.notification.badge.clear(); 
@@ -390,6 +391,27 @@ function deleteAlert(id, cb){
 			window.plugin.notification.local.cancel(id); //remove from notifications too
 		}, dbErrorHandler,cb);
 	}
+}
+/*CHECK HEALTHKIT FOR DATA*/
+function onReadHealthSuccess(result) {
+  alert("OK: " + JSON.stringify(result));
+};
+
+function onReadHealthError(result) {
+  alert("Error: " + JSON.stringify(result));
+};
+
+function checkhealthkit(){
+	window.plugins.healthkit.querySampleType(
+	  {
+	    'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
+	    'endDate'   : new Date(), // now
+	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
+	    'unit'      : 'ounceUnit' // make sure this is compatible with the sampleType
+	  },
+	  onReadHealthSuccess,
+	  onReadHealthError
+	);
 }
 
 var app = {
