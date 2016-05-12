@@ -71,7 +71,24 @@ function phoneReady() {
 		  }
 	  }
 	);
-	checkhealthkit();//temporary - check to see if we have access to healthkit
+	function onReadHealthSuccess(result) {
+	  alert("OK: " + JSON.stringify(result));
+	};
+	
+	function onReadHealthError(result) {
+	  alert("Error: " + JSON.stringify(result));
+	};
+
+	window.plugins.healthkit.querySampleType(
+	  {
+	    'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
+	    'endDate'   : new Date(), // now
+	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
+	    'unit'      : 'ounceUnit' // make sure this is compatible with the sampleType
+	  },
+	  onReadHealthSuccess,
+	  onReadHealthError
+	);
 }
 function phoneResume(){ //clear the badges
 	window.plugin.notification.badge.clear(); 
