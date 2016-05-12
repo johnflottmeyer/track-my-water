@@ -427,7 +427,7 @@ function checkhealthkit(){
 	    'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
 	    'endDate'   : new Date(), // now
 	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
-	    'unit'      : 'ounceUnit' // make sure this is compatible with the sampleType
+	    'unit'      : 'mL' // make sure this is compatible with the sampleType literUnit
 	  },
 	  onReadHealthSuccess,
 	  onReadHealthError
