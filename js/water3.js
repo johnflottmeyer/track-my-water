@@ -9,40 +9,52 @@ var start; //variable for the start time
 var startmin; //variable for splitting the time
 var range; //variable returned from db
 var saveCalled = "false"; //This is a flag for determining when to set the alerts
+var healthKit = "false"; //This is a flag for IOS to check to see if healthkit exists
 
 
 /***************** DEVICE READY PHONEGAP *****************/
 //check for the device to be ready
 function phoneReady() {
     dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000); //First, open our db
-    dbShell.transaction(setupTable,dbErrorHandler,getSettings); //Set it up if not set up - callback success is getSettings
+    dbShell.transaction(setupTable,dbErrorHandler,getSettings); //Set it up if not set up / callback success is getSettings
+    /*IOS 8 and up needs permission for all this stuff*/
+    
     //###Plugins - BADGE
+    cordova.plugins.notification.badge.hasPermission(function (granted) {
+    // console.log('Permission has been granted: ' + granted);
+    alert("badges are permitted");
+	});
     window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
     //###Plugins - NOTIFICATIONS
-    window.plugin.notification.local.hasPermission(function (granted) {
+    checkNotificationPermissions();
+	//###Plugins - HEALTHKIT
+	window.plugins.healthkit.available(/*LETS CHECK TO SEE IF IT'S IOS TO SEE IF WE CAN SHARE HEALTH DATA*/
+	   function(isAvailable) {
+		   if(isAvailable){
+			  checkHealtkitPermissions(); //ok we have healthkit lets ask to use / store data
+			  healthKit = "true"; //we can ask for permission to use HEALTHKIT DATA
+		   }
+	   }
+	);
+}
+
+function phoneResume(){ //clear the badges
+	window.plugin.notification.badge.clear(); 
+}
+function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTED IF NOT PROMPT FOR PERMISSION
+	window.plugin.notification.local.hasPermission(function (granted) {
 	 	if(granted == true){//permission is granted
 		}else{
 		 	window.plugin.notification.local.promptForPermission();
-		 	//request authorization to allow the app to send local notifications
 	 	}
 	});
-	
-	 
-	//###Plugins - HEALTHKIT
-	function onSuccess(result) { //these are test functions
-	  alert("OK: Authorized" + JSON.stringify(result));
-	  checkhealthkit();
-	};
-	
-	function onError(result) {
-	  alert("Error: " + JSON.stringify(result));
-	};
-	
-	function onPermissionSuccess(result) { 
+}
+
+function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
 		  alert("OK: Authorized" + JSON.stringify(result));
 	  }else{
-		  window.plugins.healthkit.requestAuthorization( //lets request authorization to store water data on healthkit
+		  window.plugins.healthkit.requestAuthorization( //lets request authorization to read / store water data on healthkit
 			  {
 			    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
 			    'writeTypes' : ['HKQuantityTypeIdentifierDietaryWater']
@@ -50,53 +62,21 @@ function phoneReady() {
 			  onSuccess,
 			  onError
 		  );
-		  alert("Request Auth: " + result);
-	  }
-	  	  
-	};
-	
-	function onPermissionError(result) {//not able to test if we have permission
-	  alert("Error: " + JSON.stringify(result));
-	};
-	window.plugins.healthkit.available(
-	  function(isAvailable) {
-		  if(isAvailable){
-			 //alert("HealthKit available :)");
-			 window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
-			  {
-			    'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
-			  },
-			  onPermissionSuccess, // will be one of 'undetermined', 'denied', or 'authorized'
-			  onPermissionError
-			);
-		  }else{
-			  //alert("healthkit not available :(");
-		  }
-	  }
-	);
-	/*function onReadHealthSuccess(result) {
-	  alert("OK: " + JSON.stringify(result));
-	};
-	
-	function onReadHealthError(result) {
-	  alert("Error: " + JSON.stringify(result));
-	};
+	  }	  
+};
+function onPermissionError(result) {//not able to test if we have permission
+  alert("Error: " + JSON.stringify(result));
+};
 
-	window.plugins.healthkit.querySampleType(
-	  {
-	    'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
-	    'endDate'   : new Date(), // now
-	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
-	    'unit'      : 'ounceUnit' // make sure this is compatible with the sampleType
-	  },
-	  onReadHealthSuccess,
-	  onReadHealthError
-	);*/
+function checkHealtkitPermissions(){
+	window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
+	{
+    	'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
+  	},
+  		onPermissionSuccess, // will be one of 'undetermined', 'denied', or 'authorized'
+  		onPermissionError
+  	);
 }
-function phoneResume(){ //clear the badges
-	window.plugin.notification.badge.clear(); 
-}
-
 
 /***************** DATABASE FUNCTIONS *****************/
 function dbErrorHandler(err){ /* ERROR HANDLER */
