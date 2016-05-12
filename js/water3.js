@@ -31,6 +31,7 @@ function phoneReady() {
 	//###Plugins - HEALTHKIT
 	function onSuccess(result) { //these are test functions
 	  alert("OK: Authorized" + JSON.stringify(result));
+	  checkhealthkit();
 	};
 	
 	function onError(result) {
