@@ -50,6 +50,7 @@ function phoneReady() {
 				  onError
 			  );
 	  	  }
+	  	  alert("Requestion Auth");
 	  };
 	
 	function onPermissionError(result) {//not able to test if we have permission
@@ -71,7 +72,7 @@ function phoneReady() {
 		  }
 	  }
 	);
-	function onReadHealthSuccess(result) {
+	/*function onReadHealthSuccess(result) {
 	  alert("OK: " + JSON.stringify(result));
 	};
 	
@@ -88,7 +89,7 @@ function phoneReady() {
 	  },
 	  onReadHealthSuccess,
 	  onReadHealthError
-	);
+	);*/
 }
 function phoneResume(){ //clear the badges
 	window.plugin.notification.badge.clear(); 
