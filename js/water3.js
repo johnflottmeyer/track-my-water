@@ -40,18 +40,19 @@ function phoneReady() {
 	function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
 		  alert("OK: Authorized" + JSON.stringify(result));
-	  }else if(result == "undeterminded" || result == "denied"){
+	  }else{
 		  window.plugins.healthkit.requestAuthorization( //lets request authorization to store water data on healthkit
-				  {
-				    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
-				    'writeTypes' : ['HKQuantityTypeIdentifierDietaryWater']
-				  },
-				  onSuccess,
-				  onError
-			  );
-	  	  }
-	  	  alert("Request Auth: " + result);
-	  };
+			  {
+			    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
+			    'writeTypes' : ['HKQuantityTypeIdentifierDietaryWater']
+			  },
+			  onSuccess,
+			  onError
+		  );
+		  alert("Request Auth: " + result);
+	  }
+	  	  
+	};
 	
 	function onPermissionError(result) {//not able to test if we have permission
 	  alert("Error: " + JSON.stringify(result));
