@@ -50,7 +50,7 @@ function phoneReady() {
 				  onError
 			  );
 	  	  }
-	  	  alert("Requestion Auth");
+	  	  alert("Request Auth: " + result);
 	  };
 	
 	function onPermissionError(result) {//not able to test if we have permission
