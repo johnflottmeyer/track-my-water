@@ -628,7 +628,10 @@ $(document).ready(function() {
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
-							addwater(amount,date + ":" + time); //push to healthkit
+							gettime = time.split(":");
+							alert(gettime[0] + "," + gettime[1]);
+							
+							//addwater(amount,new Date().setHours(time); //push to healthkit
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
 							$(".cancel").hide(); //hide the cancel button if it's showing
 							$('.id-tag').val("");//clear the id field
