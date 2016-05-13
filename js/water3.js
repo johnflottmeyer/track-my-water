@@ -608,7 +608,7 @@ $(document).ready(function() {
 		   checkAlerts() //refresh what is saved to get the latest. 
 	    });
     });
-    $.mobile.document.on( "click", ".deletewater", function( evt ) {
+    $.mobile.document.on( "click", ".optiondeletewater", function( evt ) {
 		//alert("delete" + this.id);
 		addwater(0,new Date().setHours(12));
     });
