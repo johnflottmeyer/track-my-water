@@ -608,6 +608,10 @@ $(document).ready(function() {
 		   checkAlerts() //refresh what is saved to get the latest. 
 	    });
     });
+    $.mobile.document.on( "click", ".deletewater", function( evt ) {
+		//alert("delete" + this.id);
+		addwater(0,new Date().setHours(12));
+    });
     /*SAVE WATER TRACKED*/
     /*need to validate that it can be saved before saving
     ie check that the same date and time don't already exist*/
@@ -629,9 +633,10 @@ $(document).ready(function() {
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
-							gettime = $(".date-input").val().split(":");
-					
-							addwater(amount,new Date().setHours(gettime[0],gettime[1])); //push to healthkit
+							if(healthKitPermission && healthKit){
+								gettime = $(".date-input").val().split(":");
+								addwater(amount,new Date().setHours(12)); //push to healthkit
+							}
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
 							$(".cancel").hide(); //hide the cancel button if it's showing
 							$('.id-tag').val("");//clear the id field
