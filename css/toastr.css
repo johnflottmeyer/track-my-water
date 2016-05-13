@@ -100,14 +100,14 @@ button.toast-close-button {
   margin: 0px;
   /*padding: 15px 15px 15px 50px;
   width: 300px;*/
-  padding:5px 3px 5px 30px;
+  padding:10px 3px 10px 30px;
   display:block;
-  width:160px;
+  width:100%;
   font-size:12px;
   font-weight:normal;
-  -moz-border-radius: 5px;
+  /*-moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px;*/
   background-position: 5px center;
   background-repeat: no-repeat;
   color: #ffffff;
