@@ -50,7 +50,8 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 	});
 }
 function onSuccess(result) {
-  alert("OK: " + JSON.stringify(result));
+  alert("OK you are authorized: " + JSON.stringify(result));
+  checkhealthkit();
 };
 
 function onError(result) {
@@ -60,7 +61,6 @@ function onPermissionSuccess(result) {
 	  if(result == "authorized"){ //already authorized continue
 		  alert("OK: Authorized" + JSON.stringify(result));
 	  }else{
-		  alert("no way Jose");
 		  window.plugins.healthkit.requestAuthorization( //lets request authorization to read / store water data on healthkit
 			  {
 			    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
