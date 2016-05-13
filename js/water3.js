@@ -42,16 +42,20 @@ function phoneResume(){ //clear the badges
 	window.plugin.notification.badge.clear(); 
 }
 function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTED IF NOT PROMPT FOR PERMISSION
-	alert("fire away");
 	window.plugin.notification.local.hasPermission(function (granted) {
 	 	if(granted == true){//permission is granted
-		 	alert("permission granted");
 		}else{
 		 	window.plugin.notification.local.promptForPermission();
 	 	}
 	});
 }
+function onSuccess(result) {
+  alert("OK: " + JSON.stringify(result));
+};
 
+function onError(result) {
+  alert("Error: " + JSON.stringify(result));
+};
 function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
 		  alert("OK: Authorized" + JSON.stringify(result));
