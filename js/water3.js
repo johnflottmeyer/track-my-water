@@ -414,7 +414,7 @@ function checkhealthkit(){
 	  {
 	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
 	    'startDate' : new Date(new Date().setHours(0,0,0,0)),
-	    'endDate'   : new Date(), // now
+	    'endDate'   : new Date().getTime(), // now
 	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
 	    'unit'      : 'mL' // make sure this is compatible with the sampleType literUnit
 	  },
