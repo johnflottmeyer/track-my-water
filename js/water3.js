@@ -51,7 +51,7 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 }
 function onSuccess(result) {
   //alert("OK you are authorized: " + JSON.stringify(result));
-  checkhealthkit(); //test to gather data
+   //test to gather data
 };
 
 function onError(result) {
@@ -409,7 +409,7 @@ function onReadHealthError(result) {
   alert("Error: " + JSON.stringify(result));
 };
 
-function checkhealthkit(){
+function gethealthkitdata(){
 	window.plugins.healthkit.querySampleType(
 	  {
 	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
@@ -685,6 +685,14 @@ $(document).ready(function() {
 		
 		evt.preventDefault();
 	});
+	$.mobile.document.on( "click", ".option-checkwater", function( evt ) {
+		gethealthkitdata();
+	});
+	$.mobile.document.on( "click", ".option-addwater", function( evt ) {
+		addwater();
+	});
+	
+	
 	
     /*ON PAGE LOAD SHOW THE FOLLOWING*/
     $(document).on("pagecontainerbeforeshow", function( event, ui ) {
