@@ -45,6 +45,7 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 	alert("fire away");
 	window.plugin.notification.local.hasPermission(function (granted) {
 	 	if(granted == true){//permission is granted
+		 	alert("permission granted");
 		}else{
 		 	window.plugin.notification.local.promptForPermission();
 	 	}
