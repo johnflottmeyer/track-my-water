@@ -19,6 +19,7 @@ html, body, .ui-page {
     border: none !important;
     height: 100%;
     background:none !important;
+    background:rgba(255, 255, 255, 0.78);
 }
 body{
 	font-family:Yanone Kaffeesatz, Arial, Helvetica;
