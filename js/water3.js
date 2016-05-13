@@ -59,7 +59,7 @@ function onError(result) {
 };
 function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
-		  alert("OK: Authorized" + JSON.stringify(result));
+		  //alert("OK: Authorized" + JSON.stringify(result));
 	  }else{
 		  window.plugins.healthkit.requestAuthorization( //lets request authorization to read / store water data on healthkit
 			  {
@@ -410,6 +410,7 @@ function onReadHealthError(result) {
 };
 
 function gethealthkitdata(){
+	alert(new Date(new Date().setHours(0,0,0,0)) + " - - " + new Date(Date.now()));
 	window.plugins.healthkit.querySampleType(
 	  {
 	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
