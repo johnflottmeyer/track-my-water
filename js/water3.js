@@ -22,7 +22,7 @@ function phoneReady() {
     //###Plugins - BADGE
     cordova.plugins.notification.badge.hasPermission(function (granted) {
     // console.log('Permission has been granted: ' + granted);
-    alert("badges are permitted");
+    // alert("badges are permitted");
 	});
     window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
     //###Plugins - NOTIFICATIONS
@@ -50,8 +50,8 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 	});
 }
 function onSuccess(result) {
-  alert("OK you are authorized: " + JSON.stringify(result));
-  checkhealthkit();
+  //alert("OK you are authorized: " + JSON.stringify(result));
+  checkhealthkit(); //test to gather data
 };
 
 function onError(result) {
@@ -76,7 +76,7 @@ function onPermissionError(result) {//not able to test if we have permission
 };
 
 function checkHealtkitPermissions(){
-	alert("check permission");
+	//alert("check permission");
 	window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
 	{
     	'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
@@ -412,7 +412,8 @@ function onReadHealthError(result) {
 function checkhealthkit(){
 	window.plugins.healthkit.querySampleType(
 	  {
-	    'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
+	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
+	    'startDate' : new Date(new Date().setHours(0,0,0,0),
 	    'endDate'   : new Date(), // now
 	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
 	    'unit'      : 'mL' // make sure this is compatible with the sampleType literUnit
