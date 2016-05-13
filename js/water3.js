@@ -431,18 +431,20 @@ function onAddDataSuccess(result) {
 function onAddDataError(result) {
   alert("Error: " + JSON.stringify(result));
 };
-function addwater(){ // save the water data to the healthkit as well
-	window.plugins.healthkit.saveQuantitySample(
-	  {
-	    'startDate': new Date(Date.now()), // a day ago
-	    'endDate': new Date(), // now
-	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater', // make sure you request write access beforehand
-	    'unit': 'mL',
-	    'amount': 300
-	  },
-	  onAddDataSuccess,
-	  onAddDataError
-	);
+function addwater(amount,date){ // save the water data to the healthkit as well
+	if(amount){ //amount in mL
+		window.plugins.healthkit.saveQuantitySample(
+		  {
+		    'startDate': new Date(Date.now()), // a day ago
+		    'endDate': new Date(), // now
+		    'sampleType': 'HKQuantityTypeIdentifierDietaryWater', // make sure you request write access beforehand
+		    'unit': 'mL',
+		    'amount': amount
+		  },
+		  onAddDataSuccess,
+		  onAddDataError
+		);
+	}
 }
 
 var app = {
@@ -626,6 +628,7 @@ $(document).ready(function() {
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
+							addwater(amount,date + ":" + time); //push to healthkit
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
 							$(".cancel").hide(); //hide the cancel button if it's showing
 							$('.id-tag').val("");//clear the id field
