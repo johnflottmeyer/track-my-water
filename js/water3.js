@@ -10,6 +10,7 @@ var startmin; //variable for splitting the time
 var range; //variable returned from db
 var saveCalled = "false"; //This is a flag for determining when to set the alerts
 var healthKit = "false"; //This is a flag for IOS to check to see if healthkit exists
+var healthKitPermission = "false";
 
 
 /***************** DEVICE READY PHONEGAP *****************/
@@ -59,9 +60,9 @@ function onError(result) {
 };
 function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
-		  //alert("OK: Authorized" + JSON.stringify(result));
+		  healthKitPermission = true;
 	  }else{
-		  window.plugins.healthkit.requestAuthorization( //lets request authorization to read / store water data on healthkit
+		  window.plugins.healthkit.requestAuthorization( //lets request to read / store water data on healthkit
 			  {
 			    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
 			    'writeTypes' : ['HKQuantityTypeIdentifierDietaryWater']
