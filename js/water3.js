@@ -42,9 +42,9 @@ function phoneResume(){ //clear the badges
 	window.plugin.notification.badge.clear(); 
 }
 function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTED IF NOT PROMPT FOR PERMISSION
+	alert("fire away");
 	window.plugin.notification.local.hasPermission(function (granted) {
 	 	if(granted == true){//permission is granted
-		 	alert("you have my permission");
 		}else{
 		 	window.plugin.notification.local.promptForPermission();
 	 	}
@@ -55,6 +55,7 @@ function onPermissionSuccess(result) {
 	  if(result == "authorized"){ //already authorized continue
 		  alert("OK: Authorized" + JSON.stringify(result));
 	  }else{
+		  alert("no way Jose");
 		  window.plugins.healthkit.requestAuthorization( //lets request authorization to read / store water data on healthkit
 			  {
 			    'readTypes' : ['HKQuantityTypeIdentifierDietaryWater'],
@@ -70,6 +71,7 @@ function onPermissionError(result) {//not able to test if we have permission
 };
 
 function checkHealtkitPermissions(){
+	alert("check permission");
 	window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
 	{
     	'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
