@@ -628,7 +628,7 @@ $(document).ready(function() {
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
-							gettime = time.split(":");
+							gettime = $(".date-input").val().split(":");
 							alert(gettime[0] + "," + gettime[1]);
 							
 							//addwater(amount,new Date().setHours(time); //push to healthkit
