@@ -44,6 +44,7 @@ function phoneResume(){ //clear the badges
 function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTED IF NOT PROMPT FOR PERMISSION
 	window.plugin.notification.local.hasPermission(function (granted) {
 	 	if(granted == true){//permission is granted
+		 	alert("you have my permission");
 		}else{
 		 	window.plugin.notification.local.promptForPermission();
 	 	}
