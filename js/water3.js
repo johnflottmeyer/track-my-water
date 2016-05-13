@@ -422,6 +422,27 @@ function checkhealthkit(){
 	  onReadHealthError
 	);
 }
+/*SAVE DATA TO HEALTHKIT*/
+function onAddDataSuccess(result) {
+  alert("OK: " + JSON.stringify(result));
+};
+
+function onAddDataError(result) {
+  alert("Error: " + JSON.stringify(result));
+};
+function addwater(){ // save the water data to the healthkit as well
+	window.plugins.healthkit.saveQuantitySample(
+	  {
+	    'startDate': new Date(new Date().getTime() - 24 * 60 * 60 * 1000), // a day ago
+	    'endDate': new Date(), // now
+	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater', // make sure you request write access beforehand
+	    'unit': 'mL',
+	    'amount': 300
+	  },
+	  onAddDataSuccess,
+	  onAddDataError
+	);
+}
 
 var app = {
     // Application Constructor
