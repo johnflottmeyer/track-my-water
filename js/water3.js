@@ -629,9 +629,8 @@ $(document).ready(function() {
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
 							gettime = $(".date-input").val().split(":");
-							setittime = gettime[0] + "," + gettime[1];
 							
-							addwater(amount,new Date().setHours(setittime); //push to healthkit
+							addwater(amount,new Date().setHours(gettime[0],gettime[1]); //push to healthkit
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
 							$(".cancel").hide(); //hide the cancel button if it's showing
 							$('.id-tag').val("");//clear the id field
