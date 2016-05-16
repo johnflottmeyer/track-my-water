@@ -16,6 +16,7 @@
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
 		<div class="logo"><img src="images/gibson_logo.png" alt="Gibsons Water Care"/></div>
+		<div class="messages-alerts"></div>
 			<div class="ui-body ui-body-a ui-center"> 
 				<p><strong>Keep Hydrated!</strong> Did you know that a person needs to drink about 8 cups of water a day?</p>
 			</div><!-- / ui-body -->
@@ -62,7 +63,9 @@
 <!-- alerts page -->
 <div data-role="page" id="alerts" data-theme="a">
 	
-	<div data-role="panel" id="alertset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true"><!-- debug panel -->
+	<div data-role="panel" id="alertset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
+		<div class="messages-alerts"></div>
+		<!-- debug panel -->
 	<a href="#alerts" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
 		<div class="ui-panel-inny">
 			<h3>Alerts Currently Set:</h3>
@@ -76,7 +79,7 @@
 	<div role="main" class="ui-content"><!-- ui-content -->
 		<div class="icon-alerts-h2"><i></i><h2><span>Set / Edit Alerts</span></h2> <a href="#alertset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Alerts</a></div>
 		<div class="ui-body ui-body-a ui-center"> <!-- ui-body -->
-			<div class="messages-alerts"></div>
+			
 			<p>Use the controls below to set water reminder alerts.</p>
 			<div class="errors"></div>
 			<form id="editNoteForm" method="post">
@@ -163,8 +166,9 @@
 	</div><!-- /panel -->
 		<div role="main" class="ui-content">
 		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
+		<div class="messages-water"></div>
 		<div class="ui-body ui-body-a ui-center"> 
-			<div class="messages-water"></div>
+			
 			<p>Keep Hydrated! Did you know that a person needs to drink about 8 cups of water a day?</p>
 			<h3>Add New</h3>
 			<form method="post" id="editWater">
@@ -223,9 +227,9 @@
 <div data-role="page" id="account" data-theme="a">
 
 	<div role="main" class="ui-content">
-		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div>
+		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div><div class="messages"></div>
 			<div class="ui-body ui-body-a ui-center">
-				<div class="messages"></div>
+				
 				<h3>Your Status</h3>
 				<p id="mygoalstatus"></p>
 				<p class="mygoaldata"></p>  
