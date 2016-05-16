@@ -498,6 +498,7 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	background:url("../images/cup-bkg.png") no-repeat;
 	width:100% !important;
 	text-align:center;	
+	padding:20px;
 }
 .option-button{
 	background:#f8981d !important;
