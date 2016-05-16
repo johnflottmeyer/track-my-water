@@ -1,47 +1,23 @@
-/*DATABASE*/
-//THIS BIT WILL BE FOR THE LIVE VERSION THAT IS ON THE DEVICE.
-/*Database controls based on the Simple saved usage
-*/
+/************************************************************
+~~~~~~~~~ WATER APP 2.0 ~~~~~~~~~ 
+Written by Voila! Media Group for Gibsons Water Care, All Rights Reserved. 	
+************************************************************/
+//GLOBAL VARIABLES
+/*Database */
 var dbShell; //database name variable
 var settings; //whether the db is loaded ie on or off
+/*App default settings*/
 var frequency; //how often the alert should go
 var start; //variable for the start time
 var startmin; //variable for splitting the time
 var range; //variable returned from db
+/*Plugin Permissions*/
 var saveCalled = "false"; //This is a flag for determining when to set the alerts
 var healthKit = "false"; //This is a flag for IOS to check to see if healthkit exists
 var healthKitPermission = "false";
 
-
-/***************** DEVICE READY PHONEGAP *****************/
-//check for the device to be ready
-function phoneReady() {
-    dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000); //First, open our db
-    dbShell.transaction(setupTable,dbErrorHandler,getSettings); //Set it up if not set up / callback success is getSettings
-    /*IOS 8 and up needs permission for all this stuff*/
-    
-    //###Plugins - BADGE
-    cordova.plugins.notification.badge.hasPermission(function (granted) {
-    // console.log('Permission has been granted: ' + granted);
-    // alert("badges are permitted");
-	});
-    window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
-    //###Plugins - NOTIFICATIONS
-    checkNotificationPermissions();
-	//###Plugins - HEALTHKIT
-	window.plugins.healthkit.available(/*LETS CHECK TO SEE IF IT'S IOS TO SEE IF WE CAN SHARE HEALTH DATA*/
-	   function(isAvailable) {
-		   if(isAvailable){
-			  checkHealtkitPermissions(); //ok we have healthkit lets ask to use / store data
-			  healthKit = "true"; //we can ask for permission to use HEALTHKIT DATA
-		   }
-	   }
-	);
-}
-
-function phoneResume(){ //clear the badges
-	window.plugin.notification.badge.clear(); 
-}
+/******************** Plugin Permissions *********************/
+/*** LOCAL NOTIFICATIONS ***/
 function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTED IF NOT PROMPT FOR PERMISSION
 	window.plugin.notification.local.hasPermission(function (granted) {
 	 	if(granted == true){//permission is granted
@@ -50,13 +26,14 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 	 	}
 	});
 }
-function onSuccess(result) {
-  //alert("OK you are authorized: " + JSON.stringify(result));
-   //test to gather data
-};
+/*** HEALTHKIT ***/
+function onSuccess(result) { //can be removed when live
+	toastr.success('Healthkit Now Authorized: ' + JSON.stringify(result), null, {target: $('.messages-alerts'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
 
-function onError(result) {
-  alert("Error: " + JSON.stringify(result));
+};
+function onError(result) { //can be removed when live
+	toastr.error('Healthkit Permission Not Authorized: ' + JSON.stringify(result), null, {target: $('.messages-alerts'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+	//alert("Error: " + JSON.stringify(result)); 
 };
 function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
@@ -73,7 +50,8 @@ function onPermissionSuccess(result) {
 	  }	  
 };
 function onPermissionError(result) {//not able to test if we have permission
-  alert("Error: " + JSON.stringify(result));
+  //alert("Error: " + JSON.stringify(result));
+  toastr.error('Healthkit Error: ' + JSON.stringify(result), null, {target: $('.messages-alerts'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
 };
 
 function checkHealtkitPermissions(){
@@ -85,6 +63,36 @@ function checkHealtkitPermissions(){
   		onPermissionSuccess, // will be one of 'undetermined', 'denied', or 'authorized'
   		onPermissionError
   	);
+}
+
+/***************** DEVICE READY PHONEGAP *****************/
+//check for the device to be ready
+function phoneReady() {
+    dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000); //First, open our db
+ //Set it up if not set up / callback success is getSettings
+	dbShell.transaction(setupTable,dbErrorHandler,getSettings);     
+	/*** IOS 8 and up get permission to do badges, notifications, access healthkit ***/    
+    //###Plugins - BADGE
+    cordova.plugins.notification.badge.hasPermission(function (granted) { 
+	    //might not need to check since we are getting permission for the Notifications
+		// alert("badges are permitted");
+	});
+    window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
+    //###Plugins - NOTIFICATIONS PERMISSION
+    checkNotificationPermissions();
+	//###Plugins - HEALTHKIT AVAILABLE?
+	window.plugins.healthkit.available(
+	   function(isAvailable) {
+		   if(isAvailable){ //ok we have healthkit lets ask to use / store data
+			  healthKit = "true"; //we can ask for permission to use HEALTHKIT DATA
+			  checkHealtkitPermissions(); 
+		   }
+	   }
+	);
+}
+/*When we come back to the phone*/
+function phoneResume(){ //clear the badges
+	window.plugin.notification.badge.clear(); 
 }
 
 /***************** DATABASE FUNCTIONS *****************/
@@ -157,6 +165,7 @@ function renderSettings(tx,results){
        $(".alertSettings span").html(settings);
     }
 }
+
 /*RENDER THE ALERTS TO THE SCREEN*/
 function renderAlerts(tx,results){
 	$("#homedebug .loading .alerts").html("<p>alert db row length: " + results.rows.length + "</p>");
