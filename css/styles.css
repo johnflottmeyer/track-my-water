@@ -494,11 +494,15 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	display:block !important;
 	background:none;
 }*/
+#edit-water{
+	padding:20px;
+	background:url("../images/cup-bkg.png") no-repeat 0 0;
+	background-size:contain;
+}
 #select-water-amount{
-	background:url("../images/cup-bkg.png") no-repeat;
 	width:90% !important;
 	text-align:center;	
-	padding:20px;
+	
 }
 .option-button{
 	background:#f8981d !important;
