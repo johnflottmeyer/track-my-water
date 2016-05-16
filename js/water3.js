@@ -661,6 +661,7 @@ $(document).ready(function() {
 								date = d.setHours(12, 0, 0);
 								alert(date);
 								amount = $("#select-water-amount :radio:checked").val();
+								alert(amount);
 								addwater(amount,date); //push to healthkit
 							}
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"});
