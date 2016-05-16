@@ -471,7 +471,7 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 }
 
 /*TRACK WATER PAGE*/
-
+/*
 .oz4{
 	background:url("../images/4oz.png") no-repeat center top;
 }
@@ -493,10 +493,10 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	padding-right:12px;
 	display:block !important;
 	background:none;
-}
+}*/
 #select-water-amount{
 	background:url("../images/cup-bkg.png") no-repeat;
-	width:100% !important;
+	width:90% !important;
 	text-align:center;	
 	padding:20px;
 }
