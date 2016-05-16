@@ -118,6 +118,8 @@ function addwater(amount,startdate,enddate){ // save the water data to the healt
 		  onAddDataSuccess,
 		  onAddDataError
 		);
+	}else{
+		alert("no amount set");
 	}
 }
 
