@@ -104,12 +104,12 @@ function addwater(amount,date){ // save the water data to the healthkit as well
 		if(date == ""){
 			date = new Date(Date.now());
 		}
-		enddate = newDate().setHours(24, 0, 0);
-		alert(date + ":" + enddate + ":" + amount);
+		//enddate = newDate().setHours(24, 0, 0);
+		//alert(date + ":" + enddate + ":" + amount);
 		window.plugins.healthkit.saveQuantitySample(
 		  {
 		    'startDate': date, // a day ago
-		    'endDate': enddate,//new Date(), // now
+		    'endDate': new Date(),//, //enddate now
 		    'sampleType': 'HKQuantityTypeIdentifierDietaryWater', // make sure you request write access beforehand
 		    'unit': 'mL',
 		    'amount': amount
@@ -729,7 +729,7 @@ $(document).ready(function() {
 		gethealthkitdata();
 	});
 	$.mobile.document.on( "click", ".option-addwater", function( evt ) {
-		addwater();
+		addwater(4,new Date(now));
 	});
 	
 	
