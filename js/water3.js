@@ -91,13 +91,13 @@ function gethealthkitdata(){
 
 /*SAVE DATA TO HEALTHKIT*/
 function onAddDataSuccess(result) {
-  //alert("OK: " + JSON.stringify(result));
-  toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
+  alert("OK: " + JSON.stringify(result));
+  //toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 
 function onAddDataError(result) {
-  //alert("Error: " + JSON.stringify(result));
-  toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
+  alert("Error: " + JSON.stringify(result));
+  //toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 function addwater(amount,date){ // save the water data to the healthkit as well
 	if(amount){ //amount in mL
