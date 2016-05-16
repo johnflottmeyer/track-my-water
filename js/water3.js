@@ -631,7 +631,7 @@ $(document).ready(function() {
     $.mobile.document.on( "click", ".optiondeletewater", function( evt ) {
 		//alert("delete" + this.id);
 		d = new Date();
-		date = d.setHours(12, 0, 0);
+		date = d.setHours(0, 0, 0);
 		alert(date);
 		addwater(0,date);
     });
@@ -659,7 +659,7 @@ $(document).ready(function() {
 							if(healthKitPermission && healthKit){
 								//gettime = $(".date-input").val().split(":");
 								d = new Date();
-								date = d.setHours(12, 0, 0);
+								date = d.setHours(0, 0, 0);
 								alert(date);
 								amount = $("#select-water-amount :radio:checked").val();
 								alert(amount);
