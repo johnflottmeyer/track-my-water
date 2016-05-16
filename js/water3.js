@@ -729,7 +729,7 @@ $(document).ready(function() {
 		gethealthkitdata();
 	});
 	$.mobile.document.on( "click", ".option-addwater", function( evt ) {
-		addwater(4,new Date(now));
+		addwater();
 	});
 	
 	
