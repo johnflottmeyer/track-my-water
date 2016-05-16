@@ -625,7 +625,7 @@ $(document).ready(function() {
     $.mobile.document.on( "click", ".optiondeletewater", function( evt ) {
 		//alert("delete" + this.id);
 		d = new Date();
-		date = d.setHours(12,0,0,0);
+		date = d.setHours(12, 0, 0);
 		addwater(0,date);
     });
     /*SAVE WATER TRACKED*/
@@ -652,7 +652,7 @@ $(document).ready(function() {
 							if(healthKitPermission && healthKit){
 								//gettime = $(".date-input").val().split(":");
 								d = new Date();
-								date = d.setHours(12,0,0,0);
+								date = d.setHours(12, 0, 0);
 								addwater(amount,date); //push to healthkit
 							}
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
