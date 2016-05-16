@@ -104,8 +104,8 @@ function addwater(amount,date){ // save the water data to the healthkit as well
 		if(date == ""){
 			date = new Date(Date.now());
 		}
-		enddate = newDate().setHours(12, 30, 0);
-		alert(date);
+		enddate = newDate().setHours(24, 0, 0);
+		alert(date + ":" + enddate + ":" + amount);
 		window.plugins.healthkit.saveQuantitySample(
 		  {
 		    'startDate': date, // a day ago
