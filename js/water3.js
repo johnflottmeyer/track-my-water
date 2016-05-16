@@ -101,6 +101,7 @@ function onAddDataError(result) {
 };
 function addwater(amount,startdate,enddate){ // save the water data to the healthkit as well
 	if(amount){ //amount in mL
+		alert(amount);
 		if(startdate == "" && enddate == ""){
 			startdate = new Date(Date.now());
 			enddate = new Date();
@@ -732,6 +733,7 @@ $(document).ready(function() {
 		gethealthkitdata();
 	});
 	$.mobile.document.on( "click", ".option-addwater", function( evt ) {
+		alert("should add water");
 		addwater(4);
 	});
 	
