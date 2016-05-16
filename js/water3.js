@@ -28,11 +28,11 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 }
 /*** HEALTHKIT ***/
 function onSuccess(result) { //can be removed when live
-	toastr.success('Healthkit Now Authorized: ' + JSON.stringify(result), null, {target: $('.messages-alerts'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+	toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
 
 };
 function onError(result) { //can be removed when live
-	toastr.error('Healthkit Permission Not Authorized: ' + JSON.stringify(result), null, {target: $('.messages-alerts'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+	toastr.error('Healthkit Permission Not Authorized', null, {target: $('.messages-home'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
 	//alert("Error: " + JSON.stringify(result)); 
 };
 function onPermissionSuccess(result) { 
@@ -51,7 +51,7 @@ function onPermissionSuccess(result) {
 };
 function onPermissionError(result) {//not able to test if we have permission
   //alert("Error: " + JSON.stringify(result));
-  toastr.error('Healthkit Error: ' + JSON.stringify(result), null, {target: $('.messages-alerts'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+  toastr.error('Healthkit Error', null, {target: $('.messages-home'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
 };
 
 function checkHealtkitPermissions(){
