@@ -444,13 +444,13 @@ function onAddDataError(result) {
 };
 function addwater(amount,date){ // save the water data to the healthkit as well
 	if(amount){ //amount in mL
-		if(date != ""){
+		if(date){
 			date = new Date(Date.now());
 		}
 		window.plugins.healthkit.saveQuantitySample(
 		  {
 		    'startDate': date, // a day ago
-		    'endDate': date//new Date(), // now
+		    'endDate': date,//new Date(), // now
 		    'sampleType': 'HKQuantityTypeIdentifierDietaryWater', // make sure you request write access beforehand
 		    'unit': 'mL',
 		    'amount': amount
