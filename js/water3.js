@@ -65,6 +65,60 @@ function checkHealtkitPermissions(){
   	);
 }
 
+/*CHECK HEALTHKIT FOR DATA*/
+function onReadHealthSuccess(result) {
+  alert("OK: " + JSON.stringify(result));
+};
+
+function onReadHealthError(result) {
+  alert("Error: " + JSON.stringify(result));
+};
+
+function gethealthkitdata(){
+	alert(new Date(new Date().setHours(0,0,0,0)) + " - - " + new Date(Date.now()));
+	window.plugins.healthkit.querySampleType(
+	  {
+	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
+	    'startDate' : new Date(new Date().setHours(0,0,0,0)),
+	    'endDate'   : new Date(Date.now()), // now
+	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
+	    'unit'      : 'mL' // make sure this is compatible with the sampleType literUnit
+	  },
+	  onReadHealthSuccess,
+	  onReadHealthError
+	);
+}
+
+/*SAVE DATA TO HEALTHKIT*/
+function onAddDataSuccess(result) {
+  //alert("OK: " + JSON.stringify(result));
+  toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+};
+
+function onAddDataError(result) {
+  //alert("Error: " + JSON.stringify(result));
+  toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+};
+function addwater(amount,date){ // save the water data to the healthkit as well
+	if(amount){ //amount in mL
+		if(date == ""){
+			date = new Date(Date.now());
+		}
+		alert(date);
+		window.plugins.healthkit.saveQuantitySample(
+		  {
+		    'startDate': date, // a day ago
+		    'endDate': date,//new Date(), // now
+		    'sampleType': 'HKQuantityTypeIdentifierDietaryWater', // make sure you request write access beforehand
+		    'unit': 'mL',
+		    'amount': amount
+		  },
+		  onAddDataSuccess,
+		  onAddDataError
+		);
+	}
+}
+
 /***************** DEVICE READY PHONEGAP *****************/
 //check for the device to be ready
 function phoneReady() {
@@ -411,56 +465,7 @@ function deleteAlert(id, cb){
 		}, dbErrorHandler,cb);
 	}
 }
-/*CHECK HEALTHKIT FOR DATA*/
-function onReadHealthSuccess(result) {
-  alert("OK: " + JSON.stringify(result));
-};
 
-function onReadHealthError(result) {
-  alert("Error: " + JSON.stringify(result));
-};
-
-function gethealthkitdata(){
-	alert(new Date(new Date().setHours(0,0,0,0)) + " - - " + new Date(Date.now()));
-	window.plugins.healthkit.querySampleType(
-	  {
-	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
-	    'startDate' : new Date(new Date().setHours(0,0,0,0)),
-	    'endDate'   : new Date(Date.now()), // now
-	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
-	    'unit'      : 'mL' // make sure this is compatible with the sampleType literUnit
-	  },
-	  onReadHealthSuccess,
-	  onReadHealthError
-	);
-}
-/*SAVE DATA TO HEALTHKIT*/
-function onAddDataSuccess(result) {
-  alert("OK: " + JSON.stringify(result));
-};
-
-function onAddDataError(result) {
-  alert("Error: " + JSON.stringify(result));
-};
-function addwater(amount,date){ // save the water data to the healthkit as well
-	if(amount){ //amount in mL
-		if(date){
-			date = new Date(Date.now());
-		}
-		alert(date);
-		window.plugins.healthkit.saveQuantitySample(
-		  {
-		    'startDate': date, // a day ago
-		    'endDate': date,//new Date(), // now
-		    'sampleType': 'HKQuantityTypeIdentifierDietaryWater', // make sure you request write access beforehand
-		    'unit': 'mL',
-		    'amount': amount
-		  },
-		  onAddDataSuccess,
-		  onAddDataError
-		);
-	}
-}
 
 var app = {
     // Application Constructor
