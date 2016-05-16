@@ -28,11 +28,11 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 }
 /*** HEALTHKIT ***/
 function onSuccess(result) { //can be removed when live
-	toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+	toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 
 };
 function onError(result) { //can be removed when live
-	toastr.error('Healthkit Permission Not Authorized', null, {target: $('.messages-home'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+	toastr.error('Healthkit Permission Not Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 	//alert("Error: " + JSON.stringify(result)); 
 };
 function onPermissionSuccess(result) { 
@@ -51,7 +51,7 @@ function onPermissionSuccess(result) {
 };
 function onPermissionError(result) {//not able to test if we have permission
   //alert("Error: " + JSON.stringify(result));
-  toastr.error('Healthkit Error', null, {target: $('.messages-home'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+  toastr.error('Healthkit Error', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 
 function checkHealtkitPermissions(){
@@ -92,12 +92,12 @@ function gethealthkitdata(){
 /*SAVE DATA TO HEALTHKIT*/
 function onAddDataSuccess(result) {
   //alert("OK: " + JSON.stringify(result));
-  toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+  toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 
 function onAddDataError(result) {
   //alert("Error: " + JSON.stringify(result));
-  toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"}); 
+  toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 function addwater(amount,date){ // save the water data to the healthkit as well
 	if(amount){ //amount in mL
@@ -408,7 +408,7 @@ function createNotifications(){
 		}
 	});
 	checkAlerts(); //update the page with the new set alerts
-	toastr.success('Successfully Saved', null, {target: $('.messages-alerts'),"timeOut": "1000","positionClass": "toast-top-full-width"});
+	toastr.success('Successfully Saved', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 	//$("#popupDialog").click(); //show feedback for saving the data
 }
 function checkAlerts(){
@@ -631,6 +631,7 @@ $(document).ready(function() {
 		//alert("delete" + this.id);
 		d = new Date();
 		date = d.setHours(12, 0, 0);
+		alert(date);
 		addwater(0,date);
     });
     /*SAVE WATER TRACKED*/
@@ -658,14 +659,16 @@ $(document).ready(function() {
 								//gettime = $(".date-input").val().split(":");
 								d = new Date();
 								date = d.setHours(12, 0, 0);
+								alert(date);
+								amount = $("#select-water-amount :radio:checked").val();
 								addwater(amount,date); //push to healthkit
 							}
-							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
+							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 							$(".cancel").hide(); //hide the cancel button if it's showing
 							$('.id-tag').val("");//clear the id field
 				        });
 			        }else{
-			        	toastr.error('Sorry you have entered this already.', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
+			        	toastr.error('Sorry you have entered this already.', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 			        }
 	            });
 			}, dbErrorHandler);
@@ -713,7 +716,7 @@ $(document).ready(function() {
 		dbShell.transaction(function(tx) {
 		//stuff to add to db. 
 			tx.executeSql("update saved set goal=? where id=1",[$("#watergoal").val()],function(tx,results) {
-				toastr.success('Successfully Saved', null, {target: $('.messages'),"timeOut": "2000","positionClass": "toast-top-full-width"});
+				toastr.success('Successfully Saved', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 			});
 			 //else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",
 		}, dbErrorHandler);
