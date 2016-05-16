@@ -447,6 +447,7 @@ function addwater(amount,date){ // save the water data to the healthkit as well
 		if(date){
 			date = new Date(Date.now());
 		}
+		alert(date);
 		window.plugins.healthkit.saveQuantitySample(
 		  {
 		    'startDate': date, // a day ago
@@ -623,7 +624,9 @@ $(document).ready(function() {
     });
     $.mobile.document.on( "click", ".optiondeletewater", function( evt ) {
 		//alert("delete" + this.id);
-		addwater(0,new Date().setHours(12,0,0,0));
+		d = new Date();
+		date = d.setHours(12,0,0,0);
+		addwater(0,date);
     });
     /*SAVE WATER TRACKED*/
     /*need to validate that it can be saved before saving
@@ -647,8 +650,10 @@ $(document).ready(function() {
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
 							if(healthKitPermission && healthKit){
-								gettime = $(".date-input").val().split(":");
-								addwater(amount,new Date().setHours(12,0,0,0)); //push to healthkit
+								//gettime = $(".date-input").val().split(":");
+								d = new Date();
+								date = d.setHours(12,0,0,0);
+								addwater(amount,date); //push to healthkit
 							}
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "1000","positionClass": "toast-top-full-width"});
 							$(".cancel").hide(); //hide the cancel button if it's showing
