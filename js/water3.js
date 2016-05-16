@@ -76,6 +76,7 @@ function phoneReady() {
     cordova.plugins.notification.badge.hasPermission(function (granted) { 
 	    //might not need to check since we are getting permission for the Notifications
 		// alert("badges are permitted");
+		window.plugin.notification.badge.clear(); //clear badges we are in the app 
 	});
     window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
     //###Plugins - NOTIFICATIONS PERMISSION
