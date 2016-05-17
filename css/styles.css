@@ -494,16 +494,15 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	display:block !important;
 	background:none;
 }*/
-#edit-water{
+.waterglass{
 	padding:20px;
-	background:url("../images/cup-bkg.png") no-repeat 0 0;
+	background:url("../images/cup-bkg.png") no-repeat 0 0 !important;
 	background-size:contain;
 	display:block;
 }
 #select-water-amount{
 	width:70% !important;
 	text-align:center;	
-	
 }
 .option-button{
 	background:#f8981d !important;
