@@ -497,7 +497,7 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 .waterglass{
 	padding:20px;
 	background:url("../images/cup-bkg.png") no-repeat 0 0 !important;
-	/*background-size:contain;*/
+	background-size:contain;
 	display:block;
 }
 #select-water-amount{
