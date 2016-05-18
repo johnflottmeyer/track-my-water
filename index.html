@@ -111,11 +111,11 @@
 						<strong class="alertlabel">Start:</strong>
 					</div>
 					<div class="ui-block-b">
-						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit">
-							<input id="starttime" type="text" class="form-control" value="08:30">
-							<span class="input-group-addon">
-									<span class="glyphicon glyphicon-time"></span>
-							</span>
+						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
+							<input id="starttime" type="text" class="form-control" value="08:30" data-wrapper-class="controlgroup-textinput ui-btn">
+							<button class="input-group-addon ui-btn ui-btn-inline ui-btn-mini ">
+							<i class="icon-time"></i>
+					</button>
 						</div>
 					</div>
 				</div>
@@ -124,10 +124,10 @@
 						<strong class="alertlabel">End:</strong>
 					</div>
 					<div class="ui-block-b">
-						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit"><input id="endtime" type="text" class="form-control" value="10:30">
-						<span class="input-group-addon">
-								<span class="glyphicon glyphicon-time"></span>
-						</span>
+						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal"><input id="endtime" type="text" class="form-control" value="10:30" data-wrapper-class="controlgroup-textinput ui-btn">
+						<button class="input-group-addon ui-btn ui-btn-inline ui-btn-mini ">
+							<i class="icon-time"></i>
+					</button>
 						</div>
 					</div>
 				</div>
@@ -197,10 +197,8 @@
 					<button class="input-group-addon ui-btn ui-btn-inline ui-btn-mini ">
 							<i class="icon-time"></i>
 					</button>
-					<button class="ui-btn option-button">Save Settings</button>
+					<button class="ui-btn option-button ui-btn-inline ui-btn-mini">Save</button>
 				</div>
-				 
-				<button class="ui-btn option-button">Save Settings</button>
 			</form>
 		</div><!-- / ui-body -->
 		
