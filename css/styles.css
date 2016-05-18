@@ -171,14 +171,14 @@ strong.alertlabel{
 
 /*TOP / BOTTOM NAV*/
 .top-nav .ui-btn{
-	background:#003366;
-	color:#FFF;
+	background:#003366 !important;
+	color:#FFF !important;
 	text-shadow:none !important;
 	border:none !important;
 }
 .top-nav .ui-btn-active{
-	background:#FFF;
-	color:#000;
+	background:#FFF !important;
+	color:#000 !important;
 	text-shadow:none !important;
 	border:none !important;
 }
