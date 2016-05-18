@@ -495,14 +495,24 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	background:none;
 }*/
 .waterglass{
-	padding:20px;
-	background:url("../images/cup-bkg.png") no-repeat 0 0 !important;
-	background-size:contain;
+	padding:50% 15% 20% 15% !important;
+	background:url("../images/cup-bkg.png") no-repeat center 0px !important;
+	background-size:cover !important;
 	display:block;
+	border-bottom:2px dashed #000;
 }
 #select-water-amount{
-	width:70% !important;
+	width:100% !important;
+	max-width:150px;
 	text-align:center;	
+	margin:0px auto !important;
+	padding:0px !important;
+}
+#select-water-amount .ui-btn{
+	background:transparent !important;
+	border:none;
+	border-bottom:1px dashed #000;
+	border-radius:0px;
 }
 .option-button{
 	background:#f8981d !important;
