@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/styles.css"/>
 </head>
 <body>
-	
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -169,40 +168,35 @@
 		<div class="messages-water"></div>
 		<div class="ui-body ui-body-a ui-center"> 
 			
-			<p>Keep Hydrated! Did you know that a person needs to drink about 8 cups of water a day?</p>
+			<p>Keep Track of the water you drink daily, a journal to make sure you keeping hydrated.</p>
 			<h3>Add New</h3>
 			
 			<form method="post" id="editWater">
 				<input type="hidden" name="id" class="id-tag" value=""/>
 				<input type="hidden" name="date" class="date-tag" value=""/>
-				<div class="waterglass">
+				<div class="waterglass"><!--waterglass-->
 				<fieldset data-role="controlgroup" data-type="vertical" data-mini="true" id="select-water-amount">
 				        <legend><strong>I Drank</strong></legend>
-				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
-				        <label for="oz4" class="oz4">4 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
-				        <label for="oz8" class="oz8">8 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
-				        <label for="oz10" class="oz10">10 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
-				        <label for="oz12" class="oz12">12 oz</label>
 				        
 				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio">
 				        <label for="oz16" class="oz16">16 oz</label>
+				         <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
+				        <label for="oz12" class="oz12">12 oz</label>
+				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
+				        <label for="oz10" class="oz10">10 oz</label>
+				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
+				        <label for="oz8" class="oz8">8 oz</label>
+				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
+				        <label for="oz4" class="oz4">4 oz</label>
 				</fieldset>
-				</div>
-				<div class="ui-grid-a my-grid">
-				<div class="ui-block-a"><strong class="alertlabel">At:</strong></div>
-				<div class="ui-block-b">
-				<div class="input-group clockpicker" data-placement="top" data-donetext="Submit"><input id="mydate" type="text" class="form-control date-input" value="08:30" data-mini="true">
-					<span class="input-group-addon">
-							<span class="glyphicon glyphicon-time"></span>
-					</span>
-				</div>
-				</div>
+				</div><!--endwaterglass-->
+				
+				<label for="mydate">I drank this water at:</label>
+				<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
+					<input id="mydate" type="text" class="form-control date-input" value="08:30" data-mini="true" data-wrapper-class="controlgroup-textinput ui-btn">
+					<button class="input-group-addon ui-btn ui-btn-inline ui-btn-mini ">
+							<i class="icon-time"></i>
+					</button>
 				</div>
 				 
 				<button class="ui-btn option-button">Save Settings</button>
