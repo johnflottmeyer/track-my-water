@@ -108,6 +108,8 @@
 					</div>
 				</div>
 				<p>Choose your Range (i.e. 8AM - 8PM)</p>
+				<div class="ui-grid-a my-grid">
+					<div class="ui-block-a">
 						<label for="starttime">Start:</label>
 						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
 							<input id="starttime" type="text" class="form-control" value="08:30" data-wrapper-class="controlgroup-textinput ui-btn">
@@ -115,12 +117,18 @@
 							<i class="icon-time"></i>
 					</span>
 						</div>
+					</div>
+					<div class="ui-block-b">
 						<label for="endtime">End:</label>
 						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal"><input id="endtime" type="text" class="form-control" value="10:30" data-wrapper-class="controlgroup-textinput ui-btn">
 						<span class="input-group-addon ui-btn">
 							<i class="icon-time"></i>
 						</span>
 						</div>
+					</div>
+				</div>
+						
+						
 				</div>
 				<button type="submit" class="ui-btn saveSettings option-button">Save Settings</button>
 			</form>
@@ -222,9 +230,11 @@
 				<h3>Set Your Goal</h3>
 				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
 				<form>
+					<div data-role="controlgroup" data-type="horizontal">
 					<label for="watergoal">Your Goal Amount</label>
-					<input name="goal" value="64" id="watergoal"/>
+					<input name="goal" value="64" id="watergoal" data-wrapper-class="controlgroup-textinput ui-btn"/>
 					<button type="submit" name="savegoal" id="save-goal" class="option-button">Save Goal</button>
+					</div>
 				</form>
 				<p>Here is where you are at with your daily water goal.</p>
 			</div><!-- / ui-body -->
