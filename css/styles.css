@@ -127,17 +127,24 @@ strong.alertlabel{
     border: 0;
 }
 .homebtn{
-	height:45px;
+	min-height:65px;
 	font-size:15px;
 	text-align:left;
 	/*padding-left:82px;*/
 }
-.homebtn span{
+.clockpicker .ui-btn{
+	padding:7px 10px !important;
+}
+.clockpicker .ui-input-text{
+	padding:2px !important;
+}
+
+/*.homebtn span{
 	font-size:12px;
 	width:95%;
-	display:block;
+	display:inline-block;
 	white-space: normal;
-}
+}*/
 
 /*HOME PAGE - Custom Icons*/
 .icon-alerts:after{
