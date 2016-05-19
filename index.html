@@ -61,6 +61,7 @@
 	</div><!-- / ui-content -->
 </div><!-- / landing page -->
 
+
 <!-- alerts page -->
 <div data-role="page" id="alerts" data-theme="a">
 	
@@ -84,31 +85,25 @@
 			<p>Use the controls below to set water reminder alerts.</p>
 			<div class="errors"></div>
 			<form id="editNoteForm" method="post">
-				<div class="ui-grid-a  my-grid">
-					<div class="ui-block-a"><strong class="alertlabel">Alerts:</strong></div>
-					<div class="ui-block-b"><select name="slider2" id="slider2" data-role="slider" data-mini="true">
-					    <option value="off">Off</option>
-					    <option value="on">On</option>
-					</select></div>
-				</div>
-				<div class="ui-grid-a my-grid">
-					<div class="ui-block-a">
-						<strong class="alertlabel">Every:</strong>
-					</div>
-					<div class="ui-block-b">
-						<fieldset data-role="controlgroup" data-type="horizontal" id="select-native-2">
-						    <legend></legend>
-						        <input name="radio-choice-b" id="radio-choice-c" value="1" checked="checked" type="radio" data-mini="true">
-						        <label for="radio-choice-c">1 hr</label>
-						        <input name="radio-choice-b" id="radio-choice-d" value="2" type="radio" data-mini="true">
-						        <label for="radio-choice-d">2 hr</label>
-						        <input name="radio-choice-b" id="radio-choice-e" value="3" type="radio" data-mini="true">
-						        <label for="radio-choice-e">3 hr</label>
-						</fieldset>
-					</div>
-				</div>
+				<strong class="alertlabel">Alerts:</strong>
+				<select name="slider2" id="slider2" data-role="slider" data-mini="true">
+				    <option value="off">Off</option>
+				    <option value="on">On</option>
+				</select>
+				
+				<fieldset data-role="controlgroup" data-type="horizontal" id="select-native-2">
+				    <legend><strong class="alertlabel">Every:</strong></legend>
+				        <input name="radio-choice-b" id="radio-choice-c" value="1" checked="checked" type="radio" data-mini="true">
+				        <label for="radio-choice-c">1 hr</label>
+				        <input name="radio-choice-b" id="radio-choice-d" value="2" type="radio" data-mini="true">
+				        <label for="radio-choice-d">2 hr</label>
+				        <input name="radio-choice-b" id="radio-choice-e" value="3" type="radio" data-mini="true">
+				        <label for="radio-choice-e">3 hr</label>
+				</fieldset>
+				
 				<p>Choose your Range (i.e. 8AM - 8PM)</p>
-				<div class="ui-grid-a my-grid">
+				
+				<div class="ui-grid-b my-grid">
 					<div class="ui-block-a">
 						<label for="starttime">Start:</label>
 						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
@@ -123,14 +118,18 @@
 						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal"><input id="endtime" type="text" class="form-control" value="10:30" data-wrapper-class="controlgroup-textinput ui-btn">
 						<span class="input-group-addon ui-btn">
 							<i class="icon-time"></i>
+							
 						</span>
+						
 						</div>
+					</div>
+					<div class="ui-block-c">
+						<button type="submit" class="ui-btn saveSettings option-button">Add</button>
 					</div>
 				</div>
 						
 						
 				</div>
-				<button type="submit" class="ui-btn saveSettings option-button">Save Settings</button>
 			</form>
 		
 		</div><!-- / ui-body -->

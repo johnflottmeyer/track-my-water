@@ -137,6 +137,8 @@ strong.alertlabel{
 }
 .clockpicker .ui-input-text{
 	padding:2px !important;
+	display:inline-block !important;
+	width:50% !important;
 }
 
 /*.homebtn span{
