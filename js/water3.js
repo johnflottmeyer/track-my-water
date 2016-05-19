@@ -769,6 +769,7 @@ $(document).ready(function() {
 	$.mobile.document.on( "click", "#buttonb", function( evt ) {
 		$("#endtime").clockpicker('show').clockpicker('toggleView', 'hours');
 	});*/
-	
+	$.mobile.defaultPageTransition = "fade"
+	$.mobile.transitionFallbacks.slideout = "none"
 	if (/Mobile/.test(navigator.userAgent)) {$('input').prop('readOnly', true);}
 });
