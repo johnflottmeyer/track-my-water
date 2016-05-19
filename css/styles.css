@@ -65,8 +65,9 @@ body{
 	display:block;
 	padding:5px 10px;
 	margin-top:5px;
-	font-size:15px;
+	font-size:12px;
 	font-family:Yanone Kaffeesatz, Arial, Helvetica;
+	font-weight:normal7
 	text-shadow:none;
 }
 .alertSettings strong, .trackSettings strong, .goalSettings strong{
@@ -153,7 +154,8 @@ strong.alertlabel{
 	display:inline-block !important;
 	width:55% !important;
 }
-
+.alert-grid .ui-block-a { width: 35% !important; }
+.alert-grid .ui-block-b { width: 65% !important; } 
 /*.homebtn span{
 	font-size:12px;
 	width:95%;

@@ -541,9 +541,13 @@ $(document).ready(function() {
 	if(settings == "on"){
 		$("#slider2").val() == "on";
 		$(".alertSettings span").html("on");
+		$(".alertSettings span").removeClass("off");
 		$(".alertSettings span").addClass("on");
 		$(".saveSettings").removeClass("ui-disabled");
 		validateTime();
+	}else{
+		$(".alertSettings span").removeClass("on");
+		$(".alertSettings span").addClass("off");
 	}
 	
 	$("#slider2").change(function() {//reenable the tools when its turned on. 
