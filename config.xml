@@ -50,9 +50,9 @@
 	<splash src="Default-568h@2x.png" platform="ios" width="640" height="1136" />
 	
 	<!-- iPhone 6 -->
-	<!--<splash src="Default-667h@2x.png" platform="ios" width="750" height="1334" />
+	<!--<splash src="Default-667h@2x.png" platform="ios" width="750" height="1334" />-->
 	<splash src="Default-Portrait-736h@3x.png" platform="ios" width="1242" height="2208" />
-	<splash src="Default-Landscape-736h@3x.png" platform="ios" width="2208" height="1242" />-->
+	<!--<splash src="Default-Landscape-736h@3x.png" platform="ios" width="2208" height="1242" />-->
 	
 	<!-- iPad -->
 	<!--<splash src="Default-Portrait.png" platform="ios" width="768" height="1024" />
