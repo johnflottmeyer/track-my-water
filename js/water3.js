@@ -223,9 +223,14 @@ function renderSettings(tx,results){
        }
        $("#mainContent").html(s);//show what is saved 
        $(".alertSettings span").html(settings);
+       if(s == "on"){
+		   $(".alertSettings span").removeClass("off");
+		   $(".alertSettings span").addClass("on");
+       }else{
+	       $(".alertSettings span").removeClass("on");
+		   $(".alertSettings span").addClass("off");
+       }
        //set the default button
-       //$(".alertSettings span").removeClass("on");
-       //$(".alertSettings span").removeClass("off");
        $(".alertSettings span").addClass(s);
     }
 }
