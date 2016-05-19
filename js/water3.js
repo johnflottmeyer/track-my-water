@@ -763,12 +763,12 @@ $(document).ready(function() {
 		autoclose: true,
 		'default': '20:48'
 	});
-	$.mobile.document.on( "click", "#buttona", function( evt ) {
+	/*$.mobile.document.on( "click", "#buttona", function( evt ) {
 		$("#starttime").clockpicker('show').clockpicker('toggleView', 'hours');
 	});
 	$.mobile.document.on( "click", "#buttonb", function( evt ) {
 		$("#endtime").clockpicker('show').clockpicker('toggleView', 'hours');
-	});
+	});*/
 	
 	if (/Mobile/.test(navigator.userAgent)) {$('input').prop('readOnly', true);}
 });
