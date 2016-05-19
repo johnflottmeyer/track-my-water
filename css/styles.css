@@ -133,12 +133,12 @@ strong.alertlabel{
 	/*padding-left:82px;*/
 }
 .clockpicker .ui-btn{
-	padding:7px 10px !important;
+	padding:5px 10px !important;
 }
 .clockpicker .ui-input-text{
-	padding:2px !important;
+	padding:0px !important;
 	display:inline-block !important;
-	width:50% !important;
+	width:55% !important;
 }
 
 /*.homebtn span{
