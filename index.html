@@ -11,6 +11,76 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/styles.css"/>
 </head>
 <body>
+
+<!-- alerts page -->
+<div data-role="page" id="alerts" data-theme="a">
+	
+	<div data-role="panel" id="alertset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
+		<!-- debug panel -->
+	<a href="#alerts" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
+		<div class="ui-panel-inny">
+			<h3>Alerts Currently Set:</h3>
+			<p class="addeddata"></p>
+			<div id="mainContent"></div>
+			<div id="alerttime"></div>
+			<div id="alertstatus"></div>
+		</div>
+	</div><!-- /panel -->
+	
+	<div role="main" class="ui-content"><!-- ui-content -->
+		<div class="icon-alerts-h2"><i></i><h2><span>Set / Edit Alerts</span></h2> <a href="#alertset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Alerts</a></div>
+		<div class="messages-alerts"></div>
+		<div class="ui-body ui-body-a ui-center"> <!-- ui-body -->
+			
+			<p>Use the controls below to set water reminder alerts.</p>
+			<div class="errors"></div>
+			<form id="editNoteForm" method="post">
+				<strong class="alertlabel">Alerts:</strong>
+				<select name="slider2" id="slider2" data-role="slider" data-mini="true">
+				    <option value="off">Off</option>
+				    <option value="on">On</option>
+				</select>
+				
+				<fieldset data-role="controlgroup" data-type="horizontal" id="select-native-2">
+				    <legend><strong class="alertlabel">Every:</strong></legend>
+				        <input name="radio-choice-b" id="radio-choice-c" value="1" checked="checked" type="radio" data-mini="true">
+				        <label for="radio-choice-c">1 hr</label>
+				        <input name="radio-choice-b" id="radio-choice-d" value="2" type="radio" data-mini="true">
+				        <label for="radio-choice-d">2 hr</label>
+				        <input name="radio-choice-b" id="radio-choice-e" value="3" type="radio" data-mini="true">
+				        <label for="radio-choice-e">3 hr</label>
+				</fieldset>
+				
+				<p>Choose your Range (i.e. 8AM - 8PM)</p>
+				
+				
+						<label for="starttime">Start:</label>
+						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
+							<label for="starttime">Start:</label>
+							<input id="starttime" type="text" class="form-control" value="08:30" data-wrapper-class="controlgroup-textinput ui-btn">
+							<span class="input-group-addon ui-btn"><i class="icon-time"></i></span>
+							<label for="starttime">End:</label>
+							<input id="endtime" type="text" class="form-control" value="10:30" data-wrapper-class="controlgroup-textinput ui-btn">
+							<span class="input-group-addon ui-btn"><i class="icon-time"></i></span>
+							<button class="option-button ui-btn">Add</button>
+						</div>
+						
+				</div>
+			</form>
+		
+		</div><!-- / ui-body -->
+		<div data-role="footer" data-position="fixed"><!-- footer -->
+			<div data-role="navbar" data-iconpos="top" class="top-nav"><!--navbar data-iconpos="top"-->
+		        <ul>
+			        <li><a href="#landing" data-icon="custom" class="ui-icon-home" data-transition="slideup">Home</a></li>
+		            <li><a href="#alerts" data-icon="custom" class="ui-btn-active ui-icon-alert ui-state-persist" data-transition="slideup">Alerts</a></li>
+		            <li><a href="#track" data-icon="custom" class="ui-icon-track" data-transition="slideup">Track</a></li>
+		            <li><a href="#account" data-icon="custom" class="ui-icon-goal" data-transition="slideup">Goal</a></li>
+		        </ul>
+		    </div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div><!-- / ui-content -->	
+</div><!-- /alerts page -->
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -59,93 +129,7 @@
 	
 	</div><!-- / ui-content -->
 </div><!-- / landing page -->
-
-<!-- alerts page -->
-<div data-role="page" id="alerts" data-theme="a">
-	
-	<div data-role="panel" id="alertset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
-		<!-- debug panel -->
-	<a href="#alerts" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
-		<div class="ui-panel-inny">
-			<h3>Alerts Currently Set:</h3>
-			<p class="addeddata"></p>
-			<div id="mainContent"></div>
-			<div id="alerttime"></div>
-			<div id="alertstatus"></div>
-		</div>
-	</div><!-- /panel -->
-	
-	<div role="main" class="ui-content"><!-- ui-content -->
-		<div class="icon-alerts-h2"><i></i><h2><span>Set / Edit Alerts</span></h2> <a href="#alertset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Alerts</a></div>
-		<div class="messages-alerts"></div>
-		<div class="ui-body ui-body-a ui-center"> <!-- ui-body -->
-			
-			<p>Use the controls below to set water reminder alerts.</p>
-			<div class="errors"></div>
-			<form id="editNoteForm" method="post">
-				<strong class="alertlabel">Alerts:</strong>
-				<select name="slider2" id="slider2" data-role="slider" data-mini="true">
-				    <option value="off">Off</option>
-				    <option value="on">On</option>
-				</select>
-				
-				<fieldset data-role="controlgroup" data-type="horizontal" id="select-native-2">
-				    <legend><strong class="alertlabel">Every:</strong></legend>
-				        <input name="radio-choice-b" id="radio-choice-c" value="1" checked="checked" type="radio" data-mini="true">
-				        <label for="radio-choice-c">1 hr</label>
-				        <input name="radio-choice-b" id="radio-choice-d" value="2" type="radio" data-mini="true">
-				        <label for="radio-choice-d">2 hr</label>
-				        <input name="radio-choice-b" id="radio-choice-e" value="3" type="radio" data-mini="true">
-				        <label for="radio-choice-e">3 hr</label>
-				</fieldset>
-				
-				<p>Choose your Range (i.e. 8AM - 8PM)</p>
-				
-				<div class="ui-grid-b my-grid">
-					<div class="ui-block-a">
-						<label for="starttime">Start:</label>
-						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
-							<input id="starttime" type="text" class="form-control" value="08:30" data-wrapper-class="controlgroup-textinput ui-btn">
-							<span class="input-group-addon ui-btn">
-							<i class="icon-time"></i>
-					</span>
-						</div>
-					</div>
-					<div class="ui-block-b">
-						<label for="endtime">End:</label>
-						<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal"><input id="endtime" type="text" class="form-control" value="10:30" data-wrapper-class="controlgroup-textinput ui-btn">
-						<span class="input-group-addon ui-btn">
-							<i class="icon-time"></i>
-							
-						</span>
-						
-						</div>
-					</div>
-					<div class="ui-block-c">
-						<label for="">&nbsp;</label>
-						<!--<button type="submit" class="ui-btn saveSettings option-button">Add</button>-->
-						<button class="option-button ui-btn ui-mini">Add</button>
-					</div>
-				</div>
-						
-						
-				</div>
-			</form>
-		
-		</div><!-- / ui-body -->
-		<div data-role="footer" data-position="fixed"><!-- footer -->
-			<div data-role="navbar" data-iconpos="top" class="top-nav"><!--navbar data-iconpos="top"-->
-		        <ul>
-			        <li><a href="#landing" data-icon="custom" class="ui-icon-home" data-transition="slideup">Home</a></li>
-		            <li><a href="#alerts" data-icon="custom" class="ui-btn-active ui-icon-alert ui-state-persist" data-transition="slideup">Alerts</a></li>
-		            <li><a href="#track" data-icon="custom" class="ui-icon-track" data-transition="slideup">Track</a></li>
-		            <li><a href="#account" data-icon="custom" class="ui-icon-goal" data-transition="slideup">Goal</a></li>
-		        </ul>
-		    </div><!-- /navbar -->
-		</div><!-- /footer -->
-	</div><!-- / ui-content -->	
-</div><!-- /alerts page -->
-
+<!--alerts-->
 
 	<!-- track page -->
 <div data-role="page" id="track" data-theme="a">
