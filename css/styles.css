@@ -160,7 +160,7 @@ strong.alertlabel{
 	display:inline-block !important;
 	width:55% !important;
 }
-#watergoal .ui-input-text{
+#watergoal.ui-input-text{
 	padding:0px !important;
 	display:inline-block !important;
 	width:55% !important;
