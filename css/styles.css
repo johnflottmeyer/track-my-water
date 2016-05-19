@@ -56,13 +56,34 @@ body{
 	width:60%;
 	margin:10px auto;
 }
+.centered{
+	margin:0px auto;
+	text-align:center;
+}
 .alertSettings, .trackSettings, .goalSettings{
-	background:#444;
-	color:#FFF;
+	
 	display:block;
 	padding:5px 10px;
 	margin-top:5px;
+	font-size:15px;
+	font-family:Yanone Kaffeesatz, Arial, Helvetica;
 	text-shadow:none;
+}
+.alertSettings strong{
+	background:#4581c2;
+	color:#FFF;
+	padding:3px;
+	display:inline-block;
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+.alertSettings span{
+	background:#f8981d;
+	color:#FFF;
+	padding:3px 5px;
+	display:inline-block;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
 }
 .alertSettings .ui-grid-a{
 	vertical-align:middle;
