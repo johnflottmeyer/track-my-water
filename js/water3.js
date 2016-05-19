@@ -223,6 +223,8 @@ function renderSettings(tx,results){
        }
        $("#mainContent").html(s);//show what is saved 
        $(".alertSettings span").html(settings);
+       //set the default button
+       $(".alertSettings span").addClass(s);
     }
 }
 
@@ -536,7 +538,7 @@ $(document).ready(function() {
 		$(".alertSettings span").html("off");
 		$(".saveSettings").addClass("ui-disabled");
 	}
-	
+	//settings = "on";
 	//check to see if the alerts are on or off
 	if(settings == "on"){
 		$("#slider2").val() == "on";

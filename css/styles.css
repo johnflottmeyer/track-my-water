@@ -77,6 +77,7 @@ body{
 	display:inline-block;
 	border-top-left-radius:5px;
 	border-bottom-left-radius:5px;
+	text-transform: uppercase;
 }
 .alertSettings span.on, .trackSettings span.on, .goalSettings span.on{
 	background:#f8981d !important;
@@ -85,6 +86,7 @@ body{
 	display:inline-block;
 	border-top-right-radius:5px;
 	border-bottom-right-radius:5px;
+	text-transform: uppercase;
 }
 .alertSettings span.off, .trackSettings span.off, .goalSettings span.off{
 	background:#003366;
