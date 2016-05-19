@@ -224,6 +224,8 @@ function renderSettings(tx,results){
        $("#mainContent").html(s);//show what is saved 
        $(".alertSettings span").html(settings);
        //set the default button
+       $(".alertSettings span").removeClass("on");
+       $(".alertSettings span").removeClass("off");
        $(".alertSettings span").addClass(s);
     }
 }
@@ -537,6 +539,7 @@ $(document).ready(function() {
 		$("#endtime").addClass("ui-disabled");
 		$("#buttona").addClass("ui-disabled");
 		$("#buttonb").addClass("ui-disabled");
+		$("#addalert").addClass("ui-disabled");
 		$(".alertSettings span").html("off");
 		$(".alertSettings span").removeClass("on");
 		$(".alertSettings span").addClass("off");
@@ -552,6 +555,7 @@ $(document).ready(function() {
 		$(".saveSettings").removeClass("ui-disabled");
 		$("#buttona").removeClass("ui-disabled");
 		$("#buttonb").removeClass("ui-disabled");
+		$("#addalert").removeClass("ui-disabled");
 		validateTime();
 	}else{
 		$(".alertSettings span").removeClass("on");
@@ -566,8 +570,9 @@ $(document).ready(function() {
 			$("#endtime").addClass("ui-disabled");
 			$("#buttona").addClass("ui-disabled");
 			$("#buttonb").addClass("ui-disabled");
-			$(".alertSettings span").addClass("off");
+			$("#addalert").addClass("ui-disabled");
 			$(".alertSettings span").removeClass("on");
+			$(".alertSettings span").addClass("off");
 			$("#mainContent").html("");
 			$("#alerttime").html("");
 			$("#alertstatus").html("");
@@ -580,6 +585,7 @@ $(document).ready(function() {
 			$("#endtime").removeClass("ui-disabled");
 			$("#buttona").removeClass("ui-disabled");
 			$("#buttonb").removeClass("ui-disabled");
+			$("#addalert").removeClass("ui-disabled");
 			$(".alertSettings span").removeClass("off");
 			$(".alertSettings span").addClass("on");
 			$(".alertSettings span").html("on");
