@@ -71,7 +71,7 @@ body{
 	text-shadow:none;
 }
 .alertSettings strong, .trackSettings strong, .goalSettings strong{
-	background:#4581c2;
+	background:#4581c2 !important;
 	color:#FFF;
 	padding:3px;
 	display:inline-block;
@@ -79,7 +79,7 @@ body{
 	border-bottom-left-radius:5px;
 }
 .alertSettings span.on, .trackSettings span.on, .goalSettings span.on{
-	background:#f8981d;
+	background:#f8981d !important;
 	color:#FFF;
 	padding:3px 5px;
 	display:inline-block;
