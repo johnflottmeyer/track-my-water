@@ -63,11 +63,11 @@ body{
 .alertSettings, .trackSettings, .goalSettings{
 	
 	display:block;
-	padding:5px 10px;
+	padding:5px;
 	margin-top:5px;
 	font-size:12px;
 	font-family:Yanone Kaffeesatz, Arial, Helvetica;
-	font-weight:normal7
+	font-weight:normal;
 	text-shadow:none;
 }
 .alertSettings strong, .trackSettings strong, .goalSettings strong{
@@ -75,14 +75,16 @@ body{
 	color:#FFF;
 	padding:3px;
 	display:inline-block;
+	margin:0px;
 	border-top-left-radius:5px;
 	border-bottom-left-radius:5px;
-	text-transform: uppercase;
+	
 }
 .alertSettings span.on, .trackSettings span.on, .goalSettings span.on{
 	background:#f8981d !important;
 	color:#FFF;
 	padding:3px 5px;
+	margin:0px;
 	display:inline-block;
 	border-top-right-radius:5px;
 	border-bottom-right-radius:5px;
@@ -91,10 +93,12 @@ body{
 .alertSettings span.off, .trackSettings span.off, .goalSettings span.off{
 	background:#003366;
 	color:#FFF;
+	margin:0px;
 	padding:3px 5px;
 	display:inline-block;
 	border-top-right-radius:5px;
 	border-bottom-right-radius:5px;
+	text-transform: uppercase;
 }
 .alertSettings .ui-grid-a{
 	vertical-align:middle;

@@ -536,6 +536,8 @@ $(document).ready(function() {
 		$("#starttime").addClass("ui-disabled");
 		$("#endtime").addClass("ui-disabled");
 		$(".alertSettings span").html("off");
+		$(".alertSettings span").removeClass("on");
+		$(".alertSettings span").addClass("off");
 		$(".saveSettings").addClass("ui-disabled");
 	}
 	//settings = "on";
@@ -561,12 +563,16 @@ $(document).ready(function() {
 			$("#alerttime").html("");
 			$("#alertstatus").html("");
 			$(".alertSettings span").html("off");
+			$(".alertSettings span").removeClass("on");
+			$(".alertSettings span").addClass("off");
 		}else{
 			validateTime();
 			$("#select-native-2").removeClass("ui-disabled");
 			$("#starttime").removeClass("ui-disabled");
 			$("#endtime").removeClass("ui-disabled");
 			$(".alertSettings span").html("on");
+			$(".alertSettings span").removeClass("off");
+			$(".alertSettings span").addClass("on");
 			$(".saveSettings").removeClass("ui-disabled");
 		}
 	});
