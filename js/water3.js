@@ -223,7 +223,7 @@ function renderSettings(tx,results){
        }
        $("#mainContent").html(s);//show what is saved 
        $(".alertSettings span").html(settings);
-       if(s == "on"){
+       if(settings == "on"){
 		   $(".alertSettings span").removeClass("off");
 		   $(".alertSettings span").addClass("on");
        }else{
@@ -231,7 +231,7 @@ function renderSettings(tx,results){
 		   $(".alertSettings span").addClass("off");
        }
        //set the default button
-       $(".alertSettings span").addClass(s);
+       $(".alertSettings span").addClass(settings);
     }
 }
 
@@ -550,7 +550,6 @@ $(document).ready(function() {
 		$(".alertSettings span").addClass("off");
 		$(".saveSettings").addClass("ui-disabled");
 	}
-	//settings = "on";
 	//check to see if the alerts are on or off
 	if(settings == "on"){
 		$("#slider2").val() == "on";
