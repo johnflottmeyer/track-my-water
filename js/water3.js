@@ -535,6 +535,8 @@ $(document).ready(function() {
 		$("#select-native-2").addClass("ui-disabled");
 		$("#starttime").addClass("ui-disabled");
 		$("#endtime").addClass("ui-disabled");
+		$("#buttona").addClass("ui-disabled");
+		$("#buttonb").addClass("ui-disabled");
 		$(".alertSettings span").html("off");
 		$(".alertSettings span").removeClass("on");
 		$(".alertSettings span").addClass("off");
@@ -548,6 +550,8 @@ $(document).ready(function() {
 		$(".alertSettings span").removeClass("off");
 		$(".alertSettings span").addClass("on");
 		$(".saveSettings").removeClass("ui-disabled");
+		$("#buttona").removeClass("ui-disabled");
+		$("#buttonb").removeClass("ui-disabled");
 		validateTime();
 	}else{
 		$(".alertSettings span").removeClass("on");
@@ -556,23 +560,29 @@ $(document).ready(function() {
 	
 	$("#slider2").change(function() {//reenable the tools when its turned on. 
 		if($("#slider2").val() == "off"){
+			//update classes
 			$("#select-native-2").addClass("ui-disabled");
 			$("#starttime").addClass("ui-disabled");
 			$("#endtime").addClass("ui-disabled");
+			$("#buttona").addClass("ui-disabled");
+			$("#buttonb").addClass("ui-disabled");
+			$(".alertSettings span").addClass("off");
+			$(".alertSettings span").removeClass("on");
 			$("#mainContent").html("");
 			$("#alerttime").html("");
 			$("#alertstatus").html("");
 			$(".alertSettings span").html("off");
-			$(".alertSettings span").removeClass("on");
-			$(".alertSettings span").addClass("off");
 		}else{
 			validateTime();
+			//update classes
 			$("#select-native-2").removeClass("ui-disabled");
 			$("#starttime").removeClass("ui-disabled");
 			$("#endtime").removeClass("ui-disabled");
-			$(".alertSettings span").html("on");
+			$("#buttona").removeClass("ui-disabled");
+			$("#buttonb").removeClass("ui-disabled");
 			$(".alertSettings span").removeClass("off");
 			$(".alertSettings span").addClass("on");
+			$(".alertSettings span").html("on");
 			$(".saveSettings").removeClass("ui-disabled");
 		}
 	});
