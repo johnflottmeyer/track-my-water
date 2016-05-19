@@ -763,5 +763,15 @@ $(document).ready(function() {
 		autoclose: true,
 		'default': '20:48'
 	});
+	$('#buttona').click(function(e){
+	    // Have to stop propagation here
+	    e.stopPropagation();
+	    $("#starttime").clockpicker('show').clockpicker('toggleView', 'hours');
+	});
+	$('#buttonb').click(function(e){
+	    // Have to stop propagation here
+	    e.stopPropagation();
+	    $("#endtime").clockpicker('show').clockpicker('toggleView', 'hours');
+	});
 	if (/Mobile/.test(navigator.userAgent)) {$('input').prop('readOnly', true);}
 });
