@@ -77,8 +77,16 @@ body{
 	border-top-left-radius:5px;
 	border-bottom-left-radius:5px;
 }
-.alertSettings span, .trackSettings span, .goalSettings span{
+.alertSettings span.on, .trackSettings span.on, .goalSettings span.on{
 	background:#f8981d;
+	color:#FFF;
+	padding:3px 5px;
+	display:inline-block;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.alertSettings span.off, .trackSettings span.off, .goalSettings span.off{
+	background:#003366;
 	color:#FFF;
 	padding:3px 5px;
 	display:inline-block;
@@ -130,7 +138,12 @@ strong.alertlabel{
 	min-height:65px;
 	font-size:15px;
 	text-align:left;
+	white-space: normal;
 	/*padding-left:82px;*/
+}
+.homebtn p{
+	font-size:12px;
+	font-weight:normal;
 }
 .clockpicker .ui-btn{
 	padding:5px 10px !important;

@@ -541,6 +541,7 @@ $(document).ready(function() {
 	if(settings == "on"){
 		$("#slider2").val() == "on";
 		$(".alertSettings span").html("on");
+		$(".alertSettings span").addClass("on");
 		$(".saveSettings").removeClass("ui-disabled");
 		validateTime();
 	}
