@@ -249,7 +249,7 @@ function renderAlerts(tx,results){
        	 if(settings != "off"){//print out the saved times with ID's 
        	 	id = results.rows.item(i).id;
        	 	time = results.rows.item(i).time;
-	   	 	s +=  "<tr><td>" + time + "</td><td><a href='#' class='ui-btn ui-mini ui-corner-all ui-btn-inline ui-btn-a deletealert' id='"+id+"'>Delete</a></td></tr>";  
+	   	 	s +=  "<tr><td>" + time + "</td><td><a href='#' class='ui-btn ui-mini ui-corner-all ui-btn-inline ui-btn-a deletealert' id='"+id+"'><i class='icon-deletealarm'></i></a></td></tr>";  
          }else{
 	        s = "<tr><td colspan='3'>alerts currently turned off.</td></tr>";
          }
@@ -285,7 +285,7 @@ function renderWater(tx,results){
 	   	 	if(checksavedDate[0] != mday && checksavedDate[1] != mmo){
 	   	 		reset ++;
 	   	 	}else{
-	   	 		s +=  "<tr><td>" + time + "</td><td>" + amount + "</td><td><a href='#' class='ui-btn ui-mini ui-btn-inline ui-btn-b editRecord' id=" + id + ">Edit</a><a href='#' class='ui-btn ui-mini ui-btn-inline ui-corner-all ui-btn-b deleteRecord' id=" + id + ">Delete</a></td></tr>";//print out the saved times with ID's  
+	   	 		s +=  "<tr><td>" + time + "</td><td>" + amount + "</td><td><a href='#' class='ui-btn ui-mini ui-btn-inline ui-btn-b editRecord' id=" + id + "><i class='icon-edit'></i></a><a href='#' class='ui-btn ui-mini ui-btn-inline ui-corner-all ui-btn-b deleteRecord' id=" + id + ">class='icon-circledelete'</a></td></tr>";//print out the saved times with ID's  
 	   	 	}
        }
        if(reset > 0){ //clear and rebuild the database
