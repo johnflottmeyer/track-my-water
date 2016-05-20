@@ -329,7 +329,7 @@ function renderGoal(tx,results){
 		  donutWidth: 60,
 		  startAngle: 270,
 		  total: 200,
-		  showLabel: false
+		  showLabel:true
 		});
     }
 }
