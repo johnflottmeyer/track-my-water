@@ -322,6 +322,15 @@ function renderGoal(tx,results){
        //end chart render
        //show what is saved
        $(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
+       new Chartist.Pie('.ct-chart', {
+		  series: [s, goal]
+		}, {
+		  donut: true,
+		  donutWidth: 60,
+		  startAngle: 270,
+		  total: 200,
+		  showLabel: false
+		});
     }
 }
 
@@ -772,15 +781,7 @@ $(document).ready(function() {
 		addwater(4);
 	});
 	
-	new Chartist.Pie('.ct-chart', {
-	  series: [20, 10, 30, 40]
-	}, {
-	  donut: true,
-	  donutWidth: 60,
-	  startAngle: 270,
-	  total: 200,
-	  showLabel: false
-	});
+	
 	
     /*ON PAGE LOAD SHOW THE FOLLOWING*/
     $(document).on("pagecontainerbeforeshow", function( event, ui ) {
