@@ -322,13 +322,19 @@ function renderGoal(tx,results){
        //end chart render
        //show what is saved
        $(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
+       if(goal-s>0){
+	       goaltotal = goal-x;
+       }else{ //goal is reached
+	       goaltotal = 0;
+	       s = goal;
+       }
        new Chartist.Pie('.ct-chart', {
-		  series: [s,goal]
+		  series: [s,goaltotal]
 		}, {
 		  donut: true,
 		  donutWidth: 100,
 		  startAngle: 270,
-		  total: goal*2,
+		  total: Number(goal*2),
 		  showLabel:true
 		});
     }
