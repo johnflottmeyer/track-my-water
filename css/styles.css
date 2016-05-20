@@ -563,13 +563,13 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 .ct-series-a .ct-slice-donut {
   /* give the donut slice a custom colour */
   stroke: #4581c2;
-  color:#FFF;
+  color:#FFF !important;
 
 }
 .ct-series-b .ct-slice-donut {
   /* give the donut slice a custom colour */
   stroke: #003366;
-  color:#FFF;
+  color:#FFF !important;
 
 }
 

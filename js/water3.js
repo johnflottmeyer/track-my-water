@@ -332,6 +332,7 @@ function renderGoal(tx,results){
        }
        donutTotal = Number(goal*2);
        new Chartist.Pie('.ct-chart', {
+	       label: ["my water",""],
 		  series: [currentAmount,goaltotal]
 		}, {
 		  donut: true,
