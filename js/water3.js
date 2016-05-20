@@ -770,7 +770,15 @@ $(document).ready(function() {
 		addwater(4);
 	});
 	
-	
+	new Chartist.Pie('.ct-chart', {
+	  series: [20, 10, 30, 40]
+	}, {
+	  donut: true,
+	  donutWidth: 60,
+	  startAngle: 270,
+	  total: 200,
+	  showLabel: false
+	});
 	
     /*ON PAGE LOAD SHOW THE FOLLOWING*/
     $(document).on("pagecontainerbeforeshow", function( event, ui ) {
@@ -802,7 +810,7 @@ $(document).ready(function() {
 	$.mobile.document.on( "click", "#buttonb", function( evt ) {
 		$("#endtime").clockpicker('show').clockpicker('toggleView', 'hours');
 	});*/
-	$.mobile.defaultPageTransition = "fade"
-	$.mobile.transitionFallbacks.slideout = "none"
+	$.mobile.defaultPageTransition = "slidefade";
+	$.mobile.transitionFallbacks.slideout = "none";
 	if (/Mobile/.test(navigator.userAgent)) {$('input').prop('readOnly', true);}
 });
