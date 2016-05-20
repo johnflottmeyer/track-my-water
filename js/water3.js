@@ -322,7 +322,7 @@ function renderGoal(tx,results){
        //end chart render
        //show what is saved
        $(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
-       if((goal-s)>0){
+       /*if((goal-s)>0){
 	       currentAmount = s;
 	       goaltotal = goal-x;
        }else{ //goal is reached
@@ -337,7 +337,7 @@ function renderGoal(tx,results){
 		  startAngle: 270,
 		  total: Number(goal*2),
 		  showLabel:true
-		});
+		});*/
     }
 }
 
