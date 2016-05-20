@@ -328,7 +328,7 @@ function renderGoal(tx,results){
 		  donut: true,
 		  donutWidth: 60,
 		  startAngle: 270,
-		  total: 200,
+		  total: goal,
 		  showLabel:true
 		});
     }
