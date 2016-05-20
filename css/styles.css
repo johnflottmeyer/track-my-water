@@ -560,6 +560,9 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	text-shadow:none !important;
 }
 /* Donut charts get built from Pie charts but with a fundamentally difference in the drawing approach. The donut is drawn using arc strokes for maximum freedom in styling */
+.ct-chart{
+	color:#FFF !important;
+}
 .ct-series-a .ct-slice-donut {
   /* give the donut slice a custom colour */
   stroke: #4581c2;
