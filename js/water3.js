@@ -323,7 +323,7 @@ function renderGoal(tx,results){
        //show what is saved
        $(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
        new Chartist.Pie('.ct-chart', {
-		  series: [goal-s]
+		  series: [goal-s,s]
 		}, {
 		  donut: true,
 		  donutWidth: 60,
