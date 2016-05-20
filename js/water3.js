@@ -323,16 +323,16 @@ function renderGoal(tx,results){
        //show what is saved
        $(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
        //lets set up the pie - donut chart
-       /*if((goal-s)>0){
+       if((goal-s)>0){
 	       currentAmount = s;
-	       goaltotal = goal-x;
+	       goaltotal = goal-s;
        }else{ //goal is reached
 	       goaltotal = 0;
 	       currentAmount = goal;
-       }*/
+       }
        donutTotal = Number(goal*2);
        new Chartist.Pie('.ct-chart', {
-		  series: [s,goal]
+		  series: [currentAmount,currentAmount]
 		}, {
 		  donut: true,
 		  donutWidth: 100,
