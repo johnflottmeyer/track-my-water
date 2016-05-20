@@ -332,7 +332,7 @@ function renderGoal(tx,results){
        }
        donutTotal = Number(goal*2);
        new Chartist.Pie('.ct-chart', {
-		  series: [currentAmount,currentAmount]
+		  series: [currentAmount,goaltotal]
 		}, {
 		  donut: true,
 		  donutWidth: 100,
