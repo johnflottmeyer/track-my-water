@@ -335,7 +335,7 @@ function renderGoal(tx,results){
 		  series: [currentAmount,goaltotal]
 		}, {
 		  donut: true,
-		  donutWidth: 100,
+		  donutWidth: 60,
 		  startAngle: 270,
 		  total: donutTotal,
 		  showLabel:true
