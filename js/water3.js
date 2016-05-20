@@ -526,6 +526,8 @@ function switchedON(){
 	$("#select-native-2").removeClass("ui-disabled");
 	$("#starttime").removeClass("ui-disabled");
 	$("#endtime").removeClass("ui-disabled");
+	$("#buttona").removeClass("ui-disabled");
+	$("#buttonb").removeClass("ui-disabled");
 }
 
 $(document).ready(function() {
