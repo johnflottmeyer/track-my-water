@@ -343,15 +343,14 @@ function renderGoal(tx,results){
 		  donutWidth: 20,
 		  startAngle: 270,
 		  total: donutTotal,
-		  showLabel:false
-		  /*,
+		  showLabel:false,
 		  plugins: [
             Chartist.plugins.fillDonut({
 	            items: [{
                     content: '<h3>Goal <span class="small">'+ goal +' oz</span></h3>'
                 }]
 	        })
-	      ],*/
+	      ],
 		});
 		
 		/*chart.on('draw', function(data) {
