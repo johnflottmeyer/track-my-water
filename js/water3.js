@@ -353,7 +353,7 @@ function renderGoal(tx,results){
 	      ],
 		});
 		
-		/*chart.on('draw', function(data) {
+		chart.on('draw', function(data) {
             if(data.type === 'slice' && data.index == 0) {
                 // Get the total path length in order to use for dash array animation
                 var pathLength = data.element._node.getTotalLength();
@@ -381,7 +381,7 @@ function renderGoal(tx,results){
                 // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
                 data.element.animate(animationDefinition, true);
             }
-        });*/
+        });
 		//
     }
 }
