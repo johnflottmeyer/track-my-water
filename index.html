@@ -56,11 +56,13 @@
 			</div>
 	</div><!-- / ui-content -->
 	<script>
+		svar = $("#s").text();
+		goalvar = $("$goal").text();
 		var config = {
         type: 'doughnut',
         data: {
             datasets: [{
-                data: [$("#s").text(),$("$goal").text()],
+                data: [svar,goalvar],
                 backgroundColor: [
                     "#F7464A",
                     "#46BFBD"
