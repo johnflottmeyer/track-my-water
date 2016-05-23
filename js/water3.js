@@ -324,7 +324,7 @@ function renderGoal(tx,results){
        $(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
        
        //lets set up the pie - donut chart
-       $(document).ready(function() {
+       /*$(document).ready(function() {*/
 	    goal = 64;   //temporary 
        
        if((goal-s)>0){
@@ -344,17 +344,18 @@ function renderGoal(tx,results){
 		  donutWidth: 20,
 		  startAngle: 270,
 		  total: donutTotal,
-		  showLabel:false,
+		  showLabel:false
+		  /*,
 		  plugins: [
             Chartist.plugins.fillDonut({
 	            items: [{
                     content: '<h3>Goal <span class="small">'+ goal +' oz</span></h3>'
                 }]
 	        })
-	      ],
+	      ],*/
 		});
 		
-		chart.on('draw', function(data) {
+		/*chart.on('draw', function(data) {
             if(data.type === 'slice' && data.index == 0) {
                 // Get the total path length in order to use for dash array animation
                 var pathLength = data.element._node.getTotalLength();
@@ -383,7 +384,7 @@ function renderGoal(tx,results){
                 data.element.animate(animationDefinition, true);
             }
         });
-        });
+        });*/
 		//
     }
 }
