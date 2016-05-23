@@ -347,7 +347,7 @@ function renderGoal(tx,results){
 		  plugins: [
             Chartist.plugins.fillDonut({
 	            items: [{
-                    content: '<h3>Goal <span class="small">' + goal + ' oz</span></h3>'
+                    content: '<h3>Goal <span class="small"> oz</span></h3>'
                 }]
 	        })
 	      ],
