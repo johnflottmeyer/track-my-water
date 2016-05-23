@@ -323,66 +323,47 @@ function renderGoal(tx,results){
        //show what is saved
        //$(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
        
-       //lets set up the pie - donut chart
-	    goal = 64;   //temporary 
-       
-       if((goal-s)>0){
-	       currentAmount = s;
-	       goaltotal = goal-s;
-       }else{ //goal is reached
-	       goaltotal = 0;
-	       currentAmount = goal;
-       }
-
-	   donutTotal = Number(goal*2);
-       var chart = new Chartist.Pie('.ct-chart', {
-	       series: [currentAmount,goaltotal],
-	       labels: ["",""]
-		}, {
-		  donut: true,
-		  donutWidth: 20,
-		  startAngle: 270,
-		  total: donutTotal,
-		  showLabel:false,
-		  plugins: [
-            Chartist.plugins.fillDonut({
-	            items: [{
-                    content: '<h3>Goal <span class="small">'+ goal +' oz</span></h3>'
-                }]
-	        })
-	      ],
-		});
-		
-		/*chart.on('draw', function(data) {
-            if(data.type === 'slice' && data.index == 0) {
-                // Get the total path length in order to use for dash array animation
-                var pathLength = data.element._node.getTotalLength();
-                // Set a dasharray that matches the path length as prerequisite to animate dashoffset
-                data.element.attr({
-                    'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
-                });
-                // Create animation definition while also assigning an ID to the animation for later sync usage
-                var animationDefinition = {
-                    'stroke-dashoffset': {
-                        id: 'anim' + data.index,
-                        dur: 1200,
-                        from: -pathLength + 'px',
-                        to:  '0px',
-                        easing: Chartist.Svg.Easing.easeOutQuint,
-                        // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
-                        fill: 'freeze'
-                    }
-                };
-                // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
-                data.element.attr({
-                    'stroke-dashoffset': -pathLength + 'px'
-                });
-                // We can't use guided mode as the animations need to rely on setting begin manually
-                // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
-                data.element.animate(animationDefinition, true);
+        var config = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [64,10],
+                backgroundColor: [
+                    "#F7464A",
+                    "#46BFBD"
+                ],
+                label: 'Dataset 1'
+            
+            }],
+            labels: [
+                "goal",
+                "water"
+            ]
+        },
+        options: {
+	        rotation: 270,
+            responsive: true,
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Water drank towards water goal'
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
             }
-    
-        });*/
+        }
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myDoughnut = new Chart(ctx, config);
+    };
+
+		
+		/**/
     }
 }
 

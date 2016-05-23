@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/styles.css"/>
 </head>
 <body>
+
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -210,7 +211,7 @@
 	</div><!-- / ui-content -->
 	
 </div><!-- / track page -->
-
+	
 <!-- goal page -->
 <div data-role="page" id="account" data-theme="a">
 
@@ -223,6 +224,9 @@
 				<p id="mygoalstatus"></p>
 				<p class="mygoaldata"></p> 
 				<div class="ct-chart"></div> 
+				<div id="canvas-holder" style="width:75%">
+        <canvas id="chart-area" />
+    </div>
 				<h3>Set Your Goal</h3>
 				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
 				<form>
@@ -247,70 +251,7 @@
 			<!-- /navbar -->
 			</div>
 	</div><!-- / ui-content -->
-	<script type="text/javascript">
-		window.onload = function () { 
-		   //lets set up the pie - donut chart
-		   goal = 64;   //temporary 
-	       s = 40;
-	       if((goal-s)>0){
-		       currentAmount = s;
-		       goaltotal = goal-s;
-	       }else{ //goal is reached
-		       goaltotal = 0;
-		       currentAmount = goal;
-	       }
 	
-		   donutTotal = Number(goal*2);
-	       var chart = new Chartist.Pie('.ct-chart', {
-		       series: [currentAmount,goaltotal],
-		       labels: ["",""]
-			}, {
-			  donut: true,
-			  donutWidth: 20,
-			  startAngle: 270,
-			  total: donutTotal,
-			  showLabel:false,
-			  plugins: [
-	            Chartist.plugins.fillDonut({
-		            items: [{
-	                    content: '<h3>Goal <span class="small">'+ goal +' oz</span></h3>'
-	                }]
-		        })
-		      ],
-			});
-			
-			chart.on('draw', function(data) {
-	            if(data.type === 'slice' && data.index == 0) {
-	                // Get the total path length in order to use for dash array animation
-	                var pathLength = data.element._node.getTotalLength();
-	                // Set a dasharray that matches the path length as prerequisite to animate dashoffset
-	                data.element.attr({
-	                    'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
-	                });
-	                // Create animation definition while also assigning an ID to the animation for later sync usage
-	                var animationDefinition = {
-	                    'stroke-dashoffset': {
-	                        id: 'anim' + data.index,
-	                        dur: 1200,
-	                        from: -pathLength + 'px',
-	                        to:  '0px',
-	                        easing: Chartist.Svg.Easing.easeOutQuint,
-	                        // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
-	                        fill: 'freeze'
-	                    }
-	                };
-	                // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
-	                data.element.attr({
-	                    'stroke-dashoffset': -pathLength + 'px'
-	                });
-	                // We can't use guided mode as the animations need to rely on setting begin manually
-	                // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
-	                data.element.animate(animationDefinition, true);
-	            }
-	    
-	        });
-        }
-		</script>
 </div><!-- / goal page -->
 
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
@@ -319,8 +260,7 @@
 <script type="text/javascript" src="js/toastr.js"></script>
 
 <script type="text/javascript" src="cordova.js"></script> <!--turn off for local testing-->
-<script type="text/javascript" src="js/chartist.min.js"></script> 
-<script type="text/javascript" src="js/chartist-plugin-fill-donut.js"></script> 
+<script type="text/javascript" src="js/Chart.js"></script> 
 <script type="text/javascript" src="js/water3.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 <script type="text/javascript">
