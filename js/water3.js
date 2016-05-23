@@ -300,6 +300,8 @@ function renderGoal(tx,results){
     if (results.rows.length == 0) {//none set yet
 		$("#mygoalstatus").html("nothing saved.");//show what is saved 
 		$(".mygoaldata").html(""); //remove the current data
+		$(".s").html("0");
+		$(".goal").text("64");
     } else {//load and display the settings.
     	$("#mygoalstatus").html("");
     	$(".mygoaldata").html("");//clear out the old stuff
@@ -310,6 +312,7 @@ function renderGoal(tx,results){
        	 	amount = results.rows.item(i).amount;
 	   	 	s +=  Number(amount);//print out the saved times with ID's  
        }
+       
        //some inspiration messages
        if(s <= 3){
 	       insp = "Don't forget to drink your water.";
@@ -320,51 +323,13 @@ function renderGoal(tx,results){
        }
        //add in a chart to render out here
        //end chart render
+       
        //show what is saved
        //$(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
-       
-        var config = {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [64,10],
-                backgroundColor: [
-                    "#F7464A",
-                    "#46BFBD"
-                ],
-                label: 'Dataset 1'
-            
-            }],
-            labels: [
-                "goal",
-                "water"
-            ]
-        },
-        options: {
-	        rotation: 270,
-            responsive: true,
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Water drank towards water goal'
-            },
-            animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-        }
-    };
-
-    window.onload = function() {
-        var ctx = document.getElementById("chart-area").getContext("2d");
-        window.myDoughnut = new Chart(ctx, config);
-    };
-
-		
-		/**/
+       $("#s").html(s);
+       $("#goal").text("64");
     }
+    
 }
 
 /* CREATE THE NOTIFICATIONS TO REMIND WATER DRINKING */
