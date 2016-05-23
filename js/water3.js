@@ -323,30 +323,9 @@ function renderGoal(tx,results){
        //show what is saved
        $(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
        //lets set up the pie - donut chart
-       //goal = 64;
-       //s = 54;
-       
-       if((goal-s)>0){
-	       currentAmount = s;
-	       goaltotal = goal-s;
-       }else{ //goal is reached
-	       goaltotal = 0;
-	       currentAmount = goal;
+       if(!goal){
+	    	goal = 64;   
        }
-       donutTotal = Number(goal*2);
-       
-       new Chartist.Pie('.ct-chart', {
-	       labels: ["my water","my goal"],
-		  series: [currentAmount,goaltotal]
-		}, {
-		  donut: true,
-		  donutWidth: 60,
-		  startAngle: 270,
-		  total: donutTotal,
-		  showLabel:true
-		});
-		//
-		
        if((goal-s)>0){
 	       currentAmount = s;
 	       goaltotal = goal-s;
