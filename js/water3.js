@@ -376,7 +376,7 @@ function RenderChart(amount,goal){
 	console.log("make the chart");
 	//var s;
 	//var goalvar;
-	window.myDoughnut.update();
+	//window.myDoughnut.update();
        //add in a chart to render out here
        //end chart render
        
