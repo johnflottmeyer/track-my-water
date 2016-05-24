@@ -190,6 +190,7 @@ function getGoal() { /*GET GOAL ENTRIES*/
     dbShell.transaction(function(tx) {
         tx.executeSql("select id, date, time, amount, updated from goals order by id desc",[],renderGoal,dbErrorHandler);
     }, dbErrorHandler);
+    
 }
 function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 	dbShell.transaction(function(tx) {
@@ -299,6 +300,20 @@ function renderWater(tx,results){
 
 /* RENDER THE GOALS SAVED TO THE SCREEN */
 function renderGoal(tx,results){
+	
+	db.transaction(function (tx) {
+	   tx.executeSql('SELECT * FROM saved', [], function (tx, results) {
+	      var len = results.rows.length, i;
+	      msg = "<p>Found rows: " + len + "</p>";
+	      document.querySelector('#status').innerHTML +=  msg;
+		
+	      for (i = 0; i < len; i++){
+	         alert(results.rows.item(i).log );
+	      }
+		
+	   }, null);
+	});
+
     if (results.rows.length == 0) {//none set yet
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
