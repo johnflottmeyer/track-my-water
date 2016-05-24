@@ -328,8 +328,6 @@ function renderGoal(tx,results){
        
 		
     }
-    if(amount == ""){ s = 10; }else{ s=amount; }
-	if(goal == ""){ goalvar = 64; }else{ goalvar=goal;}
 	RenderChart(s,64);
     
 }
