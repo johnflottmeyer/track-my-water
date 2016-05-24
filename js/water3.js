@@ -364,7 +364,6 @@ function renderGoal(tx,results){
 	            }
 	        }
 	    };	
-	    var ctx = document.getElementById("chart-area").getContext("2d");
 	    window.onload = function() {
 	        var ctx = document.getElementById("chart-area").getContext("2d");
 	        window.myDoughnut = new Chart(ctx, config);
