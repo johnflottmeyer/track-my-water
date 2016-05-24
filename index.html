@@ -13,90 +13,6 @@
 </head>
 <body>
 
-<!-- goal page -->
-<div data-role="page" id="account" data-theme="a">
-
-	<div role="main" class="ui-content">
-		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div><div class="messages"></div>
-			<div class="ui-body ui-body-a ui-center">
-				
-				<h3>Your Status</h3>
-				
-				<!--<p id="mygoalstatus"></p>
-				<p class="mygoaldata"></p> 
-				<div class="ct-chart"></div> -->
-				----
-				<div id="canvas-holder">
-			        <canvas id="chart-area" />
-			    </div>
-			    <div id="goal">goal</div><div id="s">s</div>
-			    ----
-				<h3>Set Your Goal</h3>
-				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
-				<form>
-					<div data-role="controlgroup" data-type="horizontal">
-					<label for="watergoal">Your Goal Amount</label>
-					<input name="goal" value="64" id="watergoal" data-mini="true" data-wrapper-class="controlgroup-textinput ui-btn"/>
-					<button type="submit" name="savegoal" id="save-goal" class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
-					</div>
-				</form>
-				<p>Here is where you are at with your daily water goal.</p>
-			</div><!-- / ui-body -->
-			
-			<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" data-iconpos="top" class="top-nav">
-		        <ul>
-		        	<li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
-		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
-		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
-		            <li><a href="#account" data-icon="custom" class="ui-icon-goal ui-btn-active ui-state-persist">Goal</a></li>
-		        </ul>
-			</div>
-			<!-- /navbar -->
-			</div>
-	</div><!-- / ui-content -->
-	<script>
-		svar = $("#s").text();
-		goalvar = $("$goal").text();
-		var config = {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [svar,goalvar],
-                backgroundColor: [
-                    "#F7464A",
-                    "#46BFBD"
-                ],
-                label: 'Dataset 1'
-            }],
-            labels: [
-                "goal",
-                "water"
-            ]
-        },
-        options: {
-	        rotation: 270,
-            responsive: true,
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Water drank towards water goal'
-            },
-            animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-        }
-    };
-
-   window.onload = function() {
-        var ctx = document.getElementById("chart-area").getContext("2d");
-        window.myDoughnut = new Chart(ctx, config);
-    };
-		</script>
-</div><!-- / goal page -->
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -295,7 +211,91 @@
 	</div><!-- / ui-content -->
 	
 </div><!-- / track page -->
-	<!--goal-->
+
+<!-- goal page -->
+<div data-role="page" id="account" data-theme="a">
+
+	<div role="main" class="ui-content">
+		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div><div class="messages"></div>
+			<div class="ui-body ui-body-a ui-center">
+				
+				<h3>Your Status</h3>
+				
+				<!--<p id="mygoalstatus"></p>
+				<p class="mygoaldata"></p> 
+				<div class="ct-chart"></div> -->
+				----
+				<div id="canvas-holder">
+			        <canvas id="chart-area" />
+			    </div>
+			    <div id="goal">goal</div><div id="s">s</div>
+			    ----
+				<h3>Set Your Goal</h3>
+				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
+				<form>
+					<div data-role="controlgroup" data-type="horizontal">
+					<label for="watergoal">Your Goal Amount</label>
+					<input name="goal" value="64" id="watergoal" data-mini="true" data-wrapper-class="controlgroup-textinput ui-btn"/>
+					<button type="submit" name="savegoal" id="save-goal" class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
+					</div>
+				</form>
+				<p>Here is where you are at with your daily water goal.</p>
+			</div><!-- / ui-body -->
+			
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="top" class="top-nav">
+		        <ul>
+		        	<li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
+		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
+		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
+		            <li><a href="#account" data-icon="custom" class="ui-icon-goal ui-btn-active ui-state-persist">Goal</a></li>
+		        </ul>
+			</div>
+			<!-- /navbar -->
+			</div>
+	</div><!-- / ui-content -->
+	<script>
+		svar = $("#s").text();
+		goalvar = $("$goal").text();
+		var config = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [svar,goalvar],
+                backgroundColor: [
+                    "#F7464A",
+                    "#46BFBD"
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+                "goal",
+                "water"
+            ]
+        },
+        options: {
+	        rotation: 270,
+            responsive: true,
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Water drank towards water goal'
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    };
+
+   window.onload = function() {
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myDoughnut = new Chart(ctx, config);
+    };
+		</script>
+</div><!-- / goal page -->
 
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
