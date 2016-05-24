@@ -254,51 +254,6 @@
 			<!-- /navbar -->
 			</div>
 	</div><!-- / ui-content -->
-	<script>
-
-	   window.onload = function() {
-		   	svar = Number($("#s").text());
-			goalvar = Number($("#goal").text());
-			if(svar == ""){ svar = 0; }
-			if(goalvar == ""){ goalvar = 64; }
-			console.log("goalvar: " + goalvar);
-			console.log("svar: " + svar);
-			
-	        var ctx = document.getElementById("chart-area").getContext("2d");
-	        window.myDoughnut = new Chart(ctx, {
-		    	type: 'doughnut',
-		        data: {
-		            datasets: [{
-		                data: [svar,goalvar],
-		                backgroundColor: [
-		                    "#F7464A",
-		                    "#46BFBD"
-		                ],
-		                label: 'Dataset 1'
-		            }],
-		            labels: [
-		                "goal",
-		                "water"
-		            ]
-		        },
-		        options: {
-			        rotation: 270,
-		            responsive: true,
-		            legend: {
-		                position: 'top',
-		            },
-		            title: {
-		                display: true,
-		                text: 'Water drank towards water goal'
-		            },
-		            animation: {
-		                animateScale: true,
-		                animateRotate: true
-		            }
-		        }	    
-		    });
-	    };
-		</script>
 </div><!-- / goal page -->
 
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>

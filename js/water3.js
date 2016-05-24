@@ -308,6 +308,7 @@ function renderGoal(tx,results){
     	$("#mygoalstatus").html("");
     	$(".mygoaldata").html("");//clear out the old stuff
        var s = Number();
+       var goalvar = 64;
        var insp = "";
        for(var i=0; i<results.rows.length; i++) {
        	 	date = results.rows.item(i).date;
@@ -323,6 +324,46 @@ function renderGoal(tx,results){
        }else if(s >= 64){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
+       
+        //svar = Number($("#s").text());
+		//goalvar = Number($("#goal").text());
+		if(s == ""){ s = 0; }
+		console.log("goalvar: " + goalvar);
+		console.log("svar: " + svar);
+		
+	    var ctx = document.getElementById("chart-area").getContext("2d");
+	    window.myDoughnut = new Chart(ctx, {
+	    	type: 'doughnut',
+	        data: {
+	            datasets: [{
+	                data: [s,goalvar],
+	                backgroundColor: [
+	                    "#F7464A",
+	                    "#46BFBD"
+	                ],
+	                label: 'Dataset 1'
+	            }],
+	            labels: [
+	                "goal",
+	                "water"
+	            ]
+	        },
+	        options: {
+		        rotation: 270,
+	            responsive: true,
+	            legend: {
+	                position: 'top',
+	            },
+	            title: {
+	                display: true,
+	                text: 'Water drank towards water goal'
+	            },
+	            animation: {
+	                animateScale: true,
+	                animateRotate: true
+	            }
+	        }	    
+	    });
        //add in a chart to render out here
        //end chart render
        
