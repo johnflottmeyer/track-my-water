@@ -329,7 +329,7 @@ function renderGoal(tx,results){
 		//goalvar = Number($("#goal").text());
 		if(s == ""){ s = 0; }
 		console.log("goalvar: " + goalvar);
-		console.log("svar: " + svar);
+		console.log("svar: " + s);
 		
 	    var ctx = document.getElementById("chart-area").getContext("2d");
 	    window.myDoughnut = new Chart(ctx, {
