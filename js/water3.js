@@ -328,14 +328,7 @@ function renderGoal(tx,results){
        
 		
     }
-    RenderChart(s,64);
-    
-}
-function RenderChart(amount,goal){
-	console.log("make the chart");
-	var s;
-	var goalvar;
-	if(amount == ""){ s = 10; }else{ s=amount; }
+    if(amount == ""){ s = 10; }else{ s=amount; }
 	if(goal == ""){ goalvar = 64; }else{ goalvar=goal;}
 		//console.log("goalvar: " + goalvar);
 		//console.log("svar: " + s);
@@ -376,10 +369,14 @@ function RenderChart(amount,goal){
 	        var ctx = document.getElementById("chart-area").getContext("2d");
 	        window.myDoughnut = new Chart(ctx, config);
 	    };
-	    window.myChart = new Chart(ctx,config);
-	    	    
-
-	    window.myChart.update();
+		RenderChart(s,64);
+    
+}
+function RenderChart(amount,goal){
+	console.log("make the chart");
+	//var s;
+	//var goalvar;
+	window.myDoughnut.update();
        //add in a chart to render out here
        //end chart render
        
