@@ -249,6 +249,44 @@
 			</div>
 			<!-- /navbar -->
 			</div>
+			<script type="text/javascript">
+				var config = {
+			 type: 'doughnut',
+	        data: {
+	            datasets: [{
+	                data: [64,10],
+	                backgroundColor: [
+	                    "#F7464A",
+	                    "#46BFBD"
+	                ],
+	                label: 'Dataset 1'
+	            }],
+	            labels: [
+	                "goal",
+	                "water"
+	            ]
+	        },
+	        options: {
+		        //rotation: 270,
+	            responsive: true,
+	            legend: {
+	                position: 'top',
+	            },
+	            title: {
+	                display: true,
+	                text: 'Water drank towards water goal'
+	            },
+	            animation: {
+	                animateScale: true,
+	                animateRotate: true
+	            }
+	        }
+	    };	
+	    window.onload = function() {
+	        var ctx = document.getElementById("chart-area").getContext("2d");
+	        window.myDoughnut = new Chart(ctx, config);
+	    };
+				</script>
 	</div><!-- / ui-content -->
 </div><!-- / goal page -->
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
