@@ -335,11 +335,10 @@ function RenderChart(amount,goal){
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);
-        window.myDoughnut.update();
         
         //add in teh new data
         var newDataset = {
-            backgroundColor: ["#F7464A","#46BFBD"],
+            backgroundColor: ["#003366","#f8981d"],
             data: [64,amount],
             label: 'New dataset ' + config.data.datasets.length,
         };
