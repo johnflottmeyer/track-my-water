@@ -341,7 +341,7 @@ function RenderChart(amount,goal){
 		//console.log("svar: " + s);
 		
 	    var ctx = document.getElementById("chart-area").getContext("2d");
-	    var myChart = new Chart(ctx, {
+	    window.myChart = new Chart(ctx, {
 	    	type: 'doughnut',
 	        data: {
 	            datasets: [{
