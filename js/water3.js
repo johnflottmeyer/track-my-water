@@ -372,10 +372,10 @@ function RenderChart(amount,goal){
 	        }
 	    };	
 	    var ctx = document.getElementById("chart-area").getContext("2d");
-	    /*window.onload = function() {
+	    window.onload = function() {
 	        var ctx = document.getElementById("chart-area").getContext("2d");
 	        window.myDoughnut = new Chart(ctx, config);
-	    };*/
+	    };
 	    window.myChart = new Chart(ctx,config);
 	    	    
 
