@@ -347,8 +347,7 @@ function RenderChart(amount,goal){
         };
 
         for (var index = 0; index < config.data.labels.length; ++index) {
-            newDataset.data.push(randomScalingFactor());
-            newDataset.backgroundColor.push(randomColor(0.7));
+            newDataset.data.push();
         }
 
         config.data.datasets.push(newDataset);
