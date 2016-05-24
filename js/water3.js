@@ -345,7 +345,7 @@ function RenderChart(amount,goal){
 	    	type: 'doughnut',
 	        data: {
 	            datasets: [{
-	                data: [goalvar,s],
+	                data: [64,10],
 	                backgroundColor: [
 	                    "#F7464A",
 	                    "#46BFBD"
