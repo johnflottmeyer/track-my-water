@@ -338,8 +338,7 @@ function RenderChart(amount,goal){
         config.data.labels.push('data #' + config.data.labels.length);
 
         $.each(config.data.datasets, function(index, dataset) {
-            dataset.data.push(randomScalingFactor());
-            dataset.backgroundColor.push(randomColor(0.7));
+            dataset.data.push(40);
         });
 
         window.myDoughnut.update();
