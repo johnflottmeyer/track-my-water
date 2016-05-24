@@ -330,57 +330,20 @@ function renderGoal(tx,results){
     }
     if(amount == ""){ s = 10; }else{ s=amount; }
 	if(goal == ""){ goalvar = 64; }else{ goalvar=goal;}
-		//console.log("goalvar: " + goalvar);
-		//console.log("svar: " + s);
-		 var config = {
-			 type: 'doughnut',
-	        data: {
-	            datasets: [{
-	                data: [64,10],
-	                backgroundColor: [
-	                    "#F7464A",
-	                    "#46BFBD"
-	                ],
-	                label: 'Dataset 1'
-	            }],
-	            labels: [
-	                "goal",
-	                "water"
-	            ]
-	        },
-	        options: {
-		        //rotation: 270,
-	            responsive: true,
-	            legend: {
-	                position: 'top',
-	            },
-	            title: {
-	                display: true,
-	                text: 'Water drank towards water goal'
-	            },
-	            animation: {
-	                animateScale: true,
-	                animateRotate: true
-	            }
-	        }
-	    };	
-	    window.onload = function() {
-	        var ctx = document.getElementById("chart-area").getContext("2d");
-	        window.myDoughnut = new Chart(ctx, config);
-	    };
-		RenderChart(s,64);
+	RenderChart(s,64);
     
 }
 function RenderChart(amount,goal){
-	console.log("make the chart");
-	//var s;
-	//var goalvar;
-	//window.myDoughnut.update();
-       //add in a chart to render out here
-       //end chart render
-       
-       //show what is saved
-       //$(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
+	 if (config.data.datasets.length > 0) {
+        config.data.labels.push('data #' + config.data.labels.length);
+
+        $.each(config.data.datasets, function(index, dataset) {
+            dataset.data.push(randomScalingFactor());
+            dataset.backgroundColor.push(randomColor(0.7));
+        });
+
+        window.myDoughnut.update();
+     }
 }
 
 /* CREATE THE NOTIFICATIONS TO REMIND WATER DRINKING */
