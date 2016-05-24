@@ -382,8 +382,6 @@ function RenderChart(amount,goal){
        
        //show what is saved
        //$(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
-       $("#s").html(s);
-       $("#goal").text(goalvar);
 }
 
 /* CREATE THE NOTIFICATIONS TO REMIND WATER DRINKING */
