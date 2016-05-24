@@ -261,7 +261,8 @@
 			goalvar = Number($("#goal").text());
 			if(svar == ""){ svar = 0; }
 			if(goalvar == ""){ goalvar = 64; }
-			console.log((goalvar + 1) + " -- " + (svar + 1));
+			console.log("goalvar" + goalvar + 1);
+			console.log("svar:" + svar + 1);
 			
 	        var ctx = document.getElementById("chart-area").getContext("2d");
 	        window.myDoughnut = new Chart(ctx, {
