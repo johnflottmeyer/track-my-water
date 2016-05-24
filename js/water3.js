@@ -335,12 +335,24 @@ function renderGoal(tx,results){
 }
 function RenderChart(amount,goal){
 	 if (config.data.datasets.length > 0) {
-        config.data.labels.push('data #' + config.data.labels.length);
+		//remove the old data
+		config.data.datasets.splice(0, 1);
+        window.myDoughnut.update();
+        
+        //add in teh new data
+        var newDataset = {
+            backgroundColor: [],
+            data: [64,20],
+            label: 'New dataset ' + config.data.datasets.length,
+        };
 
-        $.each(config.data.datasets, function(index, dataset) {
-            dataset.data.push(40);
-        });
+        for (var index = 0; index < config.data.labels.length; ++index) {
+            newDataset.data.push(randomScalingFactor());
+            newDataset.backgroundColor.push(randomColor(0.7));
+        }
 
+        config.data.datasets.push(newDataset);
+        
         window.myDoughnut.update();
      }
 }
