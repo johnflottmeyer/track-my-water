@@ -255,8 +255,7 @@
 			</div>
 	</div><!-- / ui-content -->
 	<script>
-		svar = $("#s").text();
-		goalvar = $("$goal").text();
+		
 		var config = {
         type: 'doughnut',
         data: {
@@ -291,6 +290,8 @@
     };
 
    window.onload = function() {
+	   	svar = Number($("#s").text());
+		goalvar = Number($("$goal").text());
         var ctx = document.getElementById("chart-area").getContext("2d");
         window.myDoughnut = new Chart(ctx, config);
     };
