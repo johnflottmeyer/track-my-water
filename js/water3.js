@@ -325,14 +325,12 @@ function renderGoal(tx,results){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        
-        //svar = Number($("#s").text());
-		//goalvar = Number($("#goal").text());
 		if(s == ""){ s = 0; }
-		console.log("goalvar: " + goalvar);
-		console.log("svar: " + s);
+		//console.log("goalvar: " + goalvar);
+		//console.log("svar: " + s);
 		
 	    var ctx = document.getElementById("chart-area").getContext("2d");
-	    window.myDoughnut = new Chart(ctx, {
+	    var myChart = new Chart(ctx, {
 	    	type: 'doughnut',
 	        data: {
 	            datasets: [{
