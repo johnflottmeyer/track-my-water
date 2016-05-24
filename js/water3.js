@@ -373,6 +373,7 @@ function RenderChart(amount,goal){
 	            }
 	        }	    
 	    });
+	    window.myChart.update();
        //add in a chart to render out here
        //end chart render
        
