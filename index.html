@@ -258,9 +258,10 @@
 
 	   window.onload = function() {
 		   	svar = Number($("#s").text());
-			goalvar = Number($("$goal").text());
+			goalvar = Number($("#goal").text());
+			
 	        var ctx = document.getElementById("chart-area").getContext("2d");
-	        window.myDoughnut = new Chart(ctx{
+	        window.myDoughnut = new Chart(ctx, {
 		    	type: 'doughnut',
 		        data: {
 		            datasets: [{
