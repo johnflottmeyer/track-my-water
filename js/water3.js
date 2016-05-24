@@ -339,10 +339,8 @@ function RenderChart(amount,goal){
 	if(goal == ""){ goalvar = 64; }else{ goalvar=goal;}
 		//console.log("goalvar: " + goalvar);
 		//console.log("svar: " + s);
-		
-	    var ctx = document.getElementById("chart-area").getContext("2d");
-	    window.myChart = new Chart(ctx, {
-	    	type: 'doughnut',
+		 var config = {
+			 type: 'doughnut',
 	        data: {
 	            datasets: [{
 	                data: [64,10],
@@ -371,8 +369,16 @@ function RenderChart(amount,goal){
 	                animateScale: true,
 	                animateRotate: true
 	            }
-	        }	    
-	    });
+	        }
+	    };	
+	    var ctx = document.getElementById("chart-area").getContext("2d");
+	    /*window.onload = function() {
+	        var ctx = document.getElementById("chart-area").getContext("2d");
+	        window.myDoughnut = new Chart(ctx, config);
+	    };*/
+	    window.myChart = new Chart(ctx,config);
+	    	    
+
 	    window.myChart.update();
        //add in a chart to render out here
        //end chart render
