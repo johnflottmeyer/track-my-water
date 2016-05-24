@@ -300,15 +300,13 @@ function renderWater(tx,results){
 /* RENDER THE GOALS SAVED TO THE SCREEN */
 function renderGoal(tx,results){
     if (results.rows.length == 0) {//none set yet
-		$("#mygoalstatus").html("nothing saved.");//show what is saved 
-		$(".mygoaldata").html(""); //remove the current data
-		$(".s").html("0");
-		$(".goal").text("64");
+		s = 0;
+		$(".inspiration").html("Be sure to track some water");
     } else {//load and display the settings.
-    	$("#mygoalstatus").html("");
-    	$(".mygoaldata").html("");//clear out the old stuff
+    	
+    	//need to make sure that the goal is saved as such
+    	//need to sort out for just today
        var s = Number();
-       var goalvar = 64;
        var insp = "";
        for(var i=0; i<results.rows.length; i++) {
        	 	date = results.rows.item(i).date;
@@ -325,10 +323,10 @@ function renderGoal(tx,results){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        
-       
-		
+       $(".inspiration").html(insp);
+	   RenderChart(s,64);
     }
-	RenderChart(s,64);
+	
     
 }
 function RenderChart(amount,goal){
