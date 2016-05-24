@@ -325,7 +325,18 @@ function renderGoal(tx,results){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        
-		if(s == ""){ s = 0; }
+       
+		
+    }
+    RenderChart(s,64);
+    
+}
+function RenderChart(amount,goal){
+	console.log("make the chart");
+	var s;
+	var goalvar;
+	if(amount == ""){ s = 10; }else{ s=amount; }
+	if(goal == ""){ goalvar = 64; }else{ goalvar=goal;}
 		//console.log("goalvar: " + goalvar);
 		//console.log("svar: " + s);
 		
@@ -334,7 +345,7 @@ function renderGoal(tx,results){
 	    	type: 'doughnut',
 	        data: {
 	            datasets: [{
-	                data: [s,goalvar],
+	                data: [goalvar,s],
 	                backgroundColor: [
 	                    "#F7464A",
 	                    "#46BFBD"
@@ -347,7 +358,7 @@ function renderGoal(tx,results){
 	            ]
 	        },
 	        options: {
-		        rotation: 270,
+		        //rotation: 270,
 	            responsive: true,
 	            legend: {
 	                position: 'top',
@@ -368,9 +379,7 @@ function renderGoal(tx,results){
        //show what is saved
        //$(".mygoaldata").html("<h3>"+insp+"</h3><table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Total</th></thead></tr><tr><tbody><td>" + date + "</td><td>" + s + "</td></tbody></table>"); 
        $("#s").html(s);
-       $("#goal").text("64");
-    }
-    
+       $("#goal").text(goalvar);
 }
 
 /* CREATE THE NOTIFICATIONS TO REMIND WATER DRINKING */
