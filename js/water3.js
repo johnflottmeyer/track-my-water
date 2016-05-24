@@ -134,9 +134,12 @@ function phoneReady() {
     //###Plugins - BADGE
     cordova.plugins.notification.badge.hasPermission(function (granted) { 
 	    //might not need to check since we are getting permission for the Notifications
-		window.plugins.notification.badge.configure({ autoClear: true });//clear badges we are in the app 
+		// alert("badges are permitted");
+		window.plugin.notification.badge.clear(); 
+		//window.plugins.notification.badge.configure({ autoClear: true });
 	});
-    window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
+    //window.plugin.notification.badge.setClearOnTap(true); //clear the badge amount when clicked on
+    window.plugin.notification.badge.configure({ autoClear: true });//clear badges we are in the app 
     //###Plugins - NOTIFICATIONS PERMISSION
     checkNotificationPermissions();
 	//###Plugins - HEALTHKIT AVAILABLE?
