@@ -341,8 +341,8 @@ function RenderChart(amount,goal){
         
         //add in teh new data
         var newDataset = {
-            backgroundColor: [],
-            data: [64,20],
+            backgroundColor: ["#F7464A","#46BFBD"],
+            data: [64,amount],
             label: 'New dataset ' + config.data.datasets.length,
         };
 
