@@ -304,8 +304,8 @@ function renderGoal(tx,results){
 	db.transaction(function (tx) {
 	   tx.executeSql('SELECT * FROM saved', [], function (tx, results) {
 	      var len = results.rows.length, i;
-	      msg = "<p>Found rows: " + len + "</p>";
-	      document.querySelector('#status').innerHTML +=  msg;
+	      //msg = "<p>Found rows: " + len + "</p>";
+	      //document.querySelector('#status').innerHTML +=  msg;
 		
 	      for (i = 0; i < len; i++){
 	         alert(results.rows.item(i).log );
