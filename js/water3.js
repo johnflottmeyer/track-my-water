@@ -301,7 +301,7 @@ function renderWater(tx,results){
 /* RENDER THE GOALS SAVED TO THE SCREEN */
 function renderGoal(tx,results){
 	
-	db.transaction(function (tx) {
+	/*db.transaction(function (tx) {
 	   tx.executeSql('SELECT * FROM saved', [], function (tx, results) {
 	      var len = results.rows.length, i;
 	      //msg = "<p>Found rows: " + len + "</p>";
@@ -312,7 +312,7 @@ function renderGoal(tx,results){
 	      }
 		
 	   }, null);
-	});
+	});*/
 
     if (results.rows.length == 0) {//none set yet
 		s = 0;
