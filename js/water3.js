@@ -300,7 +300,6 @@ function renderWater(tx,results){
 
 /* RENDER THE GOALS SAVED TO THE SCREEN */
 function renderGoal(tx,results){
-	console.log("goal is:" + goal);
     if (results.rows.length == 0) {//none set yet
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
@@ -326,7 +325,7 @@ function renderGoal(tx,results){
        }
        
        $(".inspiration").html(insp);
-	   RenderChart(s,64);
+	   RenderChart(s,goal);
     }
 	
     
@@ -339,7 +338,7 @@ function RenderChart(amount,goal){
         //add in teh new data
         var newDataset = {
             backgroundColor: ["#003366","#f8981d"],
-            data: [64,amount],
+            data: [goal,amount],
             label: 'New dataset ' + config.data.datasets.length,
         };
 
