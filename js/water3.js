@@ -216,7 +216,8 @@ function renderSettings(tx,results){
        	 	startmin = start.split(":");
        	 	range = results.rows.item(i).range;
        	 	rangemin = range.split(":");
-       	 	goal = results.rows.item(i).goal
+       	 	goal = results.rows.item(i).goal;
+       	 	alert(goal);//lets see this
 	   	 	s += "<strong>Saved Settings:</strong><p>ON/OFF: " + results.rows.item(i).onoff + "</p><p> Frequency: "  + frequency + "</p><p>Start:"  + start + "</p><p>Range: " +  range + "</p><p>Goal: " + goal + " oz</p><br>";   
          }
        }
@@ -302,6 +303,8 @@ function renderWater(tx,results){
 function renderGoal(tx,results){
 	
 	/*db.transaction(function (tx) {
+	   tx.executeSql("select id, onoff,frequency,start,range,goal,updated from saved order by updated desc",[],renderSettings,dbErrorHandler);
+	   tx.executeSql("select id, onoff, frequency, start, range, goal, updated from saved order by updated desc",[],renderSettings,dbErrorHandler);
 	   tx.executeSql('SELECT * FROM saved', [], function (tx, results) {
 	      var len = results.rows.length, i;
 	      //msg = "<p>Found rows: " + len + "</p>";
@@ -313,7 +316,7 @@ function renderGoal(tx,results){
 		
 	   }, null);
 	});*/
-
+	console.log(goal);
     if (results.rows.length == 0) {//none set yet
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
