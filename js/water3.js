@@ -339,9 +339,10 @@ function renderGoal(tx,results){
     	//need to sort out for just today
        var s = Number();
        var insp = "";
+       
        //check local objects for saved water
        //just todays date
-       var td = new date;
+       var td = new date();
        var tdy = td.getFullYear();
        var tdm = td.getMonth() + 1;
        var tdd = td.getDate();
@@ -355,6 +356,7 @@ function renderGoal(tx,results){
 		   	 	console.log(s);
        	 	}
        }
+       
        //if permitted and available check healthkit for saved water
        
        //some inspiration messages
