@@ -69,17 +69,35 @@ function checkHealtkitPermissions(){
 function onReadHealthSuccess(result) {
   //alert("OK: " + JSON.stringify(result));
   	//lets sort through the results
-  	obj = JSON.stringify(result);
-	var results = [];
+  	var obj = JSON.stringify(result);
+	// var results = [];
 	var searchField = "sourceName";
 	var searchVal = "Gibson's Water Tracking";
-	for (var i=0 ; i < obj.list.length ; i++)
+	/*for (var i=0 ; i < obj.list.length ; i++)
 	{
 	    if (obj.list[i][searchField] != searchVal) {//check for any that aren't with this app and return
 	        results.push(obj.list[i]);
 	    }
+	}*/
+	//console.log(results);
+	search(obj,searchVal);
+	
+	function search(source, name) {
+	    var results = [];
+	    var index;
+	    var entry;
+	
+	    name = name.toUpperCase();
+	    for (index = 0; index < source.length; ++index) {
+	        entry = source[index];
+	        if (entry && entry.name && entry.name.toUpperCase().indexOf(name) !== -1) {
+	            results.push(entry);
+	        }
+	    }
+	
+	    //return results;
+	    console.log(results);
 	}
-	console.log(results);
 };
 
 function onReadHealthError(result) {
