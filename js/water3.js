@@ -344,7 +344,7 @@ function renderGoal(tx,results){
        //just todays date
        var td = new date();
        var tdy = td.getFullYear();
-       var tdm = td.getMonth() + 1;
+       var tdm = td.getMonth();
        var tdd = td.getDate();
        var today = tdm + "/" + tdd + "/" + tdy;
        for(var i=0; i<results.rows.length; i++) {
@@ -354,6 +354,9 @@ function renderGoal(tx,results){
 	       	 	amount = results.rows.item(i).amount;
 		   	 	s +=  Number(amount);//print out the saved times with ID's  
 		   	 	console.log(s);
+       	 	}else{
+	       	 	s += 0;
+	       	 	console.log("not found");
        	 	}
        }
        
