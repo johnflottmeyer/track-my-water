@@ -356,7 +356,7 @@ function renderGoal(tx,results){
 		   	 	console.log(s);
        	 	}else{
 	       	 	s += 0;
-	       	 	console.log("not found");
+	       	 	console.log("not found" + date + " : " + today);
        	 	}
        }
        
