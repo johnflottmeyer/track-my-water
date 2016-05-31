@@ -69,7 +69,8 @@ function checkHealtkitPermissions(){
 function onReadHealthSuccess(result) {
   //alert("OK: " + JSON.stringify(result));
   	//lets sort through the results
-	var results = JSON.stringify(result);
+  	obj = JSON.stringify(result);
+	var results = [];
 	var searchField = "sourceName";
 	var searchVal = "Gibson's Water Tracking";
 	for (var i=0 ; i < obj.list.length ; i++)
@@ -333,6 +334,7 @@ function renderGoal(tx,results){
        	 	if(date == today){
 	       	 	amount = results.rows.item(i).amount;
 		   	 	s +=  Number(amount);//print out the saved times with ID's  
+		   	 	console.log(s);
        	 	}
        }
        //if permitted and available check healthkit for saved water
