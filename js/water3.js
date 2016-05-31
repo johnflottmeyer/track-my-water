@@ -67,7 +67,18 @@ function checkHealtkitPermissions(){
 
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
-  alert("OK: " + JSON.stringify(result));
+  //alert("OK: " + JSON.stringify(result));
+  	//lets sort through the results
+	var results = JSON.stringify(result);
+	var searchField = "sourceName";
+	var searchVal = "Gibson's Water Tracking";
+	for (var i=0 ; i < obj.list.length ; i++)
+	{
+	    if (obj.list[i][searchField] != searchVal) {//check for any that aren't with this app and return
+	        results.push(obj.list[i]);
+	    }
+	}
+	console.log(results);
 };
 
 function onReadHealthError(result) {
@@ -309,11 +320,14 @@ function renderGoal(tx,results){
     	//need to sort out for just today
        var s = Number();
        var insp = "";
+       //check local objects for saved water
        for(var i=0; i<results.rows.length; i++) {
        	 	date = results.rows.item(i).date;
+       	 	console.log(date);
        	 	amount = results.rows.item(i).amount;
 	   	 	s +=  Number(amount);//print out the saved times with ID's  
        }
+       //if permitted and available check healthkit for saved water
        
        //some inspiration messages
        if(s <= 3){
