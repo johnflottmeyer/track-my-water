@@ -346,7 +346,7 @@ function renderGoal(tx,results){
        var tdy = td.getFullYear();
        var tdm = td.getMonth() + 1;
        var tdd = td.getDate();
-       var today = tdm + "/" + tdd + "/" + tdy;
+       var today = tdd + "/" + tdm + "/" + tdy;
        for(var i=0; i<results.rows.length; i++) {
        	 	date = results.rows.item(i).date;
        	 	//console.log(date);
