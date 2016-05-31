@@ -321,11 +321,19 @@ function renderGoal(tx,results){
        var s = Number();
        var insp = "";
        //check local objects for saved water
+       //just todays date
+       var td = new date;
+       var tdy = td.getFullYear();
+       var tdm = td.getMonth() + 1;
+       var tdd = td.getDate();
+       var today = tdm + "/" + tdd + "/" + tdy;
        for(var i=0; i<results.rows.length; i++) {
        	 	date = results.rows.item(i).date;
-       	 	console.log(date);
-       	 	amount = results.rows.item(i).amount;
-	   	 	s +=  Number(amount);//print out the saved times with ID's  
+       	 	//console.log(date);
+       	 	if(date == today){
+	       	 	amount = results.rows.item(i).amount;
+		   	 	s +=  Number(amount);//print out the saved times with ID's  
+       	 	}
        }
        //if permitted and available check healthkit for saved water
        
