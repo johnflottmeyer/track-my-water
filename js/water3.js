@@ -342,9 +342,9 @@ function renderGoal(tx,results){
        
        //check local objects for saved water
        //just todays date
-       var td = new date();
+       var td = new Date();
        var tdy = td.getFullYear();
-       var tdm = td.getMonth();
+       var tdm = td.getMonth() + 1;
        var tdd = td.getDate();
        var today = tdm + "/" + tdd + "/" + tdy;
        for(var i=0; i<results.rows.length; i++) {
