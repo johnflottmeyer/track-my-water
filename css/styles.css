@@ -590,7 +590,9 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
     font-size: 1.5em;
     color: rgba(0,0,0,.4);
 }
-
+input {
+    -webkit-user-select: auto !important;
+}
 
 /* G - Black Sidebar Theme for jQuery Mobile
  * Available on: https://gist.github.com/4558649
