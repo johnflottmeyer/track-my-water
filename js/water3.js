@@ -865,8 +865,7 @@ $(document).ready(function() {
     });
     
     /*clockpicker*/
-    $('.clockpicker input').clockpicker();
-    //.find('input').change(function(){console.log(this.value);});
+    $('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
 	/*$('#single-input').clockpicker({
 		placement: 'bottom',
 		align: 'right',
@@ -881,5 +880,5 @@ $(document).ready(function() {
 	});*/
 	$.mobile.defaultPageTransition = "slidefade";
 	$.mobile.transitionFallbacks.slideout = "none";
-	if (/Mobile/.test(navigator.userAgent)) {$('input').prop('readOnly', true);}
+	//if (/Mobile/.test(navigator.userAgent)) {$('input').prop('readOnly', true);}
 });
