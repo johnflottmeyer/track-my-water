@@ -866,19 +866,8 @@ $(document).ready(function() {
     
     /*clockpicker*/
     $('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
-	/*$('#single-input').clockpicker({
-		placement: 'bottom',
-		align: 'right',
-		autoclose: true,
-		'default': '20:48'
-	});*/
-	/*$.mobile.document.on( "click", "#buttona", function( evt ) {
-		$("#starttime").clockpicker('show').clockpicker('toggleView', 'hours');
-	});
-	$.mobile.document.on( "click", "#buttonb", function( evt ) {
-		$("#endtime").clockpicker('show').clockpicker('toggleView', 'hours');
-	});*/
+	if (/Mobile/.test(navigator.userAgent)) {$('.clockpicker input').prop('readOnly', true);}
+	//global variables
 	$.mobile.defaultPageTransition = "slidefade";
 	$.mobile.transitionFallbacks.slideout = "none";
-	//if (/Mobile/.test(navigator.userAgent)) {$('input').prop('readOnly', true);}
 });
