@@ -865,7 +865,7 @@ $(document).ready(function() {
     });
     
     /*clockpicker*/
-    $('.clockpicker').clockpicker()
+    $('.clockpicker input').clockpicker();
     //.find('input').change(function(){console.log(this.value);});
 	/*$('#single-input').clockpicker({
 		placement: 'bottom',
