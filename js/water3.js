@@ -866,12 +866,12 @@ $(document).ready(function() {
     
     /*clockpicker*/
     $('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
-	$('#single-input').clockpicker({
+	/*$('#single-input').clockpicker({
 		placement: 'bottom',
 		align: 'right',
 		autoclose: true,
 		'default': '20:48'
-	});
+	});*/
 	/*$.mobile.document.on( "click", "#buttona", function( evt ) {
 		$("#starttime").clockpicker('show').clockpicker('toggleView', 'hours');
 	});
