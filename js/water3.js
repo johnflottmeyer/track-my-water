@@ -856,13 +856,13 @@ $(document).ready(function() {
     	}else if(ThisPage == "account"){getGoal();}
     });
     
-    /*$(document).on("pagecontainershow", function( event, ui ) {
+    $(document).on("pagecontainershow", function( event, ui ) {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
     	if(ThisPage == "alerts"){if(settings == "on"){switchedON();checkAlerts();}
     	}else if(ThisPage == "track"){getWater();
     	}else if(ThisPage == "account"){getGoal();
     	}
-    });*/
+    });
     
     /*clockpicker*/
     $('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
