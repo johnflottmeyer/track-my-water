@@ -157,10 +157,12 @@ function addwater(amount,startdate,enddate){ // save the water data to the healt
 /***************** DEVICE READY PHONEGAP *****************/
 //check for the device to be ready
 function phoneReady() {
-    dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000); //First, open our db
- //Set it up if not set up / callback success is getSettings
+	//First, open our db
+    dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000);  
+    //Set it up if not set up / callback success is getSettings
 	dbShell.transaction(setupTable,dbErrorHandler,getSettings);     
-	/*** IOS 8 and up get permission to do badges, notifications, access healthkit ***/    
+	/*** IOS 8 and up get permission to do badges, 
+	notifications, access healthkit ***/    
     //###Plugins - BADGE
     cordova.plugins.notification.badge.hasPermission(function (granted) { 
 	    //might not need to check since we are getting permission for the Notifications
@@ -230,9 +232,9 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 	}, dbErrorHandler);
     tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
 }
+
 /* RENDER THE SETTINGS TO THE SCREEN */
 function renderSettings(tx,results){
-	
     if (results.rows.length == 0) { //no settings found - create a default record
 		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "default")'); 
 		getSettings(); //load it again
@@ -286,10 +288,8 @@ function renderAlerts(tx,results){
 	        s = "<tr><td colspan='3'>alerts currently turned off.</td></tr>";
          }
        }
-       alert(s);
        //show what is saved 
        $(".addeddata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date / Time</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");
-       //$(".addeddata").prepend("<p>updated!</p>");
     }
 }
 //for time lets add a preceding zero 
@@ -526,12 +526,14 @@ function checkAlerts(){
 
 /*SAVE TO DB*/
 function saveSettings(note, cb) {
+	alert(cb);
     //if(note.title == "") note.title = "[No Title]"; //left over from old note application
     dbShell.transaction(function(tx) {
         if(note.id == "") 
         tx.executeSql("insert into saved(onoff,frequency,start,range,updated) values(?,?,?,?,?,?)",[note.onoff,note.frequency,note.start,note.range,note.goal,new Date()]);
         else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",[note.onoff,note.frequency,note.start,note.range,note.goal, new Date(), note.id]);
     }, dbErrorHandler,cb);
+    alert("saved");
 }
 
 /*SAVE ALERT*/
@@ -737,7 +739,6 @@ $(document).ready(function() {
 	        };
 	        saveSettings(data,function() {
 				getSettings(); //refresh what is saved to get the latest.
-				checkAlerts();
 				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
 	        });
         }
@@ -863,7 +864,6 @@ $(document).ready(function() {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
     	if(ThisPage == "alerts"){
 	    	if(settings == "on"){switchedON();checkAlerts();}
-	    	alert(settings);
     	}else if(ThisPage == "track"){getWater();
     	}else if(ThisPage == "account"){getGoal();}
     });
@@ -872,7 +872,6 @@ $(document).ready(function() {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
     	if(ThisPage == "alerts"){
 	    	if(settings == "on"){switchedON();checkAlerts();}
-	    	alert(settings);
     	}else if(ThisPage == "track"){getWater();
     	}else if(ThisPage == "account"){getGoal();
     	}
