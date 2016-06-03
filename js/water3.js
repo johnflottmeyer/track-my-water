@@ -232,7 +232,7 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 }
 /* RENDER THE SETTINGS TO THE SCREEN */
 function renderSettings(tx,results){
-	$("#homedebug .loading .settings").html("<p>settings db row length: " + results.rows.length + "</p>");
+	
     if (results.rows.length == 0) { //no settings found - create a default record
 		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "default")'); 
 		getSettings(); //load it again
@@ -514,6 +514,7 @@ function createNotifications(){
 	});
 	toastr.success('Successfully Saved', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 	checkAlerts(); //update the page with the new set alerts
+	alert("new created");
 }
 function checkAlerts(){
 	alert("please update");
@@ -738,9 +739,9 @@ $(document).ready(function() {
 	        };
 	        saveSettings(data,function() {
 				getSettings(); //refresh what is saved to get the latest.
+				checkAlerts();
 				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
 	        });
-	        getAlerts();//let's update the slide panel now
         }
         e.preventDefault(); //stop the page from refreshing
     });
