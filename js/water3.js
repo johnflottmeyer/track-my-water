@@ -2,6 +2,7 @@
 ~~~~~~~~~ WATER APP 2.0 ~~~~~~~~~ 
 Written by Voila! Media Group for Gibsons Water Care, All Rights Reserved. 	
 ************************************************************/
+
 //GLOBAL VARIABLES
 /*Database */
 var dbShell; //database name variable
@@ -33,7 +34,6 @@ function onSuccess(result) { //can be removed when live
 };
 function onError(result) { //can be removed when live
 	toastr.error('Healthkit Permission Not Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
-	//alert("Error: " + JSON.stringify(result)); 
 };
 function onPermissionSuccess(result) { 
 	  if(result == "authorized"){ //already authorized continue
@@ -270,7 +270,6 @@ function renderSettings(tx,results){
 
 /*RENDER THE ALERTS TO THE SCREEN*/
 function renderAlerts(tx,results){
-	$("#homedebug .loading .alerts").html("<p>alert db row length: " + results.rows.length + "</p>");
     if (results.rows.length == 0) {//none set yet
 		$("#alertstatus").html("no alerts set yet.");//show what is saved 
 		$(".addeddata").html("");//clear out the old stuff
@@ -291,8 +290,24 @@ function renderAlerts(tx,results){
        $(".addeddata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date / Time</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");
     }
 }
+//for time lets add a preceding zero 
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
 /*RENDER THE WATER TRACKED TO THE SCREEN*/
 function renderWater(tx,results){
+	//lets set the field timer to the current time
+	//set the default time for the save water
+		
+	var d = new Date();
+	var h = addZero(d.getHours());
+	var m = addZero(d.getMinutes());
+	
+	$("#mydate").val(h + ":" + m);
+
     if (results.rows.length == 0) {//none set yet
 		$("#waterstatus").html("nothing saved.");//show what is saved 
 		$(".waterdata").html(""); //remove the current data
