@@ -737,10 +737,11 @@ $(document).ready(function() {
 				getSettings(); //refresh what is saved to get the latest.
 				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
 	        });
-	        checkAlerts();//let's update the slide panel now
+	        getAlerts();//let's update the slide panel now
         }
         e.preventDefault(); //stop the page from refreshing
     });
+    
     /*REMOVE SCHEDULED ALERTS*/
     $.mobile.document.on( "click", ".deletealert", function( evt ) {
 		//alert("delete" + this.id);
