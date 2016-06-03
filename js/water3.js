@@ -859,14 +859,18 @@ $(document).ready(function() {
     /*ON PAGE LOAD SHOW THE FOLLOWING*/
     $(document).on("pagecontainerbeforeshow", function( event, ui ) {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
-    	if(ThisPage == "alerts"){if(settings == "on"){switchedON();checkAlerts();}
+    	if(ThisPage == "alerts"){
+	    	if(settings == "on"){switchedON();checkAlerts();}
+	    	alert(settings);
     	}else if(ThisPage == "track"){getWater();
     	}else if(ThisPage == "account"){getGoal();}
     });
     
     $(document).on("pagecontainershow", function( event, ui ) {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
-    	if(ThisPage == "alerts"){if(settings == "on"){switchedON();checkAlerts();}
+    	if(ThisPage == "alerts"){
+	    	if(settings == "on"){switchedON();checkAlerts();}
+	    	alert(settings);
     	}else if(ThisPage == "track"){getWater();
     	}else if(ThisPage == "account"){getGoal();
     	}
