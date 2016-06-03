@@ -748,6 +748,7 @@ $(document).ready(function() {
 				getSettings(); //refresh what is saved to get the latest.
 				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
 	        });
+	        getWater();//let's update the slide panel now
         }
         e.preventDefault(); //stop the page from refreshing
     });
