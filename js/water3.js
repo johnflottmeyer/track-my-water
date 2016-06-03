@@ -279,6 +279,7 @@ function renderAlerts(tx,results){
     	$("#alertstatus").html("");
     	$(".addeddata").html("");//clear out the old stuff
        var s = "";
+       alert(results);
        for(var i=0; i<results.rows.length; i++) {
        	 if(settings != "off"){//print out the saved times with ID's 
        	 	id = results.rows.item(i).id;
