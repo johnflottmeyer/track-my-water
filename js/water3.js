@@ -514,6 +514,7 @@ function createNotifications(){
 	checkAlerts(); //update the page with the new set alerts
 }
 function checkAlerts(){
+	alert("please update");
 	//show what is saved
 	getAlerts();
 	//THIS NEEDS TO SHOW SOMEWHERE ELSE
