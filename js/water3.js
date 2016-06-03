@@ -514,10 +514,8 @@ function createNotifications(){
 	});
 	toastr.success('Successfully Saved', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 	checkAlerts(); //update the page with the new set alerts
-	alert("new created");
 }
 function checkAlerts(){
-	alert("please update");
 	//show what is saved
 	getAlerts();
 	//THIS NEEDS TO SHOW SOMEWHERE ELSE
