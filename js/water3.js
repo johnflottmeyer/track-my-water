@@ -495,17 +495,19 @@ function createNotifications(){
 			}
 		}
 	});
-	checkAlerts(); //update the page with the new set alerts
 	toastr.success('Successfully Saved', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
+	checkAlerts(); //update the page with the new set alerts
 	//$("#popupDialog").click(); //show feedback for saving the data
 }
 function checkAlerts(){
+	alert("checkAlerts Called");
 	//show what is saved
 	getAlerts();
 	//THIS NEEDS TO SHOW SOMEWHERE ELSE
 	window.plugin.notification.local.getScheduledIds( function (scheduledIds) { //display the saved ids for debugging
     	$(".savedalerts").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><td>notification IDs:</td><td>" + scheduledIds.join(' ,') + "</td></tr></table>");
 	});
+	alert("should be updated now");
 }
 
 /*SAVE TO DB*/
