@@ -286,10 +286,10 @@ function renderAlerts(tx,results){
 	        s = "<tr><td colspan='3'>alerts currently turned off.</td></tr>";
          }
        }
-       alert("update .addeddata");
+       alert(s);
        //show what is saved 
        $(".addeddata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date / Time</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");
-       $(".addeddata").prepend("<p>updated!</p>");
+       //$(".addeddata").prepend("<p>updated!</p>");
     }
 }
 //for time lets add a preceding zero 
