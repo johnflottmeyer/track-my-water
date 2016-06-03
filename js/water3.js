@@ -279,11 +279,12 @@ function renderAlerts(tx,results){
     	$("#alertstatus").html("");
     	$(".addeddata").html("");//clear out the old stuff
        var s = "";
-       alert(results);
+      
        for(var i=0; i<results.rows.length; i++) {
        	 if(settings != "off"){//print out the saved times with ID's 
        	 	id = results.rows.item(i).id;
        	 	time = results.rows.item(i).time;
+       	 	 alert(id);
 	   	 	s +=  "<tr><td>" + time + "</td><td><a href='#' class='ui-btn ui-mini ui-corner-all ui-btn-inline ui-btn-a deletealert' id='"+id+"'><i class='icon-deletealarm'></i></a></td></tr>";  
          }else{
 	        s = "<tr><td colspan='3'>alerts currently turned off.</td></tr>";
