@@ -513,7 +513,7 @@ function createNotifications(){
 		}
 	});
 	toastr.success('Successfully Saved', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
-	checkAlerts(); //update the page with the new set alerts
+	getAlerts(); //update the page with the new set alerts
 }
 function checkAlerts(){
 	//show what is saved
@@ -526,7 +526,6 @@ function checkAlerts(){
 
 /*SAVE TO DB*/
 function saveSettings(note, cb) {
-	alert(cb);
     //if(note.title == "") note.title = "[No Title]"; //left over from old note application
     dbShell.transaction(function(tx) {
         if(note.id == "") 
@@ -738,8 +737,9 @@ $(document).ready(function() {
 	                    id: 1 // Replace the one entry
 	        };
 	        saveSettings(data,function() {
-				getSettings(); //refresh what is saved to get the latest.
 				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
+				getSettings(); //refresh what is saved to get the latest.
+				
 	        });
         }
         e.preventDefault(); //stop the page from refreshing
