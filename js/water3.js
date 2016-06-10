@@ -235,26 +235,22 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 
 /* RENDER THE SETTINGS TO THE SCREEN */
 function renderSettings(tx,results){
-	alert("settings accessed - goal should be updated");
     if (results.rows.length == 0) { //no settings found - create a default record
 		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "default")'); 
 		getSettings(); //load it again
     } else { //load and display the settings.
-	    alert("something there");
        var s = "";
        for(var i=0; i<results.rows.length; i++) {
        	 settings = results.rows.item(i).onoff;
        	 
        	 //if(settings != "off"){
-       	 	frequency = results.rows.item(i).frequency;
-       	 	start = results.rows.item(i).start;
-       	 	startmin = start.split(":");
-       	 	range = results.rows.item(i).range;
-       	 	rangemin = range.split(":");
-       	 	goal = results.rows.item(i).goal;
-       	 	window.goalSet = results.rows.item(i).goal;
-       	 	alert(goalSet);
-	   	 	s += "<strong>Saved Settings:</strong><p>ON/OFF: " + results.rows.item(i).onoff + "</p><p> Frequency: "  + frequency + "</p><p>Start:"  + start + "</p><p>Range: " +  range + "</p><p>Goal: " + goal + " oz</p><br>";   
+	     //lets see what is stored in the settings area. 
+   	 	frequency = results.rows.item(i).frequency;
+   	 	start = results.rows.item(i).start;
+   	 	startmin = start.split(":");
+   	 	range = results.rows.item(i).range;
+   	 	rangemin = range.split(":");
+   	 	goal = results.rows.item(i).goal;   
          //}
        }
        if(saveCalled == "true"){
@@ -396,8 +392,7 @@ function renderGoal(tx,results){
        }
        
        $(".inspiration").html(insp);
-       currentGoal = goalSet;
-	   RenderChart(s,currentGoal);
+	   RenderChart(s,goal);
     }
 	
     
