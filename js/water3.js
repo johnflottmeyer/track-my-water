@@ -244,7 +244,8 @@ function renderSettings(tx,results){
        var s = "";
        for(var i=0; i<results.rows.length; i++) {
        	 settings = results.rows.item(i).onoff;
-       	 if(settings != "off"){
+       	 
+       	 //if(settings != "off"){
        	 	frequency = results.rows.item(i).frequency;
        	 	start = results.rows.item(i).start;
        	 	startmin = start.split(":");
@@ -254,7 +255,7 @@ function renderSettings(tx,results){
        	 	window.goalSet = results.rows.item(i).goal;
        	 	alert(goalSet);
 	   	 	s += "<strong>Saved Settings:</strong><p>ON/OFF: " + results.rows.item(i).onoff + "</p><p> Frequency: "  + frequency + "</p><p>Start:"  + start + "</p><p>Range: " +  range + "</p><p>Goal: " + goal + " oz</p><br>";   
-         }
+         //}
        }
        if(saveCalled == "true"){
 	       createNotifications(); //create the notifications
