@@ -851,12 +851,15 @@ $(document).ready(function() {
 	$.mobile.document.on( "click", "#save-goal", function( evt ) {
 		dbShell.transaction(function(tx) {
 		//stuff to add to db. 
-			tx.executeSql("update saved set goal=? where id=1",[$("#watergoal").val()],function(tx,results) {
-				toastr.success('Successfully Saved', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
-			});
-			 //else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",
-		}, dbErrorHandler);
-		
+		if($("#watergoal").val() != ""){
+				tx.executeSql("update saved set goal=? where id=1",[$("#watergoal").val()],function(tx,results) {
+					toastr.success('Successfully Saved', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
+				});
+				 //else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",
+			}, dbErrorHandler);
+		}else{
+			console.log("amount can't be empty");
+		}
 		evt.preventDefault();
 	});
 	$.mobile.document.on( "click", ".option-checkwater", function( evt ) {
