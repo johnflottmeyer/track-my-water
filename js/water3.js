@@ -121,12 +121,12 @@ function gethealthkitdata(){
 
 /*SAVE DATA TO HEALTHKIT*/
 function onAddDataSuccess(result) {
-  alert("OK: " + JSON.stringify(result));
+  //alert("OK: " + JSON.stringify(result));
   //toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 
 function onAddDataError(result) {
-  alert("Error: " + JSON.stringify(result));
+  //alert("Error: " + JSON.stringify(result));
   //toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 function addwater(amount,startdate,enddate){ // save the water data to the healthkit as well
@@ -391,7 +391,8 @@ function renderGoal(tx,results){
        }
        
        $(".inspiration").html(insp);
-	   RenderChart(s,goal);
+       currentGoal = goal;
+	   RenderChart(s,currentGoal);
     }
 	
     
@@ -534,7 +535,7 @@ function saveSettings(note, cb) {
         tx.executeSql("insert into saved(onoff,frequency,start,range,updated) values(?,?,?,?,?,?)",[note.onoff,note.frequency,note.start,note.range,note.goal,new Date()]);
         else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",[note.onoff,note.frequency,note.start,note.range,note.goal, new Date(), note.id]);
     }, dbErrorHandler,cb);
-    alert("saved");
+    //alert("saved");
 }
 
 /*SAVE ALERT*/
