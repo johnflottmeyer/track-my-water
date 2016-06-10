@@ -251,6 +251,7 @@ function renderSettings(tx,results){
        	 	rangemin = range.split(":");
        	 	goal = results.rows.item(i).goal;
        	 	goalSet = results.rows.item(i).goal;
+       	 	alert(goalSet);
 	   	 	s += "<strong>Saved Settings:</strong><p>ON/OFF: " + results.rows.item(i).onoff + "</p><p> Frequency: "  + frequency + "</p><p>Start:"  + start + "</p><p>Range: " +  range + "</p><p>Goal: " + goal + " oz</p><br>";   
          }
        }
