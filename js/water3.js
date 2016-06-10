@@ -250,7 +250,8 @@ function renderSettings(tx,results){
    	 	startmin = start.split(":");
    	 	range = results.rows.item(i).range;
    	 	rangemin = range.split(":");
-   	 	goal = results.rows.item(i).goal;   
+   	 	goal = results.rows.item(i).goal; 
+   	 	$("#watergoal").val(goal);  
          //}
        }
        if(saveCalled == "true"){
