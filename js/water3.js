@@ -235,6 +235,7 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 
 /* RENDER THE SETTINGS TO THE SCREEN */
 function renderSettings(tx,results){
+	alert("settings accessed - goal should be updated");
     if (results.rows.length == 0) { //no settings found - create a default record
 		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "default")'); 
 		getSettings(); //load it again
@@ -549,10 +550,17 @@ function saveAlert(id,time){
 function saveGoal(goal, cb) {
     dbShell.transaction(function(tx) {
         if(goal.id == undefined || goal.id == "")
-        tx.executeSql("insert into goals(date,time,amount,updated) values(?,?,?,?)",[goal.date, goal.time, goal.amount, new Date()]);
-        else tx.executeSql("update goals set date=?, time=?, amount=?, updated=? where id=?",[goal.date, goal.time, goal.amount, new Date(), goal.id]);
+        tx.executeSql("insert into goals(date,time,amount,updated) values(?,?,?,?)",[goal.date, goal.time, goal.amount, new Date()],renderSettings,dbErrorHandler);
+        else tx.executeSql("update goals set date=?, time=?, amount=?, updated=? where id=?",[goal.date, goal.time, goal.amount, new Date(), goal.id],renderSettings,dbErrorHandler);
         //alert("edit");
     }, dbErrorHandler,cb);
+    
+    
+    //
+    /*dbShell.transaction(function(tx) {
+        tx.executeSql("select id, onoff, frequency, start, range, goal, updated from saved order by updated desc",[],renderSettings,dbErrorHandler);
+    }, dbErrorHandler);*/
+    //
 }
 
 /*REMOVE ENTRY*/
