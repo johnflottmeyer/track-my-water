@@ -240,6 +240,7 @@ function renderSettings(tx,results){
 		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "default")'); 
 		getSettings(); //load it again
     } else { //load and display the settings.
+	    alert("something there");
        var s = "";
        for(var i=0; i<results.rows.length; i++) {
        	 settings = results.rows.item(i).onoff;
@@ -250,7 +251,7 @@ function renderSettings(tx,results){
        	 	range = results.rows.item(i).range;
        	 	rangemin = range.split(":");
        	 	goal = results.rows.item(i).goal;
-       	 	goalSet = results.rows.item(i).goal;
+       	 	window.goalSet = results.rows.item(i).goal;
        	 	alert(goalSet);
 	   	 	s += "<strong>Saved Settings:</strong><p>ON/OFF: " + results.rows.item(i).onoff + "</p><p> Frequency: "  + frequency + "</p><p>Start:"  + start + "</p><p>Range: " +  range + "</p><p>Goal: " + goal + " oz</p><br>";   
          }
