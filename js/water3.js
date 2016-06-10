@@ -335,11 +335,12 @@ function renderWater(tx,results){
        	 	amount = results.rows.item(i).amount;
        	 	var checksavedDate = date.split("/");//split it up now so that we can see how the dates compare
        	 	
+       	 	console.log(checksavedDate[0] + " - " + checksavedDate[1]);
 	   	 	///// NOW WE NEED TO COMPARE THE DATES TO SEE IF THE DATE IS IN THE PAST ////////
 	   	 	if(checksavedDate[0] != mday && checksavedDate[1] != mmo){
 	   	 		reset ++;
 	   	 	}else{
-	   	 		s +=  "<tr><td>" + time + "</td><td>" + amount + "</td><td><a href='#' class='ui-btn ui-mini ui-btn-inline ui-btn-b editRecord' id=" + id + "><i class='icon-edit'></i></a><a href='#' class='ui-btn ui-mini ui-btn-inline ui-corner-all ui-btn-b deleteRecord' id=" + id + "><i class='icon-circledelete'></i></a></td></tr>";//print out the saved times with ID's  
+	   	 		s +=  "<tr><td>" + date + "</td><td>" + time + "</td><td>" + amount + "</td><td><a href='#' class='ui-btn ui-mini ui-btn-inline ui-btn-b editRecord' id=" + id + "><i class='icon-edit'></i></a><a href='#' class='ui-btn ui-mini ui-btn-inline ui-corner-all ui-btn-b deleteRecord' id=" + id + "><i class='icon-circledelete'></i></a></td></tr>";//print out the saved times with ID's  
 	   	 	}
        }
        if(reset > 0){ //clear and rebuild the database
@@ -858,7 +859,8 @@ $(document).ready(function() {
 			});
 			 //else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",
 			 }else{
-				 console.log("not able to save no goal amount set");
+				 //console.log("not able to save no goal amount set");
+				 toastr.error('<strong>not able to save no goal amount set</strong>', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 			 }
 		}, dbErrorHandler);
 		
