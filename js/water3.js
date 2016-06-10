@@ -250,6 +250,7 @@ function renderSettings(tx,results){
        	 	range = results.rows.item(i).range;
        	 	rangemin = range.split(":");
        	 	goal = results.rows.item(i).goal;
+       	 	goalSet = results.rows.item(i).goal;
 	   	 	s += "<strong>Saved Settings:</strong><p>ON/OFF: " + results.rows.item(i).onoff + "</p><p> Frequency: "  + frequency + "</p><p>Start:"  + start + "</p><p>Range: " +  range + "</p><p>Goal: " + goal + " oz</p><br>";   
          }
        }
@@ -392,7 +393,7 @@ function renderGoal(tx,results){
        }
        
        $(".inspiration").html(insp);
-       currentGoal = goal;
+       currentGoal = goalSet;
 	   RenderChart(s,currentGoal);
     }
 	
