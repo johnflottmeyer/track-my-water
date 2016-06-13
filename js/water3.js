@@ -399,8 +399,9 @@ function renderGoal(tx,results){
        }
        
        $(".inspiration").html(insp);
+       $(".showtotal").html(s+"/"+goal);
 	   RenderChart(s,goal);
-	   $(".showtotal").html(s+"/"+goal);
+	   
     }
 	
     
