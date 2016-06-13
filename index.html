@@ -144,7 +144,7 @@
 	</div><!-- / ui-content -->	
 </div><!-- /alerts page -->
 
-	<!-- track page -->
+<!-- track page -->
 <div data-role="page" id="track" data-theme="a">
 	<!-- debug panel -->
 	<div data-role="panel" id="waterset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
@@ -208,7 +208,6 @@
 		    </div><!-- /navbar -->
 		</div>
 	</div><!-- / ui-content -->
-	
 </div><!-- / track page -->
 
 <!-- goal page -->
@@ -252,16 +251,18 @@
 			 type: 'doughnut',
 	        data: {
 	            datasets: [{
-	                data: [64,0],
+	                data: [64,0,0],
 	                backgroundColor: [
 	                    "#003366",
-	                    "#f8981d"
+	                    "#f8981d",
+	                    "#CCCCCC",
 	                ],
 	                label: 'Water'
 	            }],
 	            labels: [
 	                "goal",
-	                "water"
+	                "water - this app",
+	                "water - other app"
 	            ]
 	        },
 	        options: {

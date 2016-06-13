@@ -105,7 +105,7 @@ function onReadHealthError(result) {
 };
 
 function gethealthkitdata(){
-	alert(new Date(new Date().setHours(0,0,0,0)) + " - - " + new Date(Date.now()));
+	//alert(new Date(new Date().setHours(0,0,0,0)) + " - - " + new Date(Date.now()));
 	window.plugins.healthkit.querySampleType(
 	  {
 	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
@@ -351,7 +351,7 @@ function renderWater(tx,results){
        if(reset > 0){ //clear and rebuild the database
 		   	resetTracked();
 	   }
-       $(".waterdata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Time</th><th>Amount</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");//show what is saved 
+       $(".waterdata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Time</th><th>Amount</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");//show what is saved 
     }
 }
 
@@ -801,9 +801,7 @@ $(document).ready(function() {
 								//gettime = $(".date-input").val().split(":");
 								d = new Date();
 								date = d.setHours(0, 0, 0);
-								alert(date);
 								amount = $("#select-water-amount :radio:checked").val();
-								alert(amount);
 								addwater(amount,date); //push to healthkit
 							}
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"});
@@ -875,7 +873,6 @@ $(document).ready(function() {
 		gethealthkitdata();
 	});
 	$.mobile.document.on( "click", ".option-addwater", function( evt ) {
-		alert("should add water");
 		addwater(4);
 	});
 	
