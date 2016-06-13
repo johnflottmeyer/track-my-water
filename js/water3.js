@@ -131,7 +131,7 @@ function onAddDataError(result) {
 };
 function addwater(amount,startdate,enddate){ // save the water data to the healthkit as well
 	if(amount){ //amount in mL
-		alert(amount);
+		//alert(amount);
 		if(startdate == "" && enddate == ""){
 			startdate = new Date(Date.now());
 			enddate = new Date();
@@ -286,7 +286,7 @@ function renderAlerts(tx,results){
        	 if(settings != "off"){//print out the saved times with ID's 
        	 	id = results.rows.item(i).id;
        	 	time = results.rows.item(i).time;
-       	 	 alert(id);
+       	 	 //alert(id);
 	   	 	s +=  "<tr><td>" + time + "</td><td><a href='#' class='ui-btn ui-mini ui-corner-all ui-btn-inline ui-btn-a deletealert' id='"+id+"'><i class='icon-deletealarm'></i></a></td></tr>";  
          }else{
 	        s = "<tr><td colspan='3'>alerts currently turned off.</td></tr>";
