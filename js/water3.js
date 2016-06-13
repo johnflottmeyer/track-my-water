@@ -400,6 +400,7 @@ function renderGoal(tx,results){
        
        $(".inspiration").html(insp);
 	   RenderChart(s,goal);
+	   $(".showtotal").val(s+"/"+goal);
     }
 	
     

@@ -163,64 +163,11 @@ strong.alertlabel{
 
 .alert-grid .ui-block-a { width: 35% !important; }
 .alert-grid .ui-block-b { width: 65% !important; } 
-/*.homebtn span{
-	font-size:12px;
-	width:95%;
-	display:inline-block;
-	white-space: normal;
-}*/
 
-/*HOME PAGE - Custom Icons*/
-.icon-alerts:after{
-	/*content:'\f233';
-	margin:-30px 0px 0px -10px;
-	padding:3px 5px;
-	font-family:'WebHostingHub-Glyphs';
-	width:auto;
-	height:auto;
-	font-style:normal;
-	background:none;
+.showtotal{
+	text-align:center;
 	font-size:40px;
-	color:#FFF;
-	color:#f8981d;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
 }
-.icon-track:after{
-	/*content:'\f208';
-	margin:-30px 0px 0px -10px;
-	padding:3px 5px;
-	font-family:'WebHostingHub-Glyphs';
-	width:auto;
-	height:auto;
-	font-style:normal;
-	background:none;
-	font-size:40px;
-	color:#ffc423;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
-}
-.icon-goal:after{
-	/*content:'\f5eb';
-	margin:-30px 0px 0px -10px;
-	padding:3px 5px;
-	font-family:'WebHostingHub-Glyphs';
-	width:auto;
-	height:auto;
-	font-style:normal;
-	background:none;
-	font-size:40px;
-	color:#ffd984;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
-}
-.ui-icon-track:before{
-	/*content:'\f208';
-	font-family:'WebHostingHub-Glyphs';
-	width:auto;
-	height:auto;
-	font-style:normal;
-	padding:5px;
-	background:none;*/
-}
-
 /*TOP / BOTTOM NAV*/
 .top-nav .ui-btn{
 	background:#003366 !important;
