@@ -569,9 +569,10 @@ function saveSettings(cb) {
 	
     //if(note.title == "") note.title = "[No Title]"; //left over from old note application
     dbShell.transaction(function(tx) {
-        if(note.id == "") 
-        tx.executeSql("insert into saved(onoff,frequency,start,range,tracked,totals,updated) values(?,?,?,?,?,?)",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals,new Date()]);
-        else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, tracked=?, totals=?, updated=? where id=?",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals, new Date(), data.id]);
+        //if(note.id == "") 
+        //tx.executeSql("insert into saved(onoff,frequency,start,range,tracked,totals,updated) values(?,?,?,?,?,?)",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals,new Date()]);
+        //else 
+        tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, tracked=?, totals=?, updated=? where id=?",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals, new Date(), data.id]);
     }, dbErrorHandler,cb);
     //alert("saved");
 }
