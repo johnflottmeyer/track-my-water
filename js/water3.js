@@ -195,14 +195,14 @@ function dbErrorHandler(err){ /* ERROR HANDLER */
 }
 
 function setupTable(tx){ /*SETUP TABLE(S)*/
-    tx.executeSql("CREATE TABLE IF NOT EXISTS saved(id,onoff,frequency,start,range,goal,updated)");
+    tx.executeSql("CREATE TABLE IF NOT EXISTS saved(id,onoff,frequency,start,range,goal,tracked,totals,updated)");
     tx.executeSql("CREATE TABLE IF NOT EXISTS alerts(id INTEGER PRIMARY KEY,time,updated)"); 
     tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)");
 } 
 
 function getSettings() { /*GET SETTING ENTRIES*/
     dbShell.transaction(function(tx) {
-        tx.executeSql("select id, onoff, frequency, start, range, goal, updated from saved order by updated desc",[],renderSettings,dbErrorHandler);
+        tx.executeSql("select id, onoff, frequency, start, range, goal, tracked, totals, updated from saved order by updated desc",[],renderSettings,dbErrorHandler);
     }, dbErrorHandler);
 }
 
@@ -236,7 +236,7 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 /* RENDER THE SETTINGS TO THE SCREEN */
 function renderSettings(tx,results){
     if (results.rows.length == 0) { //no settings found - create a default record
-		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "default")'); 
+		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, tracked, totals, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "0", "0", "default")'); 
 		getSettings(); //load it again
     } else { //load and display the settings.
        var s = "";
@@ -245,13 +245,16 @@ function renderSettings(tx,results){
        	 
        	 //if(settings != "off"){
 	     //lets see what is stored in the settings area. 
-   	 	frequency = results.rows.item(i).frequency;
-   	 	start = results.rows.item(i).start;
-   	 	startmin = start.split(":");
-   	 	range = results.rows.item(i).range;
-   	 	rangemin = range.split(":");
-   	 	goal = results.rows.item(i).goal; 
-   	 	$("#watergoal").val(goal);  
+   	 	 frequency = results.rows.item(i).frequency;
+   	 	 start = results.rows.item(i).start;
+   	 	 startmin = start.split(":");
+   	 	 range = results.rows.item(i).range;
+   	 	 rangemin = range.split(":");
+   	 	 goal = results.rows.item(i).goal; 
+   	 	 //new lets save the goal data
+   	 	 tracked = results.rows.item(i).tracked;
+   	 	 totals = results.rows.items(i).totals;
+   	 	 $("#watergoal").val(goal);  
          //}
        }
        if(saveCalled == "true"){
@@ -269,6 +272,13 @@ function renderSettings(tx,results){
        }
        //set the default button
        $(".alertSettings span").addClass(settings);
+       //mark the home page area's
+       if(tracked != 0){
+	       $('.trackSettings .off').html("YES");
+       }
+       if(totals >= goal){
+	       $('.goalSettings .off').html("YES");
+       }
     }
 }
 
@@ -542,8 +552,8 @@ function saveSettings(note, cb) {
     //if(note.title == "") note.title = "[No Title]"; //left over from old note application
     dbShell.transaction(function(tx) {
         if(note.id == "") 
-        tx.executeSql("insert into saved(onoff,frequency,start,range,updated) values(?,?,?,?,?,?)",[note.onoff,note.frequency,note.start,note.range,note.goal,new Date()]);
-        else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",[note.onoff,note.frequency,note.start,note.range,note.goal, new Date(), note.id]);
+        tx.executeSql("insert into saved(onoff,frequency,start,range,tracked,totals,updated) values(?,?,?,?,?,?)",[note.onoff,note.frequency,note.start,note.range,note.goal,note.tracked,note.totals,new Date()]);
+        else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, tracked=?, totals=?, updated=? where id=?",[note.onoff,note.frequency,note.start,note.range,note.goal,note.tracked,note.totals, new Date(), note.id]);
     }, dbErrorHandler,cb);
     //alert("saved");
 }
@@ -749,11 +759,14 @@ $(document).ready(function() {
 			//$("#popupDialog3").click();
 			toastr.error('<strong>There were some errors: Please fix before saving</strong><ul>' + errors + '</ul>', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 		}else{
+			
 	        var data = {onoff:$('#slider2').val(), 
 	                    frequency:$("#select-native-2 :radio:checked").val(),
 	                    start:$("#starttime").val(),
 	                    range:$("#endtime").val(),
 	                    goal:$("#watergoal").val(),
+	                    tracked:1,
+	                    totals:$(".showtotal .consumed").val()
 	                    id: 1 // Replace the one entry
 	        };
 	        saveSettings(data,function() {
