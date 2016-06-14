@@ -253,7 +253,7 @@ function renderSettings(tx,results){
    	 	 goal = results.rows.item(i).goal; 
    	 	 //new lets save the goal data
    	 	 tracked = results.rows.item(i).tracked;
-   	 	 totals = results.rows.items(i).totals;
+   	 	 totals = results.rows.item(i).totals;
    	 	 $("#watergoal").val(goal);  
          //}
        }
