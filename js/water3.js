@@ -254,7 +254,11 @@ function renderSettings(tx,results){
    	 	 //new lets save the goal data
    	 	 tracked = results.rows.item(i).tracked;
    	 	 totals = results.rows.item(i).totals;
-   	 	 $("#watergoal").val(goal);  
+   	 	 if(goal != "" || goal != 0){
+   	 	 	$("#watergoal").val(goal);
+ 	 	}else{
+	 	 	$("#watergoal").val("64");
+ 	 	}  
          //}
        }
        if(saveCalled == "true"){
