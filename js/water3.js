@@ -286,6 +286,7 @@ function renderSettings(tx,results){
 	       $(".goalSettings span").addClass("on");
        }
     }
+    alert("render settings called");
 }
 
 /*RENDER THE ALERTS TO THE SCREEN*/
