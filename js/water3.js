@@ -835,7 +835,7 @@ $(document).ready(function() {
 			}, dbErrorHandler);
 			//lets save the settings
 			saveSettings(function() {
-				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
+				//saveCalled = "true"; //send a flag to the render function to generate the notifcations.
 				getSettings(); //refresh what is saved to get the latest.
 	        });
         }else{
