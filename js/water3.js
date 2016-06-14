@@ -567,14 +567,9 @@ function saveSettings(cb) {
         id: 1 // Replace the one entry
     };
 	
-    //if(note.title == "") note.title = "[No Title]"; //left over from old note application
     dbShell.transaction(function(tx) {
-        //if(note.id == "") 
-        //tx.executeSql("insert into saved(onoff,frequency,start,range,tracked,totals,updated) values(?,?,?,?,?,?)",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals,new Date()]);
-        //else 
         tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, tracked=?, totals=?, updated=? where id=?",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals, new Date(), data.id]);
     }, dbErrorHandler,cb);
-    //alert("saved");
 }
 
 /*SAVE ALERT*/
@@ -779,15 +774,6 @@ $(document).ready(function() {
 			toastr.error('<strong>There were some errors: Please fix before saving</strong><ul>' + errors + '</ul>', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 		}else{
 			//save the current settings to the settings db
-	        /*var data = {onoff:$('#slider2').val(), 
-	                    frequency:$("#select-native-2 :radio:checked").val(),
-	                    start:$("#starttime").val(),
-	                    range:$("#endtime").val(),
-	                    goal:$("#watergoal").val(),
-	                    tracked:1,
-	                    totals:$(".showtotal .consumed").text(),
-	                    id: 1 // Replace the one entry
-	        };*/
 	        saveSettings(function() {
 				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
 				getSettings(); //refresh what is saved to get the latest.
@@ -848,7 +834,10 @@ $(document).ready(function() {
 	            });
 			}, dbErrorHandler);
 			//lets save the settings
-			
+			saveSettings(function() {
+				saveCalled = "true"; //send a flag to the render function to generate the notifcations.
+				getSettings(); //refresh what is saved to get the latest.
+	        });
         }else{
 	        $("#popupError p").html("You need to pick a time!"); //populate the error window
 	        $("#popupDialog2").click(); //pop up error window
