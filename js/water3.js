@@ -241,20 +241,20 @@ function renderSettings(tx,results){
     } else { //load and display the settings.
        var s = "";
        for(var i=0; i<results.rows.length; i++) {
-       	 settings = results.rows.item(i).onoff;
-       	 
-       	 //if(settings != "off"){
-	     //lets see what is stored in the settings area. 
-   	 	 frequency = results.rows.item(i).frequency;
-   	 	 start = results.rows.item(i).start;
-   	 	 startmin = start.split(":");
-   	 	 range = results.rows.item(i).range;
-   	 	 rangemin = range.split(":");
-   	 	 goal = results.rows.item(i).goal; 
-   	 	 //new lets save the goal data
-   	 	 tracked = results.rows.item(i).tracked;
-   	 	 totals = results.rows.item(i).totals;
-   	 	 if(goal != "" || goal != 0){
+	       	 settings = results.rows.item(i).onoff;
+	       	 
+	       	 //if(settings != "off"){
+		     //lets see what is stored in the settings area. 
+	   	 	 frequency = results.rows.item(i).frequency;
+	   	 	 start = results.rows.item(i).start;
+	   	 	 startmin = start.split(":");
+	   	 	 range = results.rows.item(i).range;
+	   	 	 rangemin = range.split(":");
+	   	 	 goal = results.rows.item(i).goal; 
+	   	 	 //new lets save the goal data
+	   	 	 tracked = results.rows.item(i).tracked;
+	   	 	 totals = results.rows.item(i).totals;
+   	 	if(goal != "" || goal != 0){
    	 	 	$("#watergoal").val(goal);
  	 	}else{
 	 	 	$("#watergoal").val("64");
@@ -279,9 +279,11 @@ function renderSettings(tx,results){
        //mark the home page area's
        if(tracked != 0){
 	       $('.trackSettings .off').html("YES");
+	       $(".trackSettings span").addClass("on");
        }
        if(totals >= goal){
 	       $('.goalSettings .off').html("YES");
+	       $(".goalSettings span").addClass("on");
        }
     }
 }
