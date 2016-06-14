@@ -168,6 +168,12 @@ strong.alertlabel{
 	text-align:center;
 	font-size:40px;
 }
+.consumed{
+	
+}
+.total{
+	
+}
 /*TOP / BOTTOM NAV*/
 .top-nav .ui-btn{
 	background:#003366 !important;
@@ -506,8 +512,9 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	color:#FFF !important;
 	text-shadow:none !important;
 }
+
 /* Donut charts get built from Pie charts but with a fundamentally difference in the drawing approach. The donut is drawn using arc strokes for maximum freedom in styling */
-.ct-chart{
+/*.ct-chart{
 	color:#FFF !important;
 	text-shadow:none !important;
 	width:100%;
@@ -540,7 +547,7 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 *:not(input,textarea) {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-}
+}*/
 
 /* G - Black Sidebar Theme for jQuery Mobile
  * Available on: https://gist.github.com/4558649

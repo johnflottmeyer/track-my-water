@@ -399,7 +399,8 @@ function renderGoal(tx,results){
        }
        
        $(".inspiration").html(insp);
-       $(".showtotal").html(s+"/"+goal);
+       $(".showtotal .consumed").html(s);
+       $(".showtotal .total").html(goal);
 	   RenderChart(s,goal);
 	   
     }

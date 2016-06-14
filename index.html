@@ -219,7 +219,7 @@
 				
 				<h3>Your Status</h3>
 				<p>Here is where you are at with your daily water goal.</p>
-				<div class="showtotal">0/64</div>
+				<div class="showtotal"><div class="consumed">0</div>/<div class="total">64</div></div>
 				<div id="canvas-holder">
 			        <canvas id="chart-area"/>
 			    </div>
@@ -248,7 +248,7 @@
 			<!-- /navbar -->
 			</div>
 			<script type="text/javascript">
-				var config = {
+			var config = {
 			 type: 'doughnut',
 	        data: {
 	            datasets: [{
@@ -257,13 +257,12 @@
 	                    "#003366",
 	                    "#f8981d",
 	                    "#CCCCCC"
-	                ],
-	                label: ['Water','Scum','Yum']
+	                ]
 	            }],
 	            labels: [
-	                "h20 goal",
-	                "h2O - this app",
-	                "h2O - other"
+	                "H2O goal",
+	                "H2O - this app",
+	                "H2O - other"
 	            ]
 	        },
 	        options: {
@@ -279,8 +278,7 @@
 	            animation: {
 	                animateScale: true,
 	                animateRotate: true
-	            },
-	            showLabel: true
+	            }
 	        }
 	    };	
 	    window.onload = function() {
@@ -290,13 +288,14 @@
 				</script>
 	</div><!-- / ui-content -->
 </div><!-- / goal page -->
-<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="js/jquery-clockpicker.min.js"></script>
 <script type="text/javascript" src="js/toastr.js"></script>
 
 <script type="text/javascript" src="cordova.js"></script> <!--turn off for local testing-->
 <script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/pretty-doughtnut.js"></script>
 <script type="text/javascript" src="js/water3.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 <script>
