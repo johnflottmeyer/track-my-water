@@ -766,7 +766,7 @@ $(document).ready(function() {
 	                    range:$("#endtime").val(),
 	                    goal:$("#watergoal").val(),
 	                    tracked:1,
-	                    totals:$(".showtotal .consumed").val()
+	                    totals:$(".showtotal .consumed").val(),
 	                    id: 1 // Replace the one entry
 	        };
 	        saveSettings(data,function() {
