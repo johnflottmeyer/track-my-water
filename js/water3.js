@@ -286,7 +286,6 @@ function renderSettings(tx,results){
 	       $(".goalSettings span").addClass("on");
        }
     }
-    alert("render settings called");
 }
 
 /*RENDER THE ALERTS TO THE SCREEN*/
@@ -766,7 +765,7 @@ $(document).ready(function() {
 			//$("#popupDialog3").click();
 			toastr.error('<strong>There were some errors: Please fix before saving</strong><ul>' + errors + '</ul>', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 		}else{
-			
+			alert($(".showtotal .consumed").text());
 	        var data = {onoff:$('#slider2').val(), 
 	                    frequency:$("#select-native-2 :radio:checked").val(),
 	                    start:$("#starttime").val(),
