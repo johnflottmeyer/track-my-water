@@ -17,6 +17,7 @@ var range; //variable returned from db
 var saveCalled = "false"; //This is a flag for determining when to set the alerts
 var healthKit = "false"; //This is a flag for IOS to check to see if healthkit exists
 var healthKitPermission = "false";
+var mLarray = {4:118.29,8:236.58,10:295.73,12:354.88,16:473.17647};//mL versions of oz values for healthkit
 
 /******************** Plugin Permissions *********************/
 /*** LOCAL NOTIFICATIONS ***/
@@ -74,33 +75,20 @@ function onReadHealthSuccess(result) {
 	// var results = [];
 	var searchField = "sourceName";
 	var searchVal = "Gibson's Water Tracking";
-	
-	/*for (var i=0 ; i < obj.list.length ; i++)
-	{
-	    if (obj.list[i][searchField] != searchVal) {//check for any that aren't with this app and return
-	        results.push(obj.list[i]);
-	    }
-	}*/
-	console.log(obj);
-	//search(obj,searchVal);
-	
-	function search(source, name) {
-	    var results = [];
-	    var index;
-	    var entry;
-	
-	    name = name.toUpperCase();
-	    for (index = 0; index < source.length; ++index) {
-	        entry = source[index];
-	        if (entry && entry.name && entry.name.toUpperCase().indexOf(name) !== -1) {
-	            results.push(entry);
-	        }
-	    }
-	
-	    //return results;
-	    console.log(results);
+	var hKwater = 0;
+	function search(json, item){
+	  $.each(json, function(i, v) {
+	      if (v.sourceName === item) {//do nothing this is Gibsons stuff
+	      }else{
+	      	hKwater += v.quantity;
+	      }
+	  });
+	  var ozTotal = Math.round(hKwater/29.5735296875);
+	  //take the mL and divide by 29.5735296875 to get oz
+	  console.log(ozTotal);
 	}
-	search(obj,searchVal);
+	search(obj,"Gibson's Water Tracking");
+	//search(obj,searchVal);
 };
 
 function onReadHealthError(result) {
@@ -835,7 +823,10 @@ $(document).ready(function() {
 								//gettime = $(".date-input").val().split(":");
 								d = new Date();
 								date = d.setHours(0, 0, 0);
-								amount = $("#select-water-amount :radio:checked").val();
+								//save the amount as mL for healthkit
+								checkedAmt = $("#select-water-amount :radio:checked").val();//grab the oz
+								var myAmount = compare(mLarray,checkedAmt);//search the obj array for the mL
+								amount = myAmount;//set the new amount for the save function
 								addwater(amount,date); //push to healthkit
 							}
 							toastr.success('Successfully Saved', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"});
@@ -941,6 +932,16 @@ $(document).ready(function() {
     $('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
 	if (/Mobile/.test(navigator.userAgent)) {$('.clockpicker input').prop('readOnly', true);}
 	
+	/*find mL from oz*/
+	function compare(obj,item){
+		$.each(obj, function(i, v) {
+			  if (i == item) {
+			      foundAmount = v;
+		      }
+	  	});
+	  	return foundAmount;
+	}
+
 	//global variables
 	$.mobile.defaultPageTransition = "slidefade";
 	$.mobile.transitionFallbacks.slideout = "none";
