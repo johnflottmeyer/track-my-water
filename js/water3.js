@@ -75,16 +75,16 @@ function onReadHealthSuccess(result) {
 	var searchField = "sourceName";
 	var searchVal = "Gibson's Water Tracking";
 	
-	for (var i=0 ; i < obj.list.length ; i++)
+	/*for (var i=0 ; i < obj.list.length ; i++)
 	{
 	    if (obj.list[i][searchField] != searchVal) {//check for any that aren't with this app and return
 	        results.push(obj.list[i]);
 	    }
-	}
-	console.log(results);
+	}*/
+	console.log(obj);
 	//search(obj,searchVal);
 	
-	function search(source, name) {
+	/*function search(source, name) {
 	    var results = [];
 	    var index;
 	    var entry;
@@ -99,7 +99,7 @@ function onReadHealthSuccess(result) {
 	
 	    //return results;
 	    console.log(results);
-	}
+	}*/
 };
 
 function onReadHealthError(result) {
