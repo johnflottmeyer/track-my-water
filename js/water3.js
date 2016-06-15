@@ -100,7 +100,7 @@ function onReadHealthSuccess(result) {
 	    //return results;
 	    console.log(results);
 	}
-	earch(obj,searchVal);
+	search(obj,searchVal);
 };
 
 function onReadHealthError(result) {
