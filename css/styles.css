@@ -165,10 +165,7 @@ strong.alertlabel{
 .showtotal{
 	text-align:center;
 	font-size:35px;
-	background:#FFF;
-	border:1px solid #EBEBEB;
-	padding:5px;
-	display:inline-block;
+	display:none;
 }
 .consumed{
 	display:inline-block;
