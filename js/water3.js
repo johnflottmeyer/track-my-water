@@ -582,7 +582,7 @@ function saveSettings(cb) {
 /*SAVE ALERT*/
 function saveAlert(id,time){
 	dbShell.transaction(function(tx) {
-		tx.executeSql("insert into alerts(id,time,updated) values(?,?,?)",[id,time, new Date()]);
+		tx.executeSql("insert into alerts(id,time,updated) values(?,?,?)",[id,time, new Date()],getAlerts,dbErrorHandler);
 	}, dbErrorHandler);
 }
 
