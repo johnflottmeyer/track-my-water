@@ -1,6 +1,7 @@
 /************************************************************
 ~~~~~~~~~ WATER APP 2.0 ~~~~~~~~~ 
-Written by Voila! Media Group for Gibsons Water Care, All Rights Reserved. 	
+Written by Voila! Media Group for Gibsons Water Care, All Rights Reserved. 
+	
 ************************************************************/
 
 //GLOBAL VARIABLES
@@ -280,10 +281,16 @@ function renderSettings(tx,results){
        if(tracked != 0){
 	       $('.trackSettings .off').html("YES");
 	       $(".trackSettings span").addClass("on");
+       }else{
+	       $('.trackSettings .off').html("NO");
+	       $(".trackSettings span").removeClass("on");
        }
        if(totals >= goal){
 	       $('.goalSettings .off').html("YES");
 	       $(".goalSettings span").addClass("on");
+       }else{
+	       $('.goalSettings .off').html("NO");
+	       $(".goalSettings span").removeClass("on");
        }
     }
 }
