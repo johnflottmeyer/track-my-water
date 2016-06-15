@@ -84,7 +84,7 @@ function onReadHealthSuccess(result) {
 	console.log(obj);
 	//search(obj,searchVal);
 	
-	/*function search(source, name) {
+	function search(source, name) {
 	    var results = [];
 	    var index;
 	    var entry;
@@ -99,7 +99,8 @@ function onReadHealthSuccess(result) {
 	
 	    //return results;
 	    console.log(results);
-	}*/
+	}
+	earch(obj,searchVal);
 };
 
 function onReadHealthError(result) {
