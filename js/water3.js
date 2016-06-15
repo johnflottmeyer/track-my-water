@@ -411,6 +411,7 @@ function renderGoal(tx,results){
        }
        
        //if permitted and available check healthkit for saved water
+       healthkit = 0;
        
        //some inspiration messages
        if(s <= 3){
@@ -424,21 +425,22 @@ function renderGoal(tx,results){
        $(".inspiration").html(insp);
        $(".showtotal .consumed").html(s);
        $(".showtotal .total").html(goal);
-	   RenderChart(s,goal);
+	   RenderChart(s,goal,healthkit);
 	   
     }
-	
-    
 }
-function RenderChart(amount,goal){
+function RenderChart(amount,goal,healthkit){
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);
         
-        //add in teh new data
+		if(healthkit == 0){
+			hkit = 0;
+		}
+        //add in the new data
         var newDataset = {
             backgroundColor: ["#003366","#f8981d","#CCCCCC"],
-            data: [goal,amount,0],
+            data: [goal,amount,hkit],
             label: 'New dataset ' + config.data.datasets.length,
         };
 
@@ -548,7 +550,7 @@ function createNotifications(){
 			}
 		}
 	});
-	toastr.success('Successfully Saved', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
+	toastr.success('Successfully Saved Alert times', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 	getAlerts(); //update the page with the new set alerts
 }
 function checkAlerts(){

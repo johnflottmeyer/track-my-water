@@ -8,7 +8,6 @@
     font-style: normal;
     -moz-font-feature-settings: "calt=0,liga=0";
 }
-
 /* INCLUDED FONTS */
 @font-face {
   font-family: "Yanone Kaffeesatz";
@@ -78,7 +77,6 @@ body{
 	margin:0px;
 	border-top-left-radius:5px;
 	border-bottom-left-radius:5px;
-	
 }
 .alertSettings span.on, .trackSettings span.on, .goalSettings span.on{
 	background:#f8981d !important;
@@ -166,13 +164,16 @@ strong.alertlabel{
 
 .showtotal{
 	text-align:center;
-	font-size:40px;
+	font-size:35px;
+	background:#FFF;
+	border:1px solid #EBEBEB;
+	padding:5px;
 }
 .consumed{
-	
+	display:inline-block;
 }
 .total{
-	
+	display:inline-block;
 }
 /*TOP / BOTTOM NAV*/
 .top-nav .ui-btn{
