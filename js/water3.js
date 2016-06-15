@@ -562,14 +562,18 @@ function checkAlerts(){
 
 /*SAVE TO DB*/
 function saveSettings(cb) {
-	
+	total = $(".showtotal .consumed").text();
+	trackedNum = 1;
+	if(Number(total) == 0){
+		trackedNum = 0;
+	}
 	//save the current settings to the settings db
     var data = {onoff:$('#slider2').val(), 
         frequency:$("#select-native-2 :radio:checked").val(),
         start:$("#starttime").val(),
         range:$("#endtime").val(),
         goal:$("#watergoal").val(),
-        tracked:1,
+        tracked:trackedNum,
         totals:$(".showtotal .consumed").text(),
         id: 1 // Replace the one entry
     };
