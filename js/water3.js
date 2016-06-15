@@ -87,7 +87,7 @@ function onReadHealthSuccess(result) {
 	  //take the mL and divide by 29.5735296875 to get oz
 	  console.log(ozTotal);
 	}
-	search(obj,"Gibson's Water Tracking");
+	//search(obj,"Gibson's Water Tracking");
 	//search(obj,searchVal);
 };
 
