@@ -74,14 +74,15 @@ function onReadHealthSuccess(result) {
 	// var results = [];
 	var searchField = "sourceName";
 	var searchVal = "Gibson's Water Tracking";
-	/*for (var i=0 ; i < obj.list.length ; i++)
+	
+	for (var i=0 ; i < obj.list.length ; i++)
 	{
 	    if (obj.list[i][searchField] != searchVal) {//check for any that aren't with this app and return
 	        results.push(obj.list[i]);
 	    }
-	}*/
-	//console.log(results);
-	search(obj,searchVal);
+	}
+	console.log(results);
+	//search(obj,searchVal);
 	
 	function search(source, name) {
 	    var results = [];
@@ -358,7 +359,6 @@ function renderWater(tx,results){
        	 	amount = results.rows.item(i).amount;
        	 	var checksavedDate = date.split("/");//split it up now so that we can see how the dates compare
        	 	
-       	 	console.log(checksavedDate[0] + " - " + mday + " =====" + mmo + " - " + checksavedDate[1]);
 	   	 	///// NOW WE NEED TO COMPARE THE DATES TO SEE IF THE DATE IS IN THE PAST ////////
 	   	 	if(checksavedDate[0] != mday || checksavedDate[1] != mmo){
 	   	 		//remove this one
