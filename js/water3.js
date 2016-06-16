@@ -76,7 +76,7 @@ function search(json, item){
 	}
   var ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
   return ozTotal;
-  //console.log(ozTotal);
+  console.log("ox: "+ozTotal);
 }
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
@@ -85,6 +85,7 @@ function onReadHealthSuccess(result) {
   	var obj = result;
 	// var results = [];
 	var hkdata = search(obj,"Gibson's Water Tracking");
+	console.log("hk: "+hkdata);
 	return hkdata;
 };
 
@@ -399,8 +400,11 @@ function renderGoal(tx,results){
        //if permitted and available check healthkit for saved water
        healthkit = 0;
        if(healthKitPermission && healthKit){
-	       healthkit = gethealthkitdata();
+	       healthkit = Number(gethealthkitdata());
 	       console.log("hk: "+healthkit);
+	   }
+	   if(healthkit == "undefined" || healthkit == ""){
+		   healthkit = "";
 	   }
        //some inspiration messages
        if(s <= 3){
@@ -422,14 +426,10 @@ function RenderChart(amount,goal,healthkit){
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);
-        var hkit;
-		if(healthkit == 0){
-			hkit = 0;
-		}
-		if(healthKitPermission && healthKit){//if healthkit is available and we have permission to access
+		if(healthKitPermission && healthKit && healthkit != ""){//if healthkit is available and we have permission to access
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
-	            data: [goal-amount+hkit,amount,hkit],
+	            data: [goal-amount+healthkit,amount,healthkit],
 	            label: 'New dataset ' + config.data.datasets.length,
 	        };
         }else{
