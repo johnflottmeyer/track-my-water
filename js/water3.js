@@ -84,7 +84,8 @@ function onReadHealthSuccess(result) {
   	//var obj = JSON.stringify(result);
   	var obj = result;
 	// var results = [];
-	search(obj,"Gibson's Water Tracking");
+	var hkdata = search(obj,"Gibson's Water Tracking");
+	return hkdata;
 };
 
 function onReadHealthError(result) {
