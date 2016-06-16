@@ -67,9 +67,11 @@ function checkHealtkitPermissions(){
   	);
 }
 function search(json, item){
+	hKwater = 0;
 	for(var i = 0; i < json.length; i++){
 		if(json[i].sourceName == item){
 		// do something
+			hKwater += 0;
     	}else{
 	    	hKwater += json[i].quantity;
     	}
@@ -95,7 +97,6 @@ function onReadHealthSuccess(result) {
 	var hKwater = 0;
 	
 	search(obj,"Gibson's Water Tracking");
-	//search(obj,searchVal);
 };
 
 function onReadHealthError(result) {
