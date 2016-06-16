@@ -94,9 +94,9 @@ function onReadHealthSuccess(result) {
     	}
 	}
 	
-	ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
-	console.log(ozTotal);
-	return ozTotal;
+	window.ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
+	//console.log(ozTotal);
+	//return ozTotal;
 	
   //
 	//console.log("hk: "+hkdata);
@@ -413,8 +413,8 @@ function renderGoal(tx,results){
        healthkit = 0;
        if(healthKitPermission && healthKit){
 	       healthkit = gethealthkitdata();
-	       console.log("hk: "+healthkit);
-	       console.log("oz: "+ozTotal);
+	       //console.log("hk: "+healthkit);
+	       console.log("oz: "+window.ozTotal);
 	   }
 	   if(healthkit == "undefined" || healthkit == ""){
 		   healthkit = "";
