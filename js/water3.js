@@ -70,20 +70,10 @@ var hKwater = 0;
 function search(json, item){
 	for(var i = 0; i < json.length; i++){
 		if(json[i].sourceName == item){
-		// do something
-			//hKwater += "";
     	}else{
-	    	//hKwater += json[i].quantity;
-	    	console.log(json[i].quantity);
+	    	hKwater += json[i].quantity;
     	}
 	}
-  //$.each(json, function(i, v) {
-	  //console.log(json + "-" + item);
-      //if (v.sourceName == item) {//do nothing this is Gibsons stuff
-      //}else{
-      //	hKwater += v.quantity;
-      //}
-  //});
   var ozTotal = Math.round(hKwater/29.5735296875);
   //take the mL and divide by 29.5735296875 to get oz
   console.log(ozTotal);
