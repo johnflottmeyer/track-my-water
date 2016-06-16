@@ -161,9 +161,7 @@ strong.alertlabel{
 
 .alert-grid .ui-block-a { width: 35% !important; }
 .alert-grid .ui-block-b { width: 65% !important; } 
-#canvas-holder, #chart-area{
-	min-height:350px;
-}
+
 .showtotal{
 	text-align:center;
 	font-size:35px;
