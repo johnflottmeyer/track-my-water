@@ -68,7 +68,7 @@ function checkHealtkitPermissions(){
 }
 function search(json, item){
   $.each(json, function(i, v) {
-      if (v.sourceName === item) {//do nothing this is Gibsons stuff
+      if (v.sourceName == item) {//do nothing this is Gibsons stuff
       }else{
       	hKwater += v.quantity;
       }
@@ -79,8 +79,7 @@ function search(json, item){
 }
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
-  //alert("OK: " + JSON.stringify(result));
-  	//lets sort through the results
+	console.log(result);
   	var obj = JSON.stringify(result);
 	// var results = [];
 	var searchField = "sourceName";
