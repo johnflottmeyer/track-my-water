@@ -221,8 +221,12 @@
 				<p>Here is where you are at with your daily water goal.</p>
 				<div class="showtotal"><div class="consumed">0</div>/<div class="total">64</div></div>
 				<div id="canvas-holder">
-			        <canvas id="chart-area"/>
+			        <div class="donut-inner">
+					<div class="donut-inner-text">30</div>
+					<canvas id="chart-area"></canvas>
+					</div>
 			    </div>
+			    
 			    <p class="inspiration"></p>
 				<h3>Set Your Goal</h3>
 				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
@@ -269,6 +273,8 @@
 		        rotation: 0,
 	            responsive: true,
 	            maintainAspectRatio: true,
+	            percentageInnerCutout : 70,
+	            segmentShowStroke : false,
 	            legend: {
 	                position: 'bottom',
 	            },

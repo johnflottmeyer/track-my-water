@@ -428,7 +428,7 @@ function RenderChart(amount,goal,healthkit){
         //add in the new data
         var newDataset = {
             backgroundColor: ["#003366","#f8981d","#CCCCCC"],
-            data: [goal,amount,hkit],
+            data: [goal-amount+hkit,amount,hkit],
             label: 'New dataset ' + config.data.datasets.length,
         };
 
