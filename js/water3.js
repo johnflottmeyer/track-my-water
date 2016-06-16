@@ -75,7 +75,7 @@ function search(json, item){
     	}
 	}
   var ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
-  return(ozTotal);
+  return ozTotal;
   //console.log(ozTotal);
 }
 /*CHECK HEALTHKIT FOR DATA*/
