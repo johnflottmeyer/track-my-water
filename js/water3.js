@@ -67,16 +67,23 @@ function checkHealtkitPermissions(){
   	);
 }
 function search(json, item){
+	for(var i = 0; i < json.length; i++){
+		if(json[i].sourceName == item){
+		// do something
+    	}else{
+	    	hKwater += json[i].quantity;
+    	}
+	}
   //$.each(json, function(i, v) {
-	  console.log(json + "-" + item);
+	  //console.log(json + "-" + item);
       //if (v.sourceName == item) {//do nothing this is Gibsons stuff
       //}else{
       //	hKwater += v.quantity;
       //}
   //});
-  //var ozTotal = Math.round(hKwater/29.5735296875);
+  var ozTotal = Math.round(hKwater/29.5735296875);
   //take the mL and divide by 29.5735296875 to get oz
-  //console.log(ozTotal);
+  console.log(ozTotal);
 }
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
@@ -401,7 +408,9 @@ function renderGoal(tx,results){
        
        //if permitted and available check healthkit for saved water
        healthkit = 0;
-       
+       if(healthKitPermission && healthKit){
+	       
+	   }
        //some inspiration messages
        if(s <= 3){
 	       insp = "Don't forget to drink your water.";
@@ -426,12 +435,19 @@ function RenderChart(amount,goal,healthkit){
 		if(healthkit == 0){
 			hkit = 0;
 		}
-        //add in the new data
-        var newDataset = {
-            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
-            data: [goal-amount+hkit,amount,hkit],
-            label: 'New dataset ' + config.data.datasets.length,
-        };
+		if(healthKitPermission && healthKit){//if healthkit is available and we have permission to access
+	        var newDataset = {
+	            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
+	            data: [goal-amount+hkit,amount,hkit],
+	            label: 'New dataset ' + config.data.datasets.length,
+	        };
+        }else{
+	        var newDataset = {
+	            backgroundColor: ["#003366","#f8981d"],
+	            data: [goal-amount,amount],
+	            label: 'New dataset ' + config.data.datasets.length,
+	        };
+        }
         $(".donut-inner-text").text(amount+hkit);
 
         for (var index = 0; index < config.data.labels.length; ++index) {
