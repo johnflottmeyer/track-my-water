@@ -66,26 +66,10 @@ function checkHealtkitPermissions(){
   		onPermissionError
   	);
 }
-/*function search(json, item){
-	var hKwater = 0;
-	for(var i = 0; i < json.length; i++){
-		if(json[i].sourceName == item){
-    	}else{
-	    	hKwater += json[i].quantity;
-    	}
-	}
-  var ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
-  return ozTotal;
-  console.log("ox: "+ozTotal);
-}*/
+
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
-	//console.log(result);
-  	//var obj = JSON.stringify(result);
   	var obj = result;
-	// var results = [];
-	//var hkdata = search(obj,"Gibson's Water Tracking");
-	//
 	var hKwater = 0;
 	for(var i = 0; i < obj.length; i++){
 		if(obj[i].sourceName == "Gibson's Water Tracking"){
@@ -95,12 +79,6 @@ function onReadHealthSuccess(result) {
 	}
 	
 	window.ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
-	//console.log(ozTotal);
-	//return ozTotal;
-	
-  //
-	//console.log("hk: "+hkdata);
-	//return hkdata;
 };
 
 function onReadHealthError(result) {
@@ -412,13 +390,12 @@ function renderGoal(tx,results){
        //if permitted and available check healthkit for saved water
        healthkit = 0;
        if(healthKitPermission && healthKit){
-	       healthkit = gethealthkitdata();
-	       //console.log("hk: "+healthkit);
-	       console.log("oz: "+window.ozTotal);
+	       gethealthkitdata(){//check to see if there is data saved
+		       console.log("oz: "+window.ozTotal);
+		       healthkit = window.ozTotal;
+		   };
 	   }
-	   if(healthkit == "undefined" || healthkit == ""){
-		   healthkit = "";
-	   }
+	   
        //some inspiration messages
        if(s <= 3){
 	       insp = "Don't forget to drink your water.";
