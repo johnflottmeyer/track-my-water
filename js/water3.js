@@ -74,7 +74,7 @@ function search(json, item){
 			//hKwater += "";
     	}else{
 	    	//hKwater += json[i].quantity;
-	    	 //console.log(json[i].quantity);
+	    	console.log(json[i].quantity);
     	}
 	}
   //$.each(json, function(i, v) {
@@ -84,9 +84,9 @@ function search(json, item){
       //	hKwater += v.quantity;
       //}
   //});
-  //var ozTotal = Math.round(hKwater/29.5735296875);
+  var ozTotal = Math.round(hKwater/29.5735296875);
   //take the mL and divide by 29.5735296875 to get oz
-  //console.log(hKwater);
+  console.log(ozTotal);
 }
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
@@ -401,10 +401,10 @@ function renderGoal(tx,results){
        	 	if(date == today){
 	       	 	amount = results.rows.item(i).amount;
 		   	 	s +=  Number(amount);//print out the saved times with ID's  
-		   	 	console.log(s);
+		   	 	//console.log(s);
        	 	}else{
 	       	 	s += 0;
-	       	 	console.log("not found" + date + " : " + today);
+	       	 	//console.log("not found" + date + " : " + today);
        	 	}
        }
        
