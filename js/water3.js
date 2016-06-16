@@ -390,10 +390,8 @@ function renderGoal(tx,results){
        //if permitted and available check healthkit for saved water
        healthkit = 0;
        if(healthKitPermission && healthKit){
-	       gethealthkitdata(){//check to see if there is data saved
-		       console.log("oz: "+window.ozTotal);
-		       healthkit = window.ozTotal;
-		   };
+	       gethealthkitdata();
+	       healthkit = window.ozTotal;
 	   }
 	   
        //some inspiration messages
