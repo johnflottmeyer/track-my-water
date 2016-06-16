@@ -95,8 +95,9 @@ function onReadHealthSuccess(result) {
 	}
 	
 	var ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
-	return ozTotal;
 	console.log(ozTotal);
+	return ozTotal;
+	
   //
 	//console.log("hk: "+hkdata);
 	//return hkdata;
