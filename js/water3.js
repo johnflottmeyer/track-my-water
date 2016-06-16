@@ -108,14 +108,12 @@ function onReadHealthError(result) {
 };
 
 function gethealthkitdata(){
-	//alert(new Date(new Date().setHours(0,0,0,0)) + " - - " + new Date(Date.now()));
 	window.plugins.healthkit.querySampleType(
 	  {
-	    //'startDate' : new Date(new Date().getTime()-2*24*60*60*1000), // two days ago
 	    'startDate' : new Date(new Date().setHours(0,0,0,0)),
 	    'endDate'   : new Date(Date.now()), // now
 	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
-	    'unit'      : 'mL' // make sure this is compatible with the sampleType literUnit
+	    'unit'      : 'mL' 
 	  },
 	  onReadHealthSuccess,
 	  onReadHealthError
@@ -416,6 +414,7 @@ function renderGoal(tx,results){
        if(healthKitPermission && healthKit){
 	       healthkit = gethealthkitdata();
 	       console.log("hk: "+healthkit);
+	       console.log("oz: "+ozTotal);
 	   }
 	   if(healthkit == "undefined" || healthkit == ""){
 		   healthkit = "";
