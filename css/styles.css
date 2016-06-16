@@ -17,7 +17,6 @@
 html, body, .ui-page {
     border: none !important;
     height: 100%;
-    /*background:none !important;*/
     background:rgba(255, 255, 255, 0.58);
 }
 body{
@@ -35,9 +34,6 @@ body{
 	border-color:#265471;
 }
 .ui-body-a{
-	/*background-color:#b5dbe6;/**/
-	/*background-color:#FFF;*/
-	/*border:none;*/
 	border:none;
 	background:transparent;
 }
@@ -118,11 +114,9 @@ body{
 .small{
 	font-size:11px;
 }
-
 strong.alertlabel{
 	margin-top:12px !important;
 	display:block;
-	/*vertical-align:middle;*/
 }
 .table-alerts{
 	width:100%;
@@ -144,7 +138,6 @@ strong.alertlabel{
 	font-size:15px;
 	text-align:left;
 	white-space: normal;
-	/*padding-left:82px;*/
 }
 .homebtn p{
 	font-size:12px;
@@ -353,7 +346,6 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	margin:5px;
 	display:inline-block;
 	font-family:'WebHostingHub-Glyphs';width:auto;height:auto;font-style:normal;
-	/*text-shadow:1px 1px 1px rgba(255, 255, 255, 0.6);*/
 	text-shadow:none !important;
 	position:relative;
 	padding:5px 5px 5px 15px !important;
@@ -425,7 +417,6 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	z-index:300;
 	text-shadow:none;
 	position:absolute;
-	/*border:1px solid #444 !important;*/
 	left:-25px;
 	top:7px;
 }
@@ -519,53 +510,11 @@ h2.icon-alerts-h2 span, h2.icon-track-h2 span, h2.icon-goal-h2 span{
 	width:100% !important;
 	text-align:center;	
 }
-/*#select-water-amount .ui-btn{
-	background-color:transparent !important;
-	border:none;
-	border-bottom:1px dashed #000;
-}*/
 .option-button{
 	background:#f8981d !important;
 	color:#FFF !important;
 	text-shadow:none !important;
 }
-
-/* Donut charts get built from Pie charts but with a fundamentally difference in the drawing approach. The donut is drawn using arc strokes for maximum freedom in styling */
-/*.ct-chart{
-	color:#FFF !important;
-	text-shadow:none !important;
-	width:100%;
-}
-
-.ct-chart-donut .ct-series-a .ct-slice-donut {
-    stroke: #f8981d;
-}
-.ct-chart-donut .ct-series-b .ct-slice-donut {
-    stroke: rgba(0,0,0,.4);
-    opacity: 0.0;
-}
-.ct-chart-donut .ct-fill-donut .ct-slice-donut{
-    stroke: rgba(0,0,0,.4);
-    opacity: 1;
-}
-.ct-fill-donut-label h3{
-    font-weight: bolder;
-    padding:10px;
-    background:rgba(0,0,0,.4);
-    border-radius:20px;
-}
-.ct-fill-donut-label .small {
-    font-size: 0.6em;
-}
-.ct-fill-donut-label i { 
-    font-size: 1.5em;
-    color: rgba(0,0,0,.4);
-}
-*:not(input,textarea) {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-}*/
-
 /* G - Black Sidebar Theme for jQuery Mobile
  * Available on: https://gist.github.com/4558649
 -----------------------------------------------------------------------------------------------------------*/
