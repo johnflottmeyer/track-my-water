@@ -439,7 +439,7 @@ function RenderChart(amount,goal,healthkit){
 	            label: 'New dataset ' + config.data.datasets.length,
 	        };
         }
-        $(".donut-inner-text").text(amount+hkit);
+        $(".donut-inner-text").text(amount+healthkit);
 
         for (var index = 0; index < config.data.labels.length; ++index) {
             newDataset.data.push();
