@@ -422,7 +422,7 @@ function RenderChart(amount,goal,healthkit){
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);
-        
+        var hkit;
 		if(healthkit == 0){
 			hkit = 0;
 		}
