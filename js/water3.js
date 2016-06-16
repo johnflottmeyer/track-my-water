@@ -418,7 +418,7 @@ function RenderChart(amount,goal,healthkit){
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
 	            data: [goal-amount+healthkit,amount,healthkit],
-	            label: 'New dataset ' + config.data.datasets.length,
+	            labels: ['goal left','H2O app','Healthkit'],
 	        };
         }else{
 	        var newDataset = {
