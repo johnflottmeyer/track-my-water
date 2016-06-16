@@ -66,13 +66,12 @@ function checkHealtkitPermissions(){
   		onPermissionError
   	);
 }
+var hKwater = 0;
 function search(json, item){
-	console.log(json);
-	hKwater = "";
 	for(var i = 0; i < json.length; i++){
 		if(json[i].sourceName == item){
 		// do something
-			hKwater += "";
+			//hKwater += "";
     	}else{
 	    	//hKwater += json[i].quantity;
 	    	 //console.log(json[i].quantity);
