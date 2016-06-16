@@ -90,8 +90,9 @@ function search(json, item){
 }
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
-	console.log(result);
-  	var obj = JSON.stringify(result);
+	//console.log(result);
+  	//var obj = JSON.stringify(result);
+  	var obj = result;
 	// var results = [];
 	var searchField = "sourceName";
 	var searchVal = "Gibson's Water Tracking";
