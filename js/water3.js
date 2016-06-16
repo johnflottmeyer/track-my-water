@@ -66,7 +66,17 @@ function checkHealtkitPermissions(){
   		onPermissionError
   	);
 }
-
+function search(json, item){
+  $.each(json, function(i, v) {
+      if (v.sourceName === item) {//do nothing this is Gibsons stuff
+      }else{
+      	hKwater += v.quantity;
+      }
+  });
+  var ozTotal = Math.round(hKwater/29.5735296875);
+  //take the mL and divide by 29.5735296875 to get oz
+  console.log(ozTotal);
+}
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
   //alert("OK: " + JSON.stringify(result));
@@ -76,18 +86,8 @@ function onReadHealthSuccess(result) {
 	var searchField = "sourceName";
 	var searchVal = "Gibson's Water Tracking";
 	var hKwater = 0;
-	function search(json, item){
-	  $.each(json, function(i, v) {
-	      if (v.sourceName === item) {//do nothing this is Gibsons stuff
-	      }else{
-	      	hKwater += v.quantity;
-	      }
-	  });
-	  var ozTotal = Math.round(hKwater/29.5735296875);
-	  //take the mL and divide by 29.5735296875 to get oz
-	  console.log(ozTotal);
-	}
-	//search(obj,"Gibson's Water Tracking");
+	
+	search(obj,"Gibson's Water Tracking");
 	//search(obj,searchVal);
 };
 
