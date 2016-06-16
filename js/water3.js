@@ -68,18 +68,19 @@ function checkHealtkitPermissions(){
 }
 function search(json, item){
   $.each(json, function(i, v) {
-      if (v.sourceName == item) {//do nothing this is Gibsons stuff
-      }else{
-      	hKwater += v.quantity;
-      }
+	  console.log(i);
+      //if (v.sourceName == item) {//do nothing this is Gibsons stuff
+      //}else{
+      //	hKwater += v.quantity;
+      //}
   });
-  var ozTotal = Math.round(hKwater/29.5735296875);
+  //var ozTotal = Math.round(hKwater/29.5735296875);
   //take the mL and divide by 29.5735296875 to get oz
-  console.log(ozTotal);
+  //console.log(ozTotal);
 }
 /*CHECK HEALTHKIT FOR DATA*/
 function onReadHealthSuccess(result) {
-	console.log(result);
+	//console.log(result);
   	var obj = JSON.stringify(result);
 	// var results = [];
 	var searchField = "sourceName";
