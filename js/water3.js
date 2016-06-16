@@ -67,6 +67,7 @@ function checkHealtkitPermissions(){
   	);
 }
 function search(json, item){
+	console.log(json);
 	hKwater = "";
 	for(var i = 0; i < json.length; i++){
 		if(json[i].sourceName == item){
@@ -74,7 +75,7 @@ function search(json, item){
 			hKwater += "";
     	}else{
 	    	//hKwater += json[i].quantity;
-	    	 console.log(json[i].quantity);
+	    	 //console.log(json[i].quantity);
     	}
 	}
   //$.each(json, function(i, v) {
