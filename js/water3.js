@@ -67,13 +67,13 @@ function checkHealtkitPermissions(){
   	);
 }
 function search(json, item){
-  $.each(json, function(i, v) {
-	  console.log(i);
+  //$.each(json, function(i, v) {
+	  console.log(json + "-" + item);
       //if (v.sourceName == item) {//do nothing this is Gibsons stuff
       //}else{
       //	hKwater += v.quantity;
       //}
-  });
+  //});
   //var ozTotal = Math.round(hKwater/29.5735296875);
   //take the mL and divide by 29.5735296875 to get oz
   //console.log(ozTotal);
