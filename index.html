@@ -267,7 +267,8 @@
 	        },
 	        options: {
 		        rotation: 0,
-	            responsive: false,
+	            responsive: true,
+	            maintainAspectRatio: true,
 	            legend: {
 	                position: 'bottom',
 	            },
@@ -283,6 +284,8 @@
 	    };	
 	    window.onload = function() {
 	        var ctx = document.getElementById("chart-area").getContext("2d");
+	        ctx.canvas.width = 300;
+			ctx.canvas.height = 300;
 	        window.myDoughnut = new Chart(ctx, config);
 	    };
 				</script>
