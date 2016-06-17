@@ -233,24 +233,27 @@ function renderSettings(tx,results){
 	   	 	 tracked = results.rows.item(i).tracked;
 	   	 	 totals = results.rows.item(i).totals;
 	   	 	 
-	   	 	 //grab healthkit if available
-	   	 	 var hkAdd = 0;
-	   	 	 gethealthkitdata();
-	   	 	 console.log(window.ozTotal);
-	   	 	 if(window.ozTotal == ""){
-		   	 	 hkAdd = 0;
-	   	 	 }else{
-		   	 	 hkAdd = window.ozTotal;
-	   	 	 }
-	   	 	 console.log(hkAdd);
 	   	 	 
-   	 	if(goal != "" || goal != 0){
-   	 	 	$("#watergoal").val(goal);
- 	 	}else{
-	 	 	$("#watergoal").val("64");
- 	 	}  
+	   	 	 
+	   	 	if(goal != "" || goal != 0){
+	   	 	 	$("#watergoal").val(goal);
+	 	 	}else{
+		 	 	$("#watergoal").val("64");
+	 	 	}  
          //}
        }
+       
+       //grab healthkit if available
+   	 	 var hkAdd = 0;
+   	 	 gethealthkitdata();
+   	 	 console.log("ozTotal: " + window.ozTotal);
+   	 	 if(window.ozTotal == ""){
+	   	 	 hkAdd = 0;
+   	 	 }else{
+	   	 	 hkAdd = window.ozTotal;
+   	 	 }
+   	 	 console.log("hkAdd:"+hkAdd);
+   	 	 
        if(saveCalled == "true"){
 	       createNotifications(); //create the notifications
 	       saveCalled = false; //turn it back off now
