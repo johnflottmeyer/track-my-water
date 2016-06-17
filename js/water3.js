@@ -394,11 +394,11 @@ function renderGoal(tx,results){
 	   }
 	   
        //some inspiration messages
-       if(s <= 3){
+       if((s + healthkit) <= 3){
 	       insp = "Don't forget to drink your water.";
-       }else if(s <= 32){
+       }else if((s + healthkit) <= 32){
 	       insp = "Almost there keep up the good work.";
-       }else if(s >= 64){
+       }else if((s + healthkit) >= 64){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        
