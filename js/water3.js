@@ -244,21 +244,19 @@ function renderSettings(tx,results){
        }
        
        //grab healthkit if available
-   	 	 var hkAdd = 0;
-   	 	 gethealthkitdata();
-   	 	 console.log("ozTotal: " + window.ozTotal);
-   	 	 if(window.ozTotal == ""){
-	   	 	 hkAdd = 0;
-   	 	 }else{
-	   	 	 hkAdd = window.ozTotal;
-   	 	 }
-   	 	 console.log("hkAdd:"+hkAdd);
+   	   var hkAdd = 0;
+   	   if(healthKitPermission && healthKit){
+	       gethealthkitdata();
+	       healthkithome = window.ozTotal;
+	   }
+   	   console.log("ozTotal: " + healthkithome);
    	 	 
        if(saveCalled == "true"){
 	       createNotifications(); //create the notifications
 	       saveCalled = false; //turn it back off now
        }
        $("#mainContent").html(s);//show what is saved 
+       
        $(".alertSettings span").html(settings);
        if(settings == "on"){
 		   $(".alertSettings span").removeClass("off");
@@ -267,8 +265,10 @@ function renderSettings(tx,results){
 	       $(".alertSettings span").removeClass("on");
 		   $(".alertSettings span").addClass("off");
        }
+       
        //set the default button
        $(".alertSettings span").addClass(settings);
+       
        //mark the home page area's
        if(tracked != 0){
 	       $('.trackSettings .off').html("YES");
@@ -277,6 +277,7 @@ function renderSettings(tx,results){
 	       $('.trackSettings .off').html("NO");
 	       $(".trackSettings span").removeClass("on");
        }
+       
        if((totals + hkAdd) >= goal ){
 	       $('.goalSettings .off').html("YES");
 	       $(".goalSettings span").addClass("on");
@@ -394,10 +395,8 @@ function renderGoal(tx,results){
        	 	if(date == today){
 	       	 	amount = results.rows.item(i).amount;
 		   	 	s +=  Number(amount);//print out the saved times with ID's  
-		   	 	//console.log(s);
        	 	}else{
 	       	 	s += 0;
-	       	 	//console.log("not found" + date + " : " + today);
        	 	}
        }
        
