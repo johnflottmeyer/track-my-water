@@ -271,7 +271,7 @@ function renderSettings(tx,results){
 	       $('.trackSettings .off').html("NO");
 	       $(".trackSettings span").removeClass("on");
        }
-       if(totals >= (goal + hkAdd)){
+       if((totals + hkAdd) >= goal ){
 	       $('.goalSettings .off').html("YES");
 	       $(".goalSettings span").addClass("on");
        }else{
