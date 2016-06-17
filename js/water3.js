@@ -417,16 +417,16 @@ function RenderChart(amount,goal,healthkit){
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
 	            data: [goal-amount+healthkit,amount,healthkit],
-	            label: ['goal left','H2O app','Healthkit'],
+	            label: ['Goal data with Healthkit'],
 	        };
-	        config.data.labels.splice(-1, 1);
-	        config.data.labels.push("goal left 2","H2O app 2","Healthkit 2");
+	        //config.data.labels.splice(-1, 1);
+	        //config.data.labels.push("goal left 2","H2O app 2","Healthkit 2");
 	        $(".donut-inner-text").text(amount+healthkit);
         }else{
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d"],
 	            data: [goal-amount,amount],
-	            label: ['goal left','H2O app'],
+	            label: ['Goal data without Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount);
         }
