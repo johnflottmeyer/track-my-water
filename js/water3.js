@@ -243,14 +243,13 @@ function renderSettings(tx,results){
 	 	 	}  
          //}
        }
-       
+       var healthkithome = 0;
        //grab healthkit if available
    	   if(healthKitPermission && healthKit){
-	       test = gethealthkitdata();
-	       console.log("test: "+test);
+	       gethealthkitdata();
 	       healthkithome = ozTotal;
 	   }
-   	   console.log("ozTotal: " + healthkithome);
+   	   console.log("oz: " + healthkithome);
    	 	 
        if(saveCalled == "true"){
 	       createNotifications(); //create the notifications
