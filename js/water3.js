@@ -420,13 +420,13 @@ function RenderChart(amount,goal,healthkit){
 	            label: ['goal left','H2O app','Healthkit'],
 	        };
 	        
-	        config.data.labels.push("healthkit");
+	        //config.data.labels.push("healthkit");
 	        $(".donut-inner-text").text(amount+healthkit);
         }else{
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d"],
 	            data: [goal-amount,amount],
-	            label: ['goal left test','H2O app test'],
+	            label: ['goal left','H2O app'],
 	        };
 	        $(".donut-inner-text").text(amount);
         }
