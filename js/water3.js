@@ -73,13 +73,12 @@ function onReadHealthSuccess(result) {
 	var hKwater = 0;
 	for(var i = 0; i < obj.length; i++){
 		if(obj[i].sourceName == "Gibson's Water Tracking"){
-    	}else{
-	    	hKwater += obj[i].quantity;
-    	}
+    	}else{hKwater += obj[i].quantity;}
 	}
 	
 	window.ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
-	console.log(window.ozTotal);
+	console.log("water- "+window.ozTotal);
+	return window.ozTotal;
 };
 
 function onReadHealthError(result) {
@@ -246,7 +245,8 @@ function renderSettings(tx,results){
        
        //grab healthkit if available
    	   if(healthKitPermission && healthKit){
-	       gethealthkitdata();
+	       test = gethealthkitdata();
+	       console.log("test: "+test);
 	       healthkithome = window.ozTotal;
 	   }
    	   console.log("ozTotal: " + healthkithome);
