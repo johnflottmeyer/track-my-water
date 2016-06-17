@@ -239,7 +239,7 @@ function renderSettings(tx,results){
 	   	 	 }else{
 		   	 	 hkAdd = window.ozTotal;
 	   	 	 }
-	   	 	 
+	   	 	 console.log(hkAdd);
 	   	 	 
    	 	if(goal != "" || goal != 0){
    	 	 	$("#watergoal").val(goal);
