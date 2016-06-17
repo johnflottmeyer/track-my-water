@@ -18,6 +18,7 @@ var saveCalled = "false"; //This is a flag for determining when to set the alert
 var healthKit = "false"; //This is a flag for IOS to check to see if healthkit exists
 var healthKitPermission = "false";
 var mLarray = {4:118.29,8:236.58,10:295.73,12:354.88,16:473.17647};//mL versions of oz values for healthkit
+var ozTotal;
 
 /******************** Plugin Permissions *********************/
 /*** LOCAL NOTIFICATIONS ***/
@@ -76,9 +77,9 @@ function onReadHealthSuccess(result) {
     	}else{hKwater += obj[i].quantity;}
 	}
 	
-	window.ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
-	console.log("water- "+window.ozTotal);
-	return window.ozTotal;
+	ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
+	console.log("water- "+ozTotal);
+	return ozTotal;
 };
 
 function onReadHealthError(result) {
@@ -247,7 +248,7 @@ function renderSettings(tx,results){
    	   if(healthKitPermission && healthKit){
 	       test = gethealthkitdata();
 	       console.log("test: "+test);
-	       healthkithome = window.ozTotal;
+	       healthkithome = ozTotal;
 	   }
    	   console.log("ozTotal: " + healthkithome);
    	 	 
@@ -404,7 +405,7 @@ function renderGoal(tx,results){
        healthkit = 0;
        if(healthKitPermission && healthKit){
 	       gethealthkitdata();
-	       healthkit = window.ozTotal;
+	       healthkit = ozTotal;
 	   }
 	   
        //some inspiration messages
