@@ -232,8 +232,11 @@ function renderSettings(tx,results){
 	   	 	 //new lets save the goal data
 	   	 	 tracked = results.rows.item(i).tracked;
 	   	 	 totals = results.rows.item(i).totals;
+	   	 	 
 	   	 	 //grab healthkit if available
+	   	 	 var hkAdd = 0;
 	   	 	 gethealthkitdata();
+	   	 	 console.log(window.ozTotal);
 	   	 	 if(window.ozTotal == ""){
 		   	 	 hkAdd = 0;
 	   	 	 }else{
