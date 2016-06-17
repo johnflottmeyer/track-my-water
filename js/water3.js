@@ -278,7 +278,7 @@ function renderSettings(tx,results){
 	       $(".trackSettings span").removeClass("on");
        }
        
-       if((totals + hkAdd) >= goal ){
+       if((totals + healthkithome) >= goal ){
 	       $('.goalSettings .off').html("YES");
 	       $(".goalSettings span").addClass("on");
        }else{
