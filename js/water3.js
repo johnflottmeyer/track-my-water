@@ -424,7 +424,7 @@ function RenderChart(amount,goal,healthkit){
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d"],
 	            data: [goal-amount,amount],
-	            label: 'New dataset ' + config.data.datasets.length,
+	            label: ['goal left test','H2O app test'],
 	        };
 	        $(".donut-inner-text").text(amount);
         }
