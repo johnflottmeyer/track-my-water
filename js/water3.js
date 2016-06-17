@@ -417,7 +417,7 @@ function RenderChart(amount,goal,healthkit){
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
 	            data: [goal-amount+healthkit,amount,healthkit],
-	            labels: ['goal left','H2O app','Healthkit'],
+	            label: ['goal left','H2O app','Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount+healthkit);
         }else{
