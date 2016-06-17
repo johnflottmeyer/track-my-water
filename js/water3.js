@@ -416,11 +416,9 @@ function RenderChart(amount,goal,healthkit){
 		if(healthKitPermission && healthKit && healthkit != ""){//if healthkit is available and we have permission to access
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
-	            data: [goal-amount+healthkit,amount,healthkit],
+	            data: [goal-(amount+healthkit),amount,healthkit],
 	            label: ['Goal data with Healthkit'],
 	        };
-	        //config.data.labels.splice(-1, 1);
-	        //config.data.labels.push("goal left 2","H2O app 2","Healthkit 2");
 	        $(".donut-inner-text").text(amount+healthkit);
         }else{
 	        var newDataset = {
