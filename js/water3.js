@@ -133,18 +133,14 @@ function addwater(amount,startdate,enddate){ // save the water data to the healt
 	}
 }
 
-/***************** DEVICE READY PHONEGAP *****************/
+/***************** DEVICE READY PHONEGAP *****************/x
 //check for the device to be ready
 function phoneReady() {
-	//render the status bar
-	StatusBar.backgroundColorByHexString("#000000");
-	StatusBar.styleLightContent();
 	//First, open our db
     dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000);  
     //Set it up if not set up / callback success is getSettings
 	dbShell.transaction(setupTable,dbErrorHandler,getSettings);     
-	/*** IOS 8 and up get permission to do badges, 
-	notifications, access healthkit ***/    
+	/*** IOS 8 and up get permission to do badges, notifications, access healthkit ***/    
     //###Plugins - BADGE
     cordova.plugins.notification.badge.hasPermission(function (granted) { 
 	    //might not need to check since we are getting permission for the Notifications
