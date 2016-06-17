@@ -419,6 +419,8 @@ function RenderChart(amount,goal,healthkit){
 	            data: [goal-amount+healthkit,amount,healthkit],
 	            label: ['goal left','H2O app','Healthkit'],
 	        };
+	        var healthkit = "healthkit";
+	        config.data.labels.push(healthkit);
 	        $(".donut-inner-text").text(amount+healthkit);
         }else{
 	        var newDataset = {
