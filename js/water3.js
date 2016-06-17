@@ -414,16 +414,20 @@ function RenderChart(amount,goal,healthkit){
 		//remove the old data
 		config.data.datasets.splice(0, 1);
 		if(healthKitPermission && healthKit && healthkit != ""){//if healthkit is available and we have permission to access
+	        goalAmt = goal-(amount+healthkit);
+	        if(goalAmt < 0){ goalAmt = 0;}
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d","#CCCCCC"],
-	            data: [goal-(amount+healthkit),amount,healthkit],
+	            data: [goalAmt,amount,healthkit],
 	            label: ['Goal data with Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount+healthkit);
         }else{
+	        goalAmt = goal-amount;
+	        if(goalAmt < 0){ goalAmt = 0;}
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d"],
-	            data: [goal-amount,amount],
+	            data: [goalAmt,amount],
 	            label: ['Goal data without Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount);
