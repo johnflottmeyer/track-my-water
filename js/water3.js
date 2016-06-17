@@ -232,6 +232,15 @@ function renderSettings(tx,results){
 	   	 	 //new lets save the goal data
 	   	 	 tracked = results.rows.item(i).tracked;
 	   	 	 totals = results.rows.item(i).totals;
+	   	 	 //grab healthkit if available
+	   	 	 gethealthkitdata();
+	   	 	 if(window.ozTotal == ""){
+		   	 	 hkAdd = 0;
+	   	 	 }else{
+		   	 	 hkAdd = window.ozTotal;
+	   	 	 }
+	   	 	 
+	   	 	 
    	 	if(goal != "" || goal != 0){
    	 	 	$("#watergoal").val(goal);
  	 	}else{
@@ -262,7 +271,7 @@ function renderSettings(tx,results){
 	       $('.trackSettings .off').html("NO");
 	       $(".trackSettings span").removeClass("on");
        }
-       if(totals >= goal){
+       if(totals >= (goal + hkAdd)){
 	       $('.goalSettings .off').html("YES");
 	       $(".goalSettings span").addClass("on");
        }else{
