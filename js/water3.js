@@ -133,7 +133,7 @@ function addwater(amount,startdate,enddate){ // save the water data to the healt
 	}
 }
 
-/***************** DEVICE READY PHONEGAP *****************/x
+/***************** DEVICE READY PHONEGAP *****************/
 //check for the device to be ready
 function phoneReady() {
 	//First, open our db
