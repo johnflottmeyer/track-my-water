@@ -79,6 +79,7 @@ function onReadHealthSuccess(result) {
 	}
 	
 	window.ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
+	console.log(window.ozTotal);
 };
 
 function onReadHealthError(result) {
@@ -244,7 +245,6 @@ function renderSettings(tx,results){
        }
        
        //grab healthkit if available
-   	   var hkAdd = 0;
    	   if(healthKitPermission && healthKit){
 	       gethealthkitdata();
 	       healthkithome = window.ozTotal;
