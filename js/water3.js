@@ -419,14 +419,16 @@ function RenderChart(amount,goal,healthkit){
 	            data: [goal-amount+healthkit,amount,healthkit],
 	            labels: ['goal left','H2O app','Healthkit'],
 	        };
+	        $(".donut-inner-text").text(amount+healthkit);
         }else{
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d"],
 	            data: [goal-amount,amount],
 	            label: 'New dataset ' + config.data.datasets.length,
 	        };
+	        $(".donut-inner-text").text(amount);
         }
-        $(".donut-inner-text").text(amount+healthkit);
+        
 
         for (var index = 0; index < config.data.labels.length; ++index) {
             newDataset.data.push();
