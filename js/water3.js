@@ -136,6 +136,9 @@ function addwater(amount,startdate,enddate){ // save the water data to the healt
 /***************** DEVICE READY PHONEGAP *****************/
 //check for the device to be ready
 function phoneReady() {
+	//render the status bar
+	StatusBar.backgroundColorByHexString("#000000");
+	StatusBar.styleLightContent();
 	//First, open our db
     dbShell = window.openDatabase("AppSave", 2, "Appsave", 1000000);  
     //Set it up if not set up / callback success is getSettings
