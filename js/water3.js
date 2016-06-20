@@ -406,14 +406,18 @@ function renderGoal(tx,results){
        $(".inspiration").html(insp);//post the way to go message
        $(".showtotal .consumed").html(s);
        $(".showtotal .total").html(goal);
-	   RenderChart(s,goal,healthkit);
+       
+	   //RenderChart(s,goal,healthkit);//error here
+	   RenderChart(s,goal);
     }
 }
-function RenderChart(amount,goal,healthkit){
+//function RenderChart(amount,goal,healthkit){
+function RenderChart(amount,goal){
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);
-		if(healthKitPermission && healthKit && healthkit != ""){//if healthkit is available and we have permission to access
+		
+		if(healthKitPermission && healthKit){//if healthkit is available and we have permission to access
 	        goalAmt = goal-(amount+healthkit);
 	        if(goalAmt < 0){ goalAmt = 0;}
 	        var newDataset = {
