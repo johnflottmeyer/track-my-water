@@ -407,12 +407,11 @@ function renderGoal(tx,results){
        $(".showtotal .consumed").html(s);
        $(".showtotal .total").html(goal);
        
-	   //RenderChart(s,goal,healthkit);//error here
 	   RenderChart(s,goal,healthkit);
     }
 }
 //function RenderChart(amount,goal,healthkit){
-function RenderChart(amount,goal){
+function RenderChart(amount,goal,healthkit){
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);
