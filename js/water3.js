@@ -897,6 +897,7 @@ $(document).ready(function() {
 			}, dbErrorHandler); //?- this appears to be in the wrong place 
 		}else{
 			toastr.error('<strong>not able to save, no goal amount set</strong>', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
+			$("#watergoal").val(goal);//set
 		}
 		
 		evt.preventDefault();
