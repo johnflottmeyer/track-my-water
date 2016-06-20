@@ -943,6 +943,7 @@ $(document).ready(function() {
 	
 	/*IOS Fix*/
 	var footer = $('.fixed-footer');
+	var input = $('input');
 	
 	input.on('focus', function(){
 	    footer.css({position:'relative'});
