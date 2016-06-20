@@ -404,10 +404,10 @@ function renderGoal(tx,results){
        if(healthKitPermission && healthKit){
 	       gethealthkitdata();
 	       healthkit = ozTotal;
-	       healthkit = $(".healthkitval").text();//get the value to a div container
+	       healthkit = Number($(".healthkitval").text());//get the value to a div container
 	   }
 	   if(healthkit == ""){
-		   healthkit = 10;
+		   healthkit = 0;
 	   }
        //some inspiration messages
        if((s + healthkit) <= 3){
