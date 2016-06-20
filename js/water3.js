@@ -883,8 +883,8 @@ $(document).ready(function() {
 			dbShell.transaction(function(tx) {//stuff to add to db. 
 				tx.executeSql("update saved set goal=? where id=1",[$("#watergoal").val()],function(tx,results) {
 					toastr.success('Successfully Saved', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
-					getGoal();//refresh the chart data
 					getSettings();//try again to refresh the chart data after the data is saved.
+					getGoal();//refresh the chart data
 				});
 			}, dbErrorHandler); //?- this appears to be in the wrong place 
 		}else{
