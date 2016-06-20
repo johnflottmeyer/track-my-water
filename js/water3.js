@@ -393,10 +393,10 @@ function renderGoal(tx,results){
        healthkit = 0;
        if(healthKitPermission && healthKit){
 	       gethealthkitdata();
-	       healthkit = ozTotal;
+	       //healthkit = ozTotal;
 	       healthkit = Number($(".healthkitval").text());//get the value to a div container
 	   }
-	   console.log(healthkit);
+	   console.log("hk: "+(healthkit + 3));
 	   if(healthkit == ""){
 		   healthkit = 0;
 	   }
