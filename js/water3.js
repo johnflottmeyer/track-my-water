@@ -408,7 +408,7 @@ function renderGoal(tx,results){
        $(".showtotal .total").html(goal);
        
 	   //RenderChart(s,goal,healthkit);//error here
-	   RenderChart(s,goal);
+	   RenderChart(s,goal,healthkit);
     }
 }
 //function RenderChart(amount,goal,healthkit){
