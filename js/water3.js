@@ -922,7 +922,7 @@ $(document).ready(function() {
     });
     
     /*clockpicker*/
-    //$('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
+    $('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
 	if (/Mobile/.test(navigator.userAgent)) {$('.clockpicker input').prop('readOnly', true);}
 	
 	/*find mL from oz*/
