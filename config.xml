@@ -7,7 +7,7 @@
 	
     <name>Gibson's Water Tracking</name>
     <description>
-        Set water alerts and track your water goal progress.
+        Set water alerts and track your water goal progress. Set local alert reminders to help you remember to drink water in order to reach your daily goal. Track the water that you consume and see how close to you are to your goal. This app saves the water that is tracked to the Apple Healthkit for historical reference. Also other water tracking apps that track to the Healthkit is taken into consideration when viewing the Daily goal amount.
     </description>
 
     <author href="https://build.phonegap.com" email="j_flottmeyer@voilamediagroup.com">

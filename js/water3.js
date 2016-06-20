@@ -1,6 +1,12 @@
 /************************************************************
 ~~~~~~~~~ WATER APP 2.0 ~~~~~~~~~ 
 Written by Voila! Media Group for Gibsons Water Care, All Rights Reserved. 
+DB WRITTEN TO LOCAL DB
+PLUGINS INCLUDE
+*LOCAL NOTIFICATIONS
+*HEALTHKIT
+*STATUSBAR
+*
 	
 ************************************************************/
 
@@ -53,12 +59,10 @@ function onPermissionSuccess(result) {
 	  }	  
 };
 function onPermissionError(result) {//not able to test if we have permission
-  //alert("Error: " + JSON.stringify(result));
   toastr.error('Healthkit Error', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 
 function checkHealtkitPermissions(){
-	//alert("check permission");
 	window.plugins.healthkit.checkAuthStatus(//lets check to see if we have permission to access the healthkit
 	{
     	'type'  : 'HKQuantityTypeIdentifierDietaryWater' // or any other HKObjectType
@@ -76,7 +80,6 @@ function onReadHealthSuccess(result) {
 		if(obj[i].sourceName == "Gibson's Water Tracking"){
     	}else{hKwater += obj[i].quantity;}
 	}
-	
 	ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
 	$(".healthkitval").html(ozTotal);//push the value to a div container
 };
@@ -100,23 +103,18 @@ function gethealthkitdata(){
 
 /*SAVE DATA TO HEALTHKIT*/
 function onAddDataSuccess(result) {
-  //alert("OK: " + JSON.stringify(result));
-  //toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
+  toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 
 function onAddDataError(result) {
-  //alert("Error: " + JSON.stringify(result));
-  //toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
+  toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 };
 function addwater(amount,startdate,enddate){ // save the water data to the healthkit as well
 	if(amount){ //amount in mL
-		//alert(amount);
 		if(startdate == "" && enddate == ""){
 			startdate = new Date(Date.now());
 			enddate = new Date();
 		}
-		//enddate = newDate().setHours(24, 0, 0);
-		//alert(date + ":" + enddate + ":" + amount);
 		window.plugins.healthkit.saveQuantitySample(
 		  {
 		    'startDate': new Date(Date.now()), // a day ago
@@ -219,36 +217,30 @@ function renderSettings(tx,results){
     } else { //load and display the settings.
        var s = "";
        for(var i=0; i<results.rows.length; i++) {
-	       	 settings = results.rows.item(i).onoff;
+	       	settings = results.rows.item(i).onoff;
 	       	 
-	       	 //if(settings != "off"){
-		     //lets see what is stored in the settings area. 
-	   	 	 frequency = results.rows.item(i).frequency;
-	   	 	 start = results.rows.item(i).start;
-	   	 	 startmin = start.split(":");
-	   	 	 range = results.rows.item(i).range;
-	   	 	 rangemin = range.split(":");
-	   	 	 goal = results.rows.item(i).goal; 
-	   	 	 //new lets save the goal data
-	   	 	 tracked = results.rows.item(i).tracked;
-	   	 	 totals = results.rows.item(i).totals;
-	   	 	 
-	   	 	 
-	   	 	 
+		    //lets see what is stored in the settings area. 
+	   	 	frequency = results.rows.item(i).frequency;
+	   	 	start = results.rows.item(i).start;
+	   	 	startmin = start.split(":");
+	   	 	range = results.rows.item(i).range;
+	   	 	rangemin = range.split(":");
+	   	 	goal = results.rows.item(i).goal; 
+	   	 	//new lets save the goal data
+	   	 	tracked = results.rows.item(i).tracked;
+	   	 	totals = results.rows.item(i).totals;
+	   	 	
 	   	 	if(goal != "" || goal != 0){
 	   	 	 	$("#watergoal").val(goal);
 	 	 	}else{
 		 	 	$("#watergoal").val("64");
 	 	 	}  
-         //}
        }
        var healthkithome = 0;
-       //grab healthkit if available
-   	   if(healthKitPermission && healthKit){
+   	   if(healthKitPermission && healthKit){//grab healthkit if available
 	       gethealthkitdata();
 	       healthkithome = $(".healthkitval").text();//get the value to a div container
 	   }
-   	   console.log("oz: " + healthkithome);
    	 	 
        if(saveCalled == "true"){
 	       createNotifications(); //create the notifications
@@ -301,7 +293,6 @@ function renderAlerts(tx,results){
        	 if(settings != "off"){//print out the saved times with ID's 
        	 	id = results.rows.item(i).id;
        	 	time = results.rows.item(i).time;
-       	 	 //alert(id);
 	   	 	s +=  "<tr><td>" + time + "</td><td><a href='#' class='ui-btn ui-mini ui-corner-all ui-btn-inline ui-btn-a deletealert' id='"+id+"'><i class='icon-deletealarm'></i></a></td></tr>";  
          }else{
 	        s = "<tr><td colspan='3'>alerts currently turned off.</td></tr>";
@@ -390,7 +381,6 @@ function renderGoal(tx,results){
        var today = tdd + "/" + tdm + "/" + tdy;
        for(var i=0; i<results.rows.length; i++) {
        	 	date = results.rows.item(i).date;
-       	 	//console.log(date);
        	 	if(date == today){
 	       	 	amount = results.rows.item(i).amount;
 		   	 	s +=  Number(amount);//print out the saved times with ID's  
@@ -455,7 +445,6 @@ function RenderChart(amount,goal,healthkit){
         }
 
         config.data.datasets.push(newDataset);
-        
         window.myDoughnut.update();
      }
 }
@@ -532,7 +521,6 @@ function createNotifications(){
 				
 				var d = new Date();
 				var n = d.getTime();
-				console.log(dn);
     
 				//ADD THE ALERTS TO THE NOTIFICATION QUE
 				window.plugin.notification.local.add({
@@ -907,12 +895,13 @@ $(document).ready(function() {
 			tx.executeSql("update saved set goal=? where id=1",[$("#watergoal").val()],function(tx,results) {
 				toastr.success('Successfully Saved', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 			});
-			 //else tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, updated=? where id=?",
-			 }else{
-				 //console.log("not able to save no goal amount set");
-				 toastr.error('<strong>not able to save no goal amount set</strong>', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
-			 }
-		}, dbErrorHandler);
+			
+		}else{
+				toastr.error('<strong>not able to save, no goal amount set</strong>', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
+		}
+		
+		//}, dbErrorHandler); ?- this appears to be in the wrong place 
+		// testing further - 6-20-2016
 		
 		evt.preventDefault();
 	});
@@ -946,7 +935,7 @@ $(document).ready(function() {
     });
     
     /*clockpicker*/
-    $('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
+    //$('.clockpicker').clockpicker().find('input').change(function(){console.log(this.value);});
 	if (/Mobile/.test(navigator.userAgent)) {$('.clockpicker input').prop('readOnly', true);}
 	
 	/*find mL from oz*/
