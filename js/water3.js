@@ -405,7 +405,8 @@ function renderGoal(tx,results){
        if(healthKitPermission && healthKit){
 	       gethealthkitdata();
 	       healthkit = ozTotal;
-	       console.log(ozTotal);
+	       healthkit = $(".healthkitval").text();
+	       console.log(healthkit);
 	   }
 	   if(healthkit == ""){
 		   healthkit = 10;
