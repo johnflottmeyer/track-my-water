@@ -94,7 +94,9 @@ function gethealthkitdata(){
 	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
 	    'unit'      : 'mL' 
 	  },
-	  onReadHealthSuccess,
+	  function(){
+		  return results;
+	},
 	  onReadHealthError
 	);
 }
