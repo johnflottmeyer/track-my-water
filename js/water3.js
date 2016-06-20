@@ -945,7 +945,7 @@ $(document).ready(function() {
 	var footer = $('.fixed-footer');
 	
 	input.on('focus', function(){
-	    footer.css({position:'absolute'});
+	    footer.css({position:'relative'});
 	});
 	
 	input.on('blur', function(){
