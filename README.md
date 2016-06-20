@@ -1,6 +1,6 @@
 Track-My-Water
 ==============
-Set water alerts and track your water goal progress. Set local alert reminders to help you remember to drink water in order to reach your daily goal. Track the water that you consume and see how close to you are to your goal. This app saves the water that is tracked to the Apple Healthkit for historical reference. Also other water tracking apps that track to the Healthkit is taken into consideration when viewing the Daily goal amount.
+Set water alerts and track your water goal progress. Set local alert reminders to help you remember to drink water in order to reach your daily goal. Track the water that you consume and see how close you are to your set goal. This app saves the water that is tracked to the Apple Healthkit if given permission for historical reference. Also other water tracking apps that track to Healthkit are taken into consideration when viewing the daily goal amount.
 
 
 ## V1 ###
