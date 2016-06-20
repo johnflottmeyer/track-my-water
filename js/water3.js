@@ -79,7 +79,7 @@ function onReadHealthSuccess(result) {
 	
 	ozTotal = Math.round(hKwater/29.5735296875);//take the mL and divide by 29.5735296875 to get oz
 	console.log("water- "+ozTotal);
-	return result;
+	$(".healthkitval").html(ozTotal);
 };
 
 function onReadHealthError(result) {
@@ -94,9 +94,7 @@ function gethealthkitdata(){
 	    'sampleType': 'HKQuantityTypeIdentifierDietaryWater',
 	    'unit'      : 'mL' 
 	  },
-	  function(results){
-		  return results;
-	},
+	  onReadHealthSuccess,
 	  onReadHealthError
 	);
 }
@@ -248,9 +246,8 @@ function renderSettings(tx,results){
        var healthkithome = 0;
        //grab healthkit if available
    	   if(healthKitPermission && healthKit){
-	       var test = gethealthkitdata();
-	       console.log(test);
-	       healthkithome = ozTotal;
+	       gethealthkitdata();
+	       healthkithome = $(".healthkitval").text();
 	   }
    	   console.log("oz: " + healthkithome);
    	 	 
