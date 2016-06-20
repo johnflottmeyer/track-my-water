@@ -900,7 +900,7 @@ $(document).ready(function() {
 				toastr.error('<strong>not able to save, no goal amount set</strong>', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 		}
 		
-		//}, dbErrorHandler); ?- this appears to be in the wrong place 
+		}, dbErrorHandler); //?- this appears to be in the wrong place 
 		// testing further - 6-20-2016
 		
 		evt.preventDefault();
