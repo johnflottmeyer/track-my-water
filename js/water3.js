@@ -393,12 +393,7 @@ function renderGoal(tx,results){
        healthkit = 0;
        if(healthKitPermission && healthKit){
 	       gethealthkitdata();
-	       //healthkit = ozTotal;
 	       healthkit = Number($(".healthkitval").text());//get the value to a div container
-	   }
-	   console.log("hk: "+(healthkit + 3) + " goal: "+goal + " s: " + s);
-	   if(healthkit == ""){
-		   healthkit = 0;
 	   }
        //some inspiration messages
        if((s + healthkit) <= 3){
@@ -408,8 +403,7 @@ function renderGoal(tx,results){
        }else if((s + healthkit) >= 64){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
-       
-       $(".inspiration").html(insp);
+       $(".inspiration").html(insp);//post the way to go message
        $(".showtotal .consumed").html(s);
        $(".showtotal .total").html(goal);
 	   RenderChart(s,goal,healthkit);
