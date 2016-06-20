@@ -396,6 +396,7 @@ function renderGoal(tx,results){
 	       healthkit = ozTotal;
 	       healthkit = Number($(".healthkitval").text());//get the value to a div container
 	   }
+	   console.log(healthkit);
 	   if(healthkit == ""){
 		   healthkit = 0;
 	   }
