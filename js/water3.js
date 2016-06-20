@@ -405,8 +405,11 @@ function renderGoal(tx,results){
        if(healthKitPermission && healthKit){
 	       gethealthkitdata();
 	       healthkit = ozTotal;
+	       console.log(ozTotal);
 	   }
-	   
+	   if(healthkit == ""){
+		   healthkit = 10;
+	   }
        //some inspiration messages
        if((s + healthkit) <= 3){
 	       insp = "Don't forget to drink your water.";
