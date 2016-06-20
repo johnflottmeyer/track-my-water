@@ -940,4 +940,15 @@ $(document).ready(function() {
 	//global variables
 	$.mobile.defaultPageTransition = "slidefade";
 	$.mobile.transitionFallbacks.slideout = "none";
+	
+	/*IOS Fix*/
+	var footer = $('.fixed-footer');
+	
+	input.on('focus', function(){
+	    footer.css({position:'absolute'});
+	});
+	
+	input.on('blur', function(){
+	    footer.css({position:'fixed'});
+	});
 });
