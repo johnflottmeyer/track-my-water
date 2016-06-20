@@ -412,7 +412,6 @@ function renderGoal(tx,results){
        $(".showtotal .consumed").html(s);
        $(".showtotal .total").html(goal);
 	   RenderChart(s,goal,healthkit);
-	   
     }
 }
 function RenderChart(amount,goal,healthkit){
@@ -594,13 +593,6 @@ function saveGoal(goal, cb) {
         else tx.executeSql("update goals set date=?, time=?, amount=?, updated=? where id=?",[goal.date, goal.time, goal.amount, new Date(), goal.id],renderSettings,dbErrorHandler);
         //alert("edit");
     }, dbErrorHandler,cb);
-    
-    
-    //
-    /*dbShell.transaction(function(tx) {
-        tx.executeSql("select id, onoff, frequency, start, range, goal, updated from saved order by updated desc",[],renderSettings,dbErrorHandler);
-    }, dbErrorHandler);*/
-    //
 }
 
 /*REMOVE ENTRY*/
@@ -621,7 +613,6 @@ function deleteAlert(id, cb){
 		}, dbErrorHandler,cb);
 	}
 }
-
 
 var app = {
     // Application Constructor
@@ -818,14 +809,13 @@ $(document).ready(function() {
 	            	//alert("isThere: " + isThere);
 	            	if(isThere == 0){ //its not there lets add this one.
 				    	var data = {id:$('.id-tag').val(), 
-				                    date:$(".date-tag").val(),
-				                    time:$(".date-input").val(),
-				                    amount:$("#select-water-amount :radio:checked").val()
+		                    date:$(".date-tag").val(),
+		                    time:$(".date-input").val(),
+		                    amount:$("#select-water-amount :radio:checked").val()
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
 							if(healthKitPermission && healthKit){
-								//gettime = $(".date-input").val().split(":");
 								d = new Date();
 								date = d.setHours(0, 0, 0);
 								//save the amount as mL for healthkit
@@ -893,6 +883,8 @@ $(document).ready(function() {
 			dbShell.transaction(function(tx) {//stuff to add to db. 
 				tx.executeSql("update saved set goal=? where id=1",[$("#watergoal").val()],function(tx,results) {
 					toastr.success('Successfully Saved', null, {target: $('.messages'),"timeOut": "3000","positionClass": "toast-top-full-width"});
+					getGoal();//refresh the chart data
+					getSettings();//try again to refresh the chart data after the data is saved.
 				});
 			}, dbErrorHandler); //?- this appears to be in the wrong place 
 		}else{
