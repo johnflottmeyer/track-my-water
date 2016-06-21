@@ -150,6 +150,7 @@ function phoneReady() {
     window.plugin.notification.badge.configure({ autoClear: true });//clear badges we are in the app 
     //###Plugins - NOTIFICATIONS PERMISSION
     checkNotificationPermissions();
+    
 	//###Plugins - HEALTHKIT AVAILABLE?
 	window.plugins.healthkit.available(
 	   function(isAvailable) {
@@ -158,6 +159,8 @@ function phoneReady() {
 
 			  healthKit = "true"; //we can ask for permission to use HEALTHKIT DATA
 			  checkHealtkitPermissions(); 
+		   }else{
+			   alert("not available");
 		   }
 	   }
 	);
