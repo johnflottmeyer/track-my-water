@@ -154,6 +154,8 @@ function phoneReady() {
 	window.plugins.healthkit.available(
 	   function(isAvailable) {
 		   if(isAvailable){ //ok we have healthkit lets ask to use / store data
+			  alert(isAvailable ? "HealthKit available :)" : "No HealthKit on this device :(")
+
 			  healthKit = "true"; //we can ask for permission to use HEALTHKIT DATA
 			  checkHealtkitPermissions(); 
 		   }
