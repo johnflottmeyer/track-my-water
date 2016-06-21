@@ -21,7 +21,8 @@
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.2" />
 	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.8" />
-	<gap:plugin name="com.synsormed.plugins.healthkit" spec="0.3.5" source="pgb" />
+	<!--<gap:plugin name="com.synsormed.plugins.healthkit" spec="0.3.5" source="pgb" />-->
+	<gap:plugin name="com.telerik.plugins.healthkit" spec="0.1.0" source="pgb" />
 
     <!-- universal preferences -->
     <preference name="phonegap-version"           value="cli-5.2.0" />         
