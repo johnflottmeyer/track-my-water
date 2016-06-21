@@ -21,8 +21,8 @@ var startmin; //variable for splitting the time
 var range; //variable returned from db
 /*Plugin Permissions*/
 var saveCalled = "false"; //This is a flag for determining when to set the alerts
-var healthKit = "false"; //This is a flag for IOS to check to see if healthkit exists
-var healthKitPermission = "false";
+var healthKit = false; //This is a flag for IOS to check to see if healthkit exists
+var healthKitPermission = false;
 var mLarray = {4:118.29,8:236.58,10:295.73,12:354.88,16:473.17647};//mL versions of oz values for healthkit
 var ozTotal;
 
@@ -85,7 +85,7 @@ function onReadHealthSuccess(result) {
 };
 
 function onReadHealthError(result) {
-  alert("Error: " + JSON.stringify(result));
+  alert("Error Reading: " + JSON.stringify(result));
 };
 
 function gethealthkitdata(){
@@ -242,6 +242,7 @@ function renderSettings(tx,results){
        }
        var healthkithome = 0;
    	   if(healthKitPermission && healthKit){//grab healthkit if available
+	   	   alert("renderSettings");
 	       gethealthkitdata();
 	       healthkithome = $(".healthkitval").text();//get the value to a div container
 	   }
@@ -396,6 +397,7 @@ function renderGoal(tx,results){
        //if permitted and available check healthkit for saved water
        healthkit = 0;
        if(healthKitPermission && healthKit){
+	       alert("renderGoal");
 	       gethealthkitdata();
 	       healthkit = Number($(".healthkitval").text());//get the value to a div container
 	   }
