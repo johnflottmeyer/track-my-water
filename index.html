@@ -284,6 +284,13 @@
 	    };	
 	    window.onload = function() {
 	        var ctx = document.getElementById("chart-area").getContext("2d");
+	        //ctx.canvas.width = 300;
+			//ctx.canvas.height = 300;
+			var pixelRatio = window.devicePixelRatio || 1;
+			var width = 404 / pixelRatio;
+			var height = 404 / pixelRatio;
+			ctx.canvas.width = width;
+			ctx.canvas.height = height;
 	        window.myDoughnut = new Chart(ctx, config);
 	    };
 				</script>
