@@ -431,6 +431,7 @@ function RenderChart(amount,goal,healthkit){
 	            label: ['Goal data with Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount+healthkit);
+	        console.log("no HK");
         }else{
 	        goalAmt = goal-amount;
 	        if(goalAmt < 0){ goalAmt = 0;}
@@ -440,6 +441,7 @@ function RenderChart(amount,goal,healthkit){
 	            label: ['Goal data without Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount);
+	        console.log("get HK");
         }
         
 
