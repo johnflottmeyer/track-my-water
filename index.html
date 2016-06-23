@@ -12,104 +12,68 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/style.min.css"/>
 </head>
 <body>
-	
-<!-- goal page -->
-<div data-role="page" id="account" data-theme="a">
 
-	<div role="main" class="ui-content">
-		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div><div class="messages"></div>
-			<div class="ui-body ui-body-a ui-center">
-				
-				<h3>Your Status</h3>
-				<p>Here is where you are at with your daily water goal.</p>
-				<div class="showtotal"><div class="consumed">0</div>/<div class="healthkitval">0</div>/<div class="total">64</div></div>
-				<div id="canvas-holder">
-			        <div class="donut-inner">
-					<div class="donut-inner-text">0</div>
-					
-					</div>
-					<canvas id="chart-area"></canvas>
-					
-			    </div>
-			    <div id="js-legend" class="chart-legend"></div>
-			    <p class="inspiration"></p>
-				<h3>Set Your Goal</h3>
-				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
-				
-				<form method="POST">
-					
-					<label for="watergoal">Your Goal Amount</label>
-					<input type="text" name="goal" id="watergoal" value=""/>
-					<button type="submit" name="savegoal" id="save-goal" class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
-				</form>
-				
-			</div><!-- / ui-body -->
-			<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="fixed-footer">
+<!-- track page -->
+<div data-role="page" id="track" data-theme="a">
+	<!-- debug panel -->
+	<div data-role="panel" id="waterset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
+	<a href="#track" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
+	<div class="ui-panel-inny">
+		<h3>Saved Items</h3>
+		<p id="waterstatus"></p>
+		<p class="waterdata"></p>
+	</div>
+	</div><!-- /panel -->
+		<div role="main" class="ui-content">
+		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
+		<div class="messages-water"></div>
+		<div class="ui-body ui-body-a ui-center"> 
+			
+			<p>Keep Track of the water you drink daily, a journal to make sure you keeping hydrated.</p>
+			<h3>Add New</h3>
+			
+			<form method="post" id="editWater">
+				<input type="hidden" name="id" class="id-tag" value=""/>
+				<input type="hidden" name="date" class="date-tag" value=""/>
+				<div class="waterglass"><!--waterglass-->
+				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="select-water-amount" class="trackamount">
+				        <legend><strong>I Drank</strong></legend>
+				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
+				        <label for="oz4" class="oz4">4 oz</label>
+				        
+				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
+				        <label for="oz8" class="oz8">8 oz</label>
+				        
+				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
+				        <label for="oz10" class="oz10">10 oz</label>
+				        
+				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
+				        <label for="oz12" class="oz12">12 oz</label>
+				        
+				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio">
+				        <label for="oz16" class="oz16">16 oz</label>
+				</fieldset>
+				</div><!--endwaterglass-->
+				<label for="mydate">I drank this water at:</label>
+				<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
+					<input id="mydate" type="text" class="form-control date-input" value="08:30" data-mini="true" data-wrapper-class="controlgroup-textinput ui-btn">
+					<span class="input-group-addon ui-btn"><i class="icon-time"></i></span>
+					<button class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
+				</div>
+			</form>
+		</div><!-- / ui-body -->
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
 			<div data-role="navbar" data-iconpos="top" class="top-nav">
 		        <ul>
-		        	<li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
+			        <li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
 		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
-		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
-		            <li><a href="#account" data-icon="custom" class="ui-icon-goal ui-btn-active ui-state-persist">Goal</a></li>
+		            <li><a href="#track" data-icon="custom" class="ui-btn-active ui-icon-track ui-state-persist">Track</a></li>
+		            <li><a href="#account" data-icon="custom" class="ui-icon-goal">Goal</a></li>
 		        </ul>
-			</div>
-			<!-- /navbar -->
-			</div>
-			<script type="text/javascript">
-			var config = {
-			type: 'doughnut',
-	        data: {
-	            datasets: [{
-	                data: [64,0,0],
-	                backgroundColor: [
-	                    "#003366",
-	                    "#f8981d"
-	                ]
-	            }],
-	            labels: [
-	                "goal left",
-	                "H2O app",
-	                "Healthkit"
-	            ]
-	        },
-	        options: {
-		        rotation: 0,
-	            responsive: true,
-	            maintainAspectRatio: true,
-	            percentageInnerCutout : 70,
-	            segmentShowStroke : false,
-	            tooltipTemplate: "<%= value oz>%",
-	            legend:{
-		            display:false
-	            },
-	            /*legend: {
-	                //position: 'bottom',
-	            //},
-	            title: {
-	                display: true,
-	                text: 'Click graph pieces to see numbers.'
-	            },*/
-	            animation: {
-	                animateScale: false,
-	                animateRotate: true
-	            }
-	        }
-	    };	
-	    window.onload = function() {
-	        var ctx = document.getElementById("chart-area").getContext("2d");
-	        //ctx.canvas.width = 300;
-			//ctx.canvas.height = 300;
-			var pixelRatio = window.devicePixelRatio || 1;
-			/*var width = 404 / pixelRatio;
-			var height = 404 / pixelRatio;
-			ctx.canvas.width = width;
-			ctx.canvas.height = height;*/
-	        window.myDoughnut = new Chart(ctx, config);
-	        document.getElementById('js-legend').innerHTML = window.myDoughnut.generateLegend();
-	    };
-				</script>
+		    </div><!-- /navbar -->
+		</div>
 	</div><!-- / ui-content -->
-</div><!-- / goal page -->
+</div><!-- / track page -->
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -240,69 +204,107 @@
 		</div><!-- /footer -->
 	</div><!-- / ui-content -->	
 </div><!-- /alerts page -->
+<!-track-->
+	
+<!-- goal page -->
+<div data-role="page" id="account" data-theme="a">
 
-<!-- track page -->
-<div data-role="page" id="track" data-theme="a">
-	<!-- debug panel -->
-	<div data-role="panel" id="waterset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
-	<a href="#track" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
-	<div class="ui-panel-inny">
-		<h3>Saved Items</h3>
-		<p id="waterstatus"></p>
-		<p class="waterdata"></p>
-	</div>
-	</div><!-- /panel -->
-		<div role="main" class="ui-content">
-		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
-		<div class="messages-water"></div>
-		<div class="ui-body ui-body-a ui-center"> 
-			
-			<p>Keep Track of the water you drink daily, a journal to make sure you keeping hydrated.</p>
-			<h3>Add New</h3>
-			
-			<form method="post" id="editWater">
-				<input type="hidden" name="id" class="id-tag" value=""/>
-				<input type="hidden" name="date" class="date-tag" value=""/>
-				<div class="waterglass"><!--waterglass-->
-				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="select-water-amount">
-				        <legend><strong>I Drank</strong></legend>
-				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
-				        <label for="oz4" class="oz4">4 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
-				        <label for="oz8" class="oz8">8 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
-				        <label for="oz10" class="oz10">10 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
-				        <label for="oz12" class="oz12">12 oz</label>
-				        
-				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio">
-				        <label for="oz16" class="oz16">16 oz</label>
-				</fieldset>
-				</div><!--endwaterglass-->
-				<label for="mydate">I drank this water at:</label>
-				<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
-					<input id="mydate" type="text" class="form-control date-input" value="08:30" data-mini="true" data-wrapper-class="controlgroup-textinput ui-btn">
-					<span class="input-group-addon ui-btn"><i class="icon-time"></i></span>
-					<button class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
-				</div>
-			</form>
-		</div><!-- / ui-body -->
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+	<div role="main" class="ui-content">
+		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div><div class="messages"></div>
+			<div class="ui-body ui-body-a ui-center">
+				
+				<h3>Your Status</h3>
+				<p>Here is where you are at with your daily water goal.</p>
+				<div class="showtotal"><div class="consumed">0</div>/<div class="healthkitval">0</div>/<div class="total">64</div></div>
+				<div id="canvas-holder">
+			        <div class="donut-inner">
+					<div class="donut-inner-text">0</div>
+					
+					</div>
+					<canvas id="chart-area"></canvas>
+					
+			    </div>
+			    <div id="js-legend" class="chart-legend"></div>
+			    <p class="inspiration"></p>
+				<h3>Set Your Goal</h3>
+				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
+				
+				<form method="POST">
+					
+					<label for="watergoal">Your Goal Amount</label>
+					<input type="text" name="goal" id="watergoal" value=""/>
+					<button type="submit" name="savegoal" id="save-goal" class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
+				</form>
+				
+			</div><!-- / ui-body -->
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="fixed-footer">
 			<div data-role="navbar" data-iconpos="top" class="top-nav">
 		        <ul>
-			        <li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
+		        	<li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
 		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
-		            <li><a href="#track" data-icon="custom" class="ui-btn-active ui-icon-track ui-state-persist">Track</a></li>
-		            <li><a href="#account" data-icon="custom" class="ui-icon-goal">Goal</a></li>
+		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
+		            <li><a href="#account" data-icon="custom" class="ui-icon-goal ui-btn-active ui-state-persist">Goal</a></li>
 		        </ul>
-		    </div><!-- /navbar -->
-		</div>
+			</div>
+			<!-- /navbar -->
+			</div>
+			<script type="text/javascript">
+			var config = {
+			type: 'doughnut',
+	        data: {
+	            datasets: [{
+	                data: [64,0,0],
+	                backgroundColor: [
+	                    "#003366",
+	                    "#f8981d",
+	                    "#CCCCCC"
+	                ]
+	            }],
+	            labels: [
+	                "goal left",
+	                "H2O app",
+	                "Healthkit"
+	            ]
+	        },
+	        options: {
+		        rotation: 0,
+	            responsive: true,
+	            maintainAspectRatio: true,
+	            percentageInnerCutout : 70,
+	            segmentShowStroke : false,
+	            tooltipTemplate: "<%= value oz>%",
+	            legend:{
+		            display:false
+	            },
+	            /*legend: {
+	                //position: 'bottom',
+	            //},
+	            title: {
+	                display: true,
+	                text: 'Click graph pieces to see numbers.'
+	            },*/
+	            animation: {
+	                animateScale: false,
+	                animateRotate: true
+	            }
+	        }
+	    };	
+	    window.onload = function() {
+	        var ctx = document.getElementById("chart-area").getContext("2d");
+	        //ctx.canvas.width = 300;
+			//ctx.canvas.height = 300;
+			var pixelRatio = window.devicePixelRatio || 1;
+			/*var width = 404 / pixelRatio;
+			var height = 404 / pixelRatio;
+			ctx.canvas.width = width;
+			ctx.canvas.height = height;*/
+	        window.myDoughnut = new Chart(ctx, config);
+	        document.getElementById('js-legend').innerHTML = window.myDoughnut.generateLegend();
+	        //alert(document.getElementById('js-legend').innerHTML);
+	    };
+				</script>
 	</div><!-- / ui-content -->
-</div><!-- / track page -->
-<!--goal page-->
+</div><!-- / goal page -->
 
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>

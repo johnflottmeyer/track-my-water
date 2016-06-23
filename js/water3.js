@@ -431,17 +431,17 @@ function RenderChart(amount,goal,healthkit){
 	            label: ['Goal data with Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount+healthkit);
-	        console.log("no HK");
+	        console.log("there is HK");
         }else{
 	        goalAmt = goal-amount;
 	        if(goalAmt < 0){ goalAmt = 0;}
 	        var newDataset = {
 	            backgroundColor: ["#003366","#f8981d"],
-	            data: [goalAmt,amount],
+	            data: [goalAmt,amount,0],
 	            label: ['Goal data without Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount);
-	        console.log("get HK");
+	        console.log("no HK");
         }
         
 
