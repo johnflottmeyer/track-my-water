@@ -419,7 +419,6 @@ function renderGoal(tx,results){
 }
 //function RenderChart(amount,goal,healthkit){
 function RenderChart(amount,goal,healthkit){
-	console.log("Render"+amount+""+goal+""+healthkit)
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);
@@ -433,7 +432,6 @@ function RenderChart(amount,goal,healthkit){
 	            label: ['Goal data with Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount+healthkit);
-	        console.log("there is HK");
         }else{
 	        goalAmt = goal-amount;
 	        if(goalAmt < 0){ goalAmt = 0;}

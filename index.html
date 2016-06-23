@@ -12,68 +12,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/style.min.css"/>
 </head>
 <body>
-
-<!-- track page -->
-<div data-role="page" id="track" data-theme="a">
-	<!-- debug panel -->
-	<div data-role="panel" id="waterset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
-	<a href="#track" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
-	<div class="ui-panel-inny">
-		<h3>Saved Items</h3>
-		<p id="waterstatus"></p>
-		<p class="waterdata"></p>
-	</div>
-	</div><!-- /panel -->
-		<div role="main" class="ui-content">
-		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
-		<div class="messages-water"></div>
-		<div class="ui-body ui-body-a ui-center"> 
-			
-			<p>Keep Track of the water you drink daily, a journal to make sure you keeping hydrated.</p>
-			<h3>Add New</h3>
-			
-			<form method="post" id="editWater">
-				<input type="hidden" name="id" class="id-tag" value=""/>
-				<input type="hidden" name="date" class="date-tag" value=""/>
-				<div class="waterglass"><!--waterglass-->
-				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="select-water-amount" class="trackamount">
-				        <legend><strong>I Drank</strong></legend>
-				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
-				        <label for="oz4" class="oz4">4 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
-				        <label for="oz8" class="oz8">8 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
-				        <label for="oz10" class="oz10">10 oz</label>
-				        
-				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
-				        <label for="oz12" class="oz12">12 oz</label>
-				        
-				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio">
-				        <label for="oz16" class="oz16">16 oz</label>
-				</fieldset>
-				</div><!--endwaterglass-->
-				<label for="mydate">I drank this water at:</label>
-				<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
-					<input id="mydate" type="text" class="form-control date-input" value="08:30" data-mini="true" data-wrapper-class="controlgroup-textinput ui-btn">
-					<span class="input-group-addon ui-btn"><i class="icon-time"></i></span>
-					<button class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
-				</div>
-			</form>
-		</div><!-- / ui-body -->
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
-			<div data-role="navbar" data-iconpos="top" class="top-nav">
-		        <ul>
-			        <li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
-		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
-		            <li><a href="#track" data-icon="custom" class="ui-btn-active ui-icon-track ui-state-persist">Track</a></li>
-		            <li><a href="#account" data-icon="custom" class="ui-icon-goal">Goal</a></li>
-		        </ul>
-		    </div><!-- /navbar -->
-		</div>
-	</div><!-- / ui-content -->
-</div><!-- / track page -->
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -204,7 +142,68 @@
 		</div><!-- /footer -->
 	</div><!-- / ui-content -->	
 </div><!-- /alerts page -->
-<!-track-->
+
+<!-- track page -->
+<div data-role="page" id="track" data-theme="a">
+	<!-- debug panel -->
+	<div data-role="panel" id="waterset" data-display="overlay" data-position="right" class="ui-shadow ui-panel-dark" data-theme="g" data-position-fixed="true">
+	<a href="#track" data-rel="close" class="ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext close ui-btn-right">Close panel</a>
+	<div class="ui-panel-inny">
+		<h3>Saved Items</h3>
+		<p id="waterstatus"></p>
+		<p class="waterdata"></p>
+	</div>
+	</div><!-- /panel -->
+		<div role="main" class="ui-content">
+		<div class="icon-track-h2"><i></i><h2>Track Water</h2> <a href="#waterset" class="ui-btn ui-btn-inline settings-btn"><i class="arrow"></i>Tracked</a></div>
+		<div class="messages-water"></div>
+		<div class="ui-body ui-body-a ui-center"> 
+			
+			<p>Keep Track of the water you drink daily, a journal to make sure you keeping hydrated.</p>
+			<h3>Add New</h3>
+			
+			<form method="post" id="editWater">
+				<input type="hidden" name="id" class="id-tag" value=""/>
+				<input type="hidden" name="date" class="date-tag" value=""/>
+				<div class="waterglass"><!--waterglass-->
+				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="select-water-amount" class="trackamount">
+				        <legend><strong>I Drank</strong></legend>
+				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
+				        <label for="oz4" class="oz4">4 oz</label>
+				        
+				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
+				        <label for="oz8" class="oz8">8 oz</label>
+				        
+				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
+				        <label for="oz10" class="oz10">10 oz</label>
+				        
+				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
+				        <label for="oz12" class="oz12">12 oz</label>
+				        
+				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio">
+				        <label for="oz16" class="oz16">16 oz</label>
+				</fieldset>
+				</div><!--endwaterglass-->
+				<label for="mydate">I drank this water at:</label>
+				<div class="input-group clockpicker" data-placement="top" data-donetext="Submit" data-role="controlgroup" data-type="horizontal">
+					<input id="mydate" type="text" class="form-control date-input" value="08:30" data-mini="true" data-wrapper-class="controlgroup-textinput ui-btn">
+					<span class="input-group-addon ui-btn"><i class="icon-time"></i></span>
+					<button class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
+				</div>
+			</form>
+		</div><!-- / ui-body -->
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+			<div data-role="navbar" data-iconpos="top" class="top-nav">
+		        <ul>
+			        <li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
+		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
+		            <li><a href="#track" data-icon="custom" class="ui-btn-active ui-icon-track ui-state-persist">Track</a></li>
+		            <li><a href="#account" data-icon="custom" class="ui-icon-goal">Goal</a></li>
+		        </ul>
+		    </div><!-- /navbar -->
+		</div>
+	</div><!-- / ui-content -->
+</div><!-- / track page -->
 	
 <!-- goal page -->
 <div data-role="page" id="account" data-theme="a">
