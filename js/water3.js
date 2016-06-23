@@ -242,7 +242,7 @@ function renderSettings(tx,results){
 	       gethealthkitdata();
 	       healthkithome = $(".healthkitval").text();//get the value to a div container
 	   }
-   	 	 
+   	 	
        if(saveCalled == "true"){
 	       createNotifications(); //create the notifications
 	       saveCalled = false; //turn it back off now
@@ -400,6 +400,7 @@ function renderGoal(tx,results){
 		   healthkit = 0;
 	   }
 	   console.log(s+","+goal+","+healthkit);
+	    console.log(healthKitPermission + " - " + healthKit);
        //some inspiration messages
        if((s + healthkit) <= 3){
 	       insp = "Don't forget to drink your water.";
