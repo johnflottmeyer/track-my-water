@@ -399,8 +399,7 @@ function renderGoal(tx,results){
 	   if(healthkit != ""){
 		   healthkit = 0;
 	   }
-	   console.log(s+","+goal+","+healthkit+"-"+(s+goal+healthkit));
-	   console.log("healthkit: " + healthKitPermission + " - " + healthKit);
+       
        //some inspiration messages
        if((s + healthkit) <= 3){
 	       insp = "Don't forget to drink your water.";
