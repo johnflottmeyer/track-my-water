@@ -391,7 +391,7 @@ function renderGoal(tx,results){
        }
        
        //if permitted and available check healthkit for saved water
-       healthkit = 0;
+       healthkit = Number($(".healthkitval").text());
        if(healthKitPermission && healthKit){
 	       gethealthkitdata();
 	       healthkit = Number($(".healthkitval").text());//get the value to a div container
