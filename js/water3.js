@@ -324,6 +324,8 @@ function renderWater(tx,results){
     if (results.rows.length == 0) {//none set yet
 		$("#waterstatus").html("nothing saved.");//show what is saved 
 		$(".waterdata").html(""); //remove the current data
+		//reset the defaults
+		 $(".showtotal .consumed").html(0);
     } else { //load and display the settings.
     	
     	var curdate = new Date();//check date then check records date
@@ -441,10 +443,8 @@ function RenderChart(amount,goal,healthkit){
 	            label: ['Goal data without Healthkit'],
 	        };
 	        $(".donut-inner-text").text(amount);
-	        console.log("no HK");
         }
         
-
         for (var index = 0; index < config.data.labels.length; ++index) {
             newDataset.data.push();
         }
