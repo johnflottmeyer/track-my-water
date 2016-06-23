@@ -417,6 +417,7 @@ function renderGoal(tx,results){
 }
 //function RenderChart(amount,goal,healthkit){
 function RenderChart(amount,goal,healthkit){
+	console.log("Render"+amount+""+goal+""+healthkit)
 	 if (config.data.datasets.length > 0) {
 		//remove the old data
 		config.data.datasets.splice(0, 1);

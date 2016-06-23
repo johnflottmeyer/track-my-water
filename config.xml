@@ -55,11 +55,11 @@
 	<splash src="Default-Landscape-736h@3x.png" platform="ios" width="2208" height="1242" />
 	
 	<!-- iPad -->
-	<!--<splash src="Default-Portrait.png" platform="ios" width="768" height="1024" />
-	<splash src="Default-Landscape.png" platform="ios" width="1024" height="768" />-->
+	<splash src="Default-Portrait.png" platform="ios" width="768" height="1024" />
+	<splash src="Default-Landscape.png" platform="ios" width="1024" height="768" />
 	
 	<!-- Retina iPad -->
-	<!--<splash src="Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
-	<splash src="Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />-->
+	<splash src="Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
+	<splash src="Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />
 
 </widget>

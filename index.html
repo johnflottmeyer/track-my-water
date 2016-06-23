@@ -12,6 +12,104 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/style.min.css"/>
 </head>
 <body>
+	
+<!-- goal page -->
+<div data-role="page" id="account" data-theme="a">
+
+	<div role="main" class="ui-content">
+		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div><div class="messages"></div>
+			<div class="ui-body ui-body-a ui-center">
+				
+				<h3>Your Status</h3>
+				<p>Here is where you are at with your daily water goal.</p>
+				<div class="showtotal"><div class="consumed">0</div>/<div class="healthkitval">0</div>/<div class="total">64</div></div>
+				<div id="canvas-holder">
+			        <div class="donut-inner">
+					<div class="donut-inner-text">0</div>
+					
+					</div>
+					<canvas id="chart-area"></canvas>
+					
+			    </div>
+			    <div id="js-legend" class="chart-legend"></div>
+			    <p class="inspiration"></p>
+				<h3>Set Your Goal</h3>
+				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
+				
+				<form method="POST">
+					
+					<label for="watergoal">Your Goal Amount</label>
+					<input type="text" name="goal" id="watergoal" value=""/>
+					<button type="submit" name="savegoal" id="save-goal" class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
+				</form>
+				
+			</div><!-- / ui-body -->
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="fixed-footer">
+			<div data-role="navbar" data-iconpos="top" class="top-nav">
+		        <ul>
+		        	<li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
+		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
+		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
+		            <li><a href="#account" data-icon="custom" class="ui-icon-goal ui-btn-active ui-state-persist">Goal</a></li>
+		        </ul>
+			</div>
+			<!-- /navbar -->
+			</div>
+			<script type="text/javascript">
+			var config = {
+			type: 'doughnut',
+	        data: {
+	            datasets: [{
+	                data: [64,0,0],
+	                backgroundColor: [
+	                    "#003366",
+	                    "#f8981d"
+	                ]
+	            }],
+	            labels: [
+	                "goal left",
+	                "H2O app",
+	                "Healthkit"
+	            ]
+	        },
+	        options: {
+		        rotation: 0,
+	            responsive: true,
+	            maintainAspectRatio: true,
+	            percentageInnerCutout : 70,
+	            segmentShowStroke : false,
+	            tooltipTemplate: "<%= value oz>%",
+	            legend:{
+		            display:false
+	            },
+	            /*legend: {
+	                //position: 'bottom',
+	            //},
+	            title: {
+	                display: true,
+	                text: 'Click graph pieces to see numbers.'
+	            },*/
+	            animation: {
+	                animateScale: false,
+	                animateRotate: true
+	            }
+	        }
+	    };	
+	    window.onload = function() {
+	        var ctx = document.getElementById("chart-area").getContext("2d");
+	        //ctx.canvas.width = 300;
+			//ctx.canvas.height = 300;
+			var pixelRatio = window.devicePixelRatio || 1;
+			/*var width = 404 / pixelRatio;
+			var height = 404 / pixelRatio;
+			ctx.canvas.width = width;
+			ctx.canvas.height = height;*/
+	        window.myDoughnut = new Chart(ctx, config);
+	        document.getElementById('js-legend').innerHTML = window.myDoughnut.generateLegend();
+	    };
+				</script>
+	</div><!-- / ui-content -->
+</div><!-- / goal page -->
 <!-- landing page -->
 <div data-role="page" id="landing" data-theme="a">
 	<div role="main" class="ui-content">
@@ -204,97 +302,7 @@
 		</div>
 	</div><!-- / ui-content -->
 </div><!-- / track page -->
-
-<!-- goal page -->
-<div data-role="page" id="account" data-theme="a">
-
-	<div role="main" class="ui-content">
-		<div class="icon-goal-h2"><i></i><h2>Daily Water Goal</h2><a href="#" class="settings-btn-placeholder"></a></div><div class="messages"></div>
-			<div class="ui-body ui-body-a ui-center">
-				
-				<h3>Your Status</h3>
-				<p>Here is where you are at with your daily water goal.</p>
-				<div class="showtotal"><div class="consumed">0</div>/<div class="healthkitval">0</div>/<div class="total">64</div></div>
-				<div id="canvas-holder">
-			        <div class="donut-inner">
-					<div class="donut-inner-text">0</div>
-					<canvas id="chart-area"></canvas>
-					</div>
-			    </div>
-			    
-			    <p class="inspiration"></p>
-				<h3>Set Your Goal</h3>
-				<p>The daily recommended amount of water is 8 8oz glasses of water a day. We've preset your goal to this amount.</p>
-				
-				<form method="POST">
-					
-					<label for="watergoal">Your Goal Amount</label>
-					<input type="text" name="goal" id="watergoal" value=""/>
-					<button type="submit" name="savegoal" id="save-goal" class="option-button ui-btn"><i class="icon-save-floppy"></i></button>
-				</form>
-				
-			</div><!-- / ui-body -->
-			<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="fixed-footer">
-			<div data-role="navbar" data-iconpos="top" class="top-nav">
-		        <ul>
-		        	<li><a href="#landing" data-icon="custom" class="ui-icon-home">Home</a></li>
-		        	<li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
-		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
-		            <li><a href="#account" data-icon="custom" class="ui-icon-goal ui-btn-active ui-state-persist">Goal</a></li>
-		        </ul>
-			</div>
-			<!-- /navbar -->
-			</div>
-			<script type="text/javascript">
-			var config = {
-			 type: 'doughnut',
-	        data: {
-	            datasets: [{
-	                data: [64,0,0],
-	                backgroundColor: [
-	                    "#003366",
-	                    "#f8981d"
-	                ]
-	            }],
-	            labels: [
-	                "goal left",
-	                "H2O app",
-	                "Healthkit"
-	            ]
-	        },
-	        options: {
-		        rotation: 0,
-	            responsive: true,
-	            maintainAspectRatio: true,
-	            percentageInnerCutout : 70,
-	            segmentShowStroke : false,
-	            legend: {
-	                position: 'bottom',
-	            },
-	            title: {
-	                display: true,
-	                text: 'Click graph pieces to see numbers.'
-	            },
-	            animation: {
-	                //animateScale: true,
-	                //animateRotate: true
-	            }
-	        }
-	    };	
-	    window.onload = function() {
-	        var ctx = document.getElementById("chart-area").getContext("2d");
-	        //ctx.canvas.width = 300;
-			//ctx.canvas.height = 300;
-			var pixelRatio = window.devicePixelRatio || 1;
-			var width = 404 / pixelRatio;
-			var height = 404 / pixelRatio;
-			ctx.canvas.width = width;
-			ctx.canvas.height = height;
-	        window.myDoughnut = new Chart(ctx, config);
-	    };
-				</script>
-	</div><!-- / ui-content -->
-</div><!-- / goal page -->
+<!--goal page-->
 
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
