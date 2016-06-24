@@ -38,6 +38,7 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 }
 /*** HEALTHKIT ***/
 function onSuccess(result) { //can be removed when live
+	alert(result);//temp
 	toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 
 };
@@ -358,7 +359,7 @@ function renderWater(tx,results){
 	   	 	}
        }
        if(reset > 0){ //clear and rebuild the database
-		   	resetTracked();
+		   	resetTracked(); //remove the goals table
 		   	
 		   	saveSettings(function() { //reset the tracked variable
 				getSettings(); //refresh what is saved to get the latest.
@@ -373,6 +374,8 @@ function renderGoal(tx,results){
     if (results.rows.length == 0) {//none set yet
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
+		alert("no goals tracked");
+		$(".donut-inner-text").html(0);//reset the middle number
     } else {//load and display the settings.
     	
     	//need to make sure that the goal is saved as such
