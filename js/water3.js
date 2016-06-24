@@ -359,6 +359,10 @@ function renderWater(tx,results){
        }
        if(reset > 0){ //clear and rebuild the database
 		   	resetTracked();
+		   	
+		   	saveSettings(function() { //reset the tracked variable
+				getSettings(); //refresh what is saved to get the latest.
+	        });
 	   }
        $(".waterdata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Time</th><th>Amount</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");//show what is saved 
     }
