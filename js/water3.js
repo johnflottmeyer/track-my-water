@@ -38,7 +38,8 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 }
 /*** HEALTHKIT ***/
 function onSuccess(result) { //can be removed when live
-	alert(result);//temp
+	var check = checkAuthStatus(HKQuantityTypeIdentifierDietaryWater);
+	alert(check);//temp
 	toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
 
 };
