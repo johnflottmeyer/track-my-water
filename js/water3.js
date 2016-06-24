@@ -958,11 +958,9 @@ $(document).ready(function() {
 	
 	radio.on('focus', function(){
 	    footer.css({position:'fixed'});
-	     console.log("focus");
 	});
 	
 	radio.on('blur', function(){
 	    footer.css({position:'fixed'});
-	     console.log("blur");
 	});
 });
