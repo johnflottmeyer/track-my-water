@@ -145,7 +145,6 @@ function phoneReady() {
 	    //might not need to check since we are getting permission for the Notifications
 		window.plugin.notification.badge.clear(); 
 	});
-	StatusBar.overlaysWebView(true);
     window.plugin.notification.badge.configure({ autoClear: true });//clear badges we are in the app 
     //###Plugins - NOTIFICATIONS PERMISSION
     checkNotificationPermissions();
