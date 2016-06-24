@@ -18,7 +18,7 @@
     <!--<gap:platform name="android" />-->
     
     <!-- third party plugins -->
-    <gap:plugin name="com.phonegap.plugin.statusbar"/>
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.2" />
 	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.8" />
 	<gap:plugin name="com.telerik.plugins.healthkit" source="npm" />
@@ -26,7 +26,7 @@
     <!-- universal preferences -->
     <preference name="phonegap-version"           value="cli-5.2.0" />         
     <preference name="fullscreen"                 value="false" />
-	<preference name="StatusBarOverlaysWebView" value="true" />
+	
 	<!-- ios preferences --> 
     <preference name="target-device" value="universal" />
     
