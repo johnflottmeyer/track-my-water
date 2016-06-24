@@ -947,6 +947,21 @@ $(document).ready(function() {
 	var footer = $('.fixed-footer');
 	var input = $('input');
 	
+	$('#select-native-2').on('focus', function(){
+	    footer.css({position:'relative'});
+	});
+	
+	$('#select-native-2').on('blur', function(){
+	    footer.css({position:'fixed'});
+	});
+	
+	$('.trackamount').on('focus', function(){
+	    footer.css({position:'relative'});
+	});
+	$('.trackamount').on('blur', function(){
+	    footer.css({position:'fixed'});
+	});
+	
 	input.on('focus', function(){
 	    footer.css({position:'relative'});
 	});
