@@ -338,6 +338,7 @@ function renderWater(tx,results){
        var s = "";
        var reset = 0;
        for(var i=0; i<results.rows.length; i++) {
+	       
        	 	id = results.rows.item(i).id;
        	 	date = results.rows.item(i).date;
        	 	time = results.rows.item(i).time;
@@ -351,7 +352,7 @@ function renderWater(tx,results){
 	   	 			checkAlerts() //refresh what is saved to get the latest. 
 	    		});
 
-	   	 		//reset ++;
+	   	 		reset ++; //remove 
 	   	 	}else{
 	   	 		s +=  "<tr><td>" + date + "</td><td>" + time + "</td><td>" + amount + "</td><td><a href='#' class='ui-btn ui-mini ui-btn-inline ui-btn-b editRecord' id=" + id + "><i class='icon-edit'></i></a><a href='#' class='ui-btn ui-mini ui-btn-inline ui-corner-all ui-btn-b deleteRecord' id=" + id + "><i class='icon-circledelete'></i></a></td></tr>";//print out the saved times with ID's  
 	   	 	}
