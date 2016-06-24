@@ -957,7 +957,7 @@ $(document).ready(function() {
 	});
 	
 	radio.on('focus', function(){
-	    footer.css({position:'absolute'});
+	    footer.css({position:'relative'});
 	     console.log("focus");
 	});
 	

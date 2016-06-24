@@ -14,6 +14,60 @@
 </head>
 <body>
 
+
+<!-- landing page -->
+<div data-role="page" id="landing" data-theme="a">
+	<div role="main" class="ui-content">
+		<div class="logo"><img src="images/trans-logo.png" alt="Gibsons Water Care"/></div>
+		<div class="messages-home"></div>
+		<div class="ui-body ui-body-a ui-center centered"> 
+			<img src="images/watertrack-logo.png" alt="WaterTrack" class="track-logo"/>
+		</div><!-- / ui-body -->
+		<div class="ui-grid-b">
+				<div class="ui-block-a centered">
+			<a href="#alerts" class="ui-btn homebtn icon-alerts ui-inline">
+				<h2>Set Alerts</h2>
+				<p>Set daily reminders.</p>
+				<div class="alertSettings">
+			    	<strong>Alerts:</strong> <span class="off">OFF</span>
+				</div>
+			</a>	
+		</div>
+		<div class="ui-block-b centered">
+			<a href="#track" class="ui-btn homebtn icon-track">
+				<h2>Track Water</h2>
+				<p><span>Track your daily intake.</span></p>
+				<div class="trackSettings">
+				    <strong>Tracked:</strong> <span class="off">NO</span>
+				</div>
+			</a>
+		</div>
+		<div class="ui-block-c centered">
+			<a href="#account" class="ui-btn homebtn icon-goal">
+				<h2>View Goal</h2>
+				<p><span>Check your progress.</span></p>
+				<div class="goalSettings">
+					    	<strong>Reached:</strong> <span class="off">NO</span>
+				</div>
+			</a>
+		</div>
+		</div>
+		<p class="ui-body small">Always consult with a doctor before making changes in your diet. Gibson's Watercare Water Tracking App does not offer medical advise, diagnosis or treatment. By using the Gibson's Watercare Water Tracking App you agree to not hold Gibson's Watercare liable.</p>
+	
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="fixed-footer"><!-- footer-nav -->
+			<div data-role="navbar" data-iconpos="top" class="top-nav">
+		        <ul>
+			        <li><a href="#landing" data-icon="custom" class="ui-btn-active ui-icon-home ui-state-persist">Home</a></li>
+		            <li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
+		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
+		            <li><a href="#account" data-icon="custom" class="ui-icon-goal">Goal</a></li>
+		        </ul>
+		    </div><!-- /navbar -->
+		</div><!-- / footer-nav -->
+	
+	</div><!-- / ui-content -->
+</div><!-- / landing page -->
+
 <!-- alerts page -->
 <div data-role="page" id="alerts" data-theme="a">
 	
@@ -91,60 +145,6 @@
 		</div><!-- /footer -->
 	</div><!-- / ui-content -->	
 </div><!-- /alerts page -->
-
-<!-- landing page -->
-<div data-role="page" id="landing" data-theme="a">
-	<div role="main" class="ui-content">
-		<div class="logo"><img src="images/trans-logo.png" alt="Gibsons Water Care"/></div>
-		<div class="messages-home"></div>
-		<div class="ui-body ui-body-a ui-center centered"> 
-			<img src="images/watertrack-logo.png" alt="WaterTrack" class="track-logo"/>
-		</div><!-- / ui-body -->
-		<div class="ui-grid-b">
-				<div class="ui-block-a centered">
-			<a href="#alerts" class="ui-btn homebtn icon-alerts ui-inline">
-				<h2>Set Alerts</h2>
-				<p>Set daily reminders.</p>
-				<div class="alertSettings">
-			    	<strong>Alerts:</strong> <span class="off">OFF</span>
-				</div>
-			</a>	
-		</div>
-		<div class="ui-block-b centered">
-			<a href="#track" class="ui-btn homebtn icon-track">
-				<h2>Track Water</h2>
-				<p><span>Track your daily intake.</span></p>
-				<div class="trackSettings">
-				    <strong>Tracked:</strong> <span class="off">NO</span>
-				</div>
-			</a>
-		</div>
-		<div class="ui-block-c centered">
-			<a href="#account" class="ui-btn homebtn icon-goal">
-				<h2>View Goal</h2>
-				<p><span>Check your progress.</span></p>
-				<div class="goalSettings">
-					    	<strong>Reached:</strong> <span class="off">NO</span>
-				</div>
-			</a>
-		</div>
-		</div>
-		<p class="ui-body small">Always consult with a doctor before making changes in your diet. Gibson's Watercare Water Tracking App does not offer medical advise, diagnosis or treatment. By using the Gibson's Watercare Water Tracking App you agree to not hold Gibson's Watercare liable.</p>
-	
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="fixed-footer"><!-- footer-nav -->
-			<div data-role="navbar" data-iconpos="top" class="top-nav">
-		        <ul>
-			        <li><a href="#landing" data-icon="custom" class="ui-btn-active ui-icon-home ui-state-persist">Home</a></li>
-		            <li><a href="#alerts" data-icon="custom" class="ui-icon-alert">Alerts</a></li>
-		            <li><a href="#track" data-icon="custom" class="ui-icon-track">Track</a></li>
-		            <li><a href="#account" data-icon="custom" class="ui-icon-goal">Goal</a></li>
-		        </ul>
-		    </div><!-- /navbar -->
-		</div><!-- / footer-nav -->
-	
-	</div><!-- / ui-content -->
-</div><!-- / landing page -->
-<!--alerts-->
 <!-- track page -->
 <div data-role="page" id="track" data-theme="a">
 	<!-- debug panel -->
@@ -170,19 +170,19 @@
 				<div class="waterglass"><!--waterglass-->
 				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="select-water-amount" class="trackamount">
 				        <legend><strong>I Drank ? ounces</strong></legend>
-				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
+				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio" class="radio">
 				        <label for="oz4" class="oz4">4</label>
 				        
-				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
+				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio" class="radio">
 				        <label for="oz8" class="oz8">8</label>
 				        
-				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
+				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio" class="radio">
 				        <label for="oz10" class="oz10">10</label>
 				        
-				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
+				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio" class="radio">
 				        <label for="oz12" class="oz12">12</label>
 				        
-				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio">
+				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio" class="radio">
 				        <label for="oz16" class="oz16">16</label>
 				</fieldset>
 				</div><!--endwaterglass-->
