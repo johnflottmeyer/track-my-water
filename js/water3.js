@@ -374,7 +374,6 @@ function renderGoal(tx,results){
     if (results.rows.length == 0) {//none set yet
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
-		alert("no goals tracked");
 		$(".donut-inner-text").html(0);//reset the middle number
     } else {//load and display the settings.
     	
@@ -603,7 +602,6 @@ function saveGoal(goal, cb) {
         if(goal.id == undefined || goal.id == "")
         tx.executeSql("insert into goals(date,time,amount,updated) values(?,?,?,?)",[goal.date, goal.time, goal.amount, new Date()],renderSettings,dbErrorHandler);
         else tx.executeSql("update goals set date=?, time=?, amount=?, updated=? where id=?",[goal.date, goal.time, goal.amount, new Date(), goal.id],renderSettings,dbErrorHandler);
-        //alert("edit");
     }, dbErrorHandler,cb);
 }
 
@@ -761,7 +759,6 @@ $(document).ready(function() {
 			if(errors != ""){
 				//show errors and disable save if the times are off
 				toastr.error('<strong>There were some errors: Please fix before saving</strong><ul>' + errors + '</ul>', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
-				//alert("hello");
 				$(".saveSettings").addClass("ui-disabled");
 			}else{
 				$(".saveSettings").removeClass("ui-disabled");
@@ -794,16 +791,13 @@ $(document).ready(function() {
     
     /*REMOVE SCHEDULED ALERTS*/
     $.mobile.document.on( "click", ".deletealert", function( evt ) {
-		//alert("delete" + this.id);
 		 deleteAlert(this.id, function(){
 		   checkAlerts() //refresh what is saved to get the latest. 
 	    });
     });
     $.mobile.document.on( "click", ".optiondeletewater", function( evt ) {
-		//alert("delete" + this.id);
 		d = new Date();
 		date = d.setHours(0, 0, 0);
-		alert(date);
 		addwater(0,date);
     });
     /*SAVE WATER TRACKED*/
@@ -818,7 +812,6 @@ $(document).ready(function() {
 	    	dbShell.transaction(function(tx) { //query the db for the entered data check for an exact match same day - time - amount
 	            tx.executeSql("select date, time, amount from goals where time=? and date=? and amount=?",[checkTime,checkDate,checkAmount],function(tx,results) {
 	            	isThere = results.rows.length;//get the length
-	            	//alert("isThere: " + isThere);
 	            	if(isThere == 0){ //its not there lets add this one.
 				    	var data = {id:$('.id-tag').val(), 
 		                    date:$(".date-tag").val(),
