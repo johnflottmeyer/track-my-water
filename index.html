@@ -167,21 +167,21 @@
 				<input type="hidden" name="date" class="date-tag" value=""/>
 				<div class="waterglass"><!--waterglass-->
 				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="select-water-amount" class="trackamount">
-				        <legend><strong>I Drank</strong></legend>
+				        <legend><strong>I Drank ? ounces</strong></legend>
 				        <input name="radio-choice-h-2" id="oz4" value="4" checked="checked" type="radio">
-				        <label for="oz4" class="oz4">4 oz</label>
+				        <label for="oz4" class="oz4">4</label>
 				        
 				        <input name="radio-choice-h-2" id="oz8" value="8" type="radio">
-				        <label for="oz8" class="oz8">8 oz</label>
+				        <label for="oz8" class="oz8">8</label>
 				        
 				        <input name="radio-choice-h-2" id="oz10" value="10" type="radio">
-				        <label for="oz10" class="oz10">10 oz</label>
+				        <label for="oz10" class="oz10">10</label>
 				        
 				        <input name="radio-choice-h-2" id="oz12" value="12" type="radio">
-				        <label for="oz12" class="oz12">12 oz</label>
+				        <label for="oz12" class="oz12">12</label>
 				        
 				         <input name="radio-choice-h-2" id="oz16" value="16" type="radio">
-				        <label for="oz16" class="oz16">16 oz</label>
+				        <label for="oz16" class="oz16">16</label>
 				</fieldset>
 				</div><!--endwaterglass-->
 				<label for="mydate">I drank this water at:</label>
@@ -204,7 +204,7 @@
 		</div>
 	</div><!-- / ui-content -->
 </div><!-- / track page -->
-	
+		
 <!-- goal page -->
 <div data-role="page" id="account" data-theme="a">
 
@@ -274,13 +274,6 @@
 	            legend:{
 		            display:false
 	            },
-	            /*legend: {
-	                //position: 'bottom',
-	            //},
-	            title: {
-	                display: true,
-	                text: 'Click graph pieces to see numbers.'
-	            },*/
 	            animation: {
 	                animateScale: false,
 	                animateRotate: true
@@ -289,21 +282,13 @@
 	    };	
 	    window.onload = function() {
 	        var ctx = document.getElementById("chart-area").getContext("2d");
-	        //ctx.canvas.width = 300;
-			//ctx.canvas.height = 300;
 			var pixelRatio = window.devicePixelRatio || 1;
-			/*var width = 404 / pixelRatio;
-			var height = 404 / pixelRatio;
-			ctx.canvas.width = width;
-			ctx.canvas.height = height;*/
 	        window.myDoughnut = new Chart(ctx, config);
 	        document.getElementById('js-legend').innerHTML = window.myDoughnut.generateLegend();
-	        //alert(document.getElementById('js-legend').innerHTML);
 	    };
 				</script>
 	</div><!-- / ui-content -->
 </div><!-- / goal page -->
-
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="js/jquery-clockpicker.min.js"></script>
