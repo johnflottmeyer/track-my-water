@@ -955,10 +955,10 @@ $(document).ready(function() {
 	    footer.css({position:'fixed'});
 	});
 	
-	$('.trackamount')input.on('focus', function(){
+	$('.trackamount input').on('focus', function(){
 	    footer.css({position:'relative'});
 	});
-	$('.trackamount')input.on('blur', function(){
+	$('.trackamount input').on('blur', function(){
 	    footer.css({position:'fixed'});
 	});
 	
