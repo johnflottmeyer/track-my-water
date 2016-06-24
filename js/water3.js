@@ -946,27 +946,21 @@ $(document).ready(function() {
 	/*IOS Fix*/
 	var footer = $('.fixed-footer');
 	var input = $('input');
-	
-	$('#select-native-2 input').on('focus', function(){
-	    footer.css({position:'relative'});
-	});
-	
-	$('#select-native-2 input').on('blur', function(){
-	    footer.css({position:'fixed'});
-	});
-	
-	$('.trackamount input').on('focus', function(){
-	    footer.css({position:'relative'});
-	});
-	$('.trackamount input').on('blur', function(){
-	    footer.css({position:'fixed'});
-	});
+	var radio = $('.radio');
 	
 	input.on('focus', function(){
 	    footer.css({position:'relative'});
 	});
 	
 	input.on('blur', function(){
+	    footer.css({position:'fixed'});
+	});
+	
+	radio.on('focus', function(){
+	    footer.css({position:'relative'});
+	});
+	
+	radio.on('blur', function(){
 	    footer.css({position:'fixed'});
 	});
 });
