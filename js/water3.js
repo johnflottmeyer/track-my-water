@@ -37,6 +37,12 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 	});
 }
 /*** HEALTHKIT ***/
+  var callback = function (msg) {
+    // wrapping in a timeout because of a possbile native UI element blocking the webview
+    setTimeout(function () {
+      alert(JSON.stringify(msg))
+    }, 0);
+  };
 function onSuccess(result) { //can be removed when live
 	//var check = checkAuthStatus('HKQuantityTypeIdentifierDietaryWater');
 	/**/
@@ -44,9 +50,7 @@ function onSuccess(result) { //can be removed when live
         {
           'type': 'HKQuantityTypeIdentifierDietaryWater'
         },
-        functions(callback){
-	        alert(callback);
-	    },
+        callback,
         callback
     );
     /**/
