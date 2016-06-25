@@ -40,7 +40,7 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 var callback = function (msg) {// wrapping in a timeout because of a possbile native UI element blocking the webview
 setTimeout(function () {
 	result = JSON.stringify(msg);
-	if(result != "authorized"){
+	if(result == "authorized"){
 		toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 	
 	}else{
 		//alert(JSON.stringify(msg))
