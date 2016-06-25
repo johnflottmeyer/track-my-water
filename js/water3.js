@@ -37,15 +37,18 @@ function checkNotificationPermissions(){ //LETS CHECK WHETHER IT HAS BEEN GRANTE
 	});
 }
 /*** HEALTHKIT ***/
-  var callback = function (msg) {
-    // wrapping in a timeout because of a possbile native UI element blocking the webview
-    setTimeout(function () {
-      alert(JSON.stringify(msg))
-    }, 0);
-  };
-function onSuccess(result) { //can be removed when live
-	//var check = checkAuthStatus('HKQuantityTypeIdentifierDietaryWater');
-	/**/
+var callback = function (msg) {// wrapping in a timeout because of a possbile native UI element blocking the webview
+setTimeout(function () {
+	result = JSON.stringify(msg);
+	if(result != "authorized"){
+		toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 	
+	}else{
+		//alert(JSON.stringify(msg))
+	}
+}, 0);
+};
+function onSuccess(result) { 
+	/*Auth is returning true no matter what - additional check is needed lets now test the individual trait*/
 	    window.plugins.healthkit.checkAuthStatus(
         {
           'type': 'HKQuantityTypeIdentifierDietaryWater'
@@ -53,10 +56,7 @@ function onSuccess(result) { //can be removed when live
         callback,
         callback
     );
-    /**/
-	//temp
-	toastr.success('Healthkit Now Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
-
+	
 };
 function onError(result) { //can be removed when live
 	toastr.error('Healthkit Permission Not Authorized', null, {target: $('.messages-home'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
