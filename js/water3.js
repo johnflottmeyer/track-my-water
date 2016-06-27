@@ -158,7 +158,7 @@ function phoneReady() {
 	/*** IOS 8 and up get permission to do badges, notifications, access healthkit ***/    
 	/*Statusbar*/
 	StatusBar.backgroundColorByHexString("#000000");
-	StatusBar.styleLightContent()
+	StatusBar.styleLightContent();
     //###Plugins - BADGE
     cordova.plugins.notification.badge.hasPermission(function (granted) { 
 	    //might not need to check since we are getting permission for the Notifications
