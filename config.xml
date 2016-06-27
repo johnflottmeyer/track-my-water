@@ -18,7 +18,7 @@
     <!--<gap:platform name="android" />-->
     
     <!-- third party plugins -->
-    <gap:plugin name="com.phonegap.plugin.statusbar" spec="1.0.1" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.2" />
 	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.8" />
 	<gap:plugin name="com.telerik.plugins.healthkit" source="npm" />
