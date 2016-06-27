@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "A8FETR73Y9.com.phonegap.gibsonswatertracker"
         versionCode = "10" 
-        version     = "2.1" >
+        version     = "2.1.0" >
 	
     <name>Gibson's Water Tracking</name>
     <description>
@@ -42,20 +42,20 @@
     
     <!-- ios icons 7+ -->
     <!-- iPhone / iPod Touch  -->
-	<icon src="icon-60.png" gap:platform="ios" width="60" height="60" />
-	<icon src="icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+	<icon src="icons/ios/icon-60.png" gap:platform="ios" width="60" height="60" />
+	<icon src="icons/ios/icon-60@2x.png" gap:platform="ios" width="120" height="120" />
 	 
 	<!-- iPad -->
-	<icon src="icon-76.png" gap:platform="ios" width="76" height="76" />
-	<icon src="icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+	<icon src="icons/ios/icon-76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="icons/ios/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
 	
 	<!-- Settings Icon -->
-	<icon src="icon-small.png" gap:platform="ios" width="29" height="29" />
-	<icon src="icon-small@2x.png" gap:platform="ios" width="58" height="58" />
+	<icon src="icons/ios/icon-small.png" gap:platform="ios" width="29" height="29" />
+	<icon src="icons/ios/icon-small@2x.png" gap:platform="ios" width="58" height="58" />
 	
 	<!-- Spotlight Icon -->
-	<icon src="icon-40.png" gap:platform="ios" width="40" height="40" />
-	<icon src="icon-40@2x.png" gap:platform="ios" width="80" height="80" /> 
+	<icon src="icons/ios/icon-40.png" gap:platform="ios" width="40" height="40" />
+	<icon src="icons/ios/icon-40@2x.png" gap:platform="ios" width="80" height="80" /> 
 
 	<!-- iPhone and iPod touch -->
 	<splash src="Default.png" platform="ios" width="320" height="480" />
