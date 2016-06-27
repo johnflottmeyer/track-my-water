@@ -169,7 +169,7 @@ function phoneReady() {
     checkNotificationPermissions();
     
 	//###Plugins - HEALTHKIT AVAILABLE?
-	window.plugins.healthkit.available(../index.html
+	window.plugins.healthkit.available(
 	   function(isAvailable) {
 		   if(isAvailable){ //ok we have healthkit lets ask to use / store data
 			  healthKit = "true"; //we can ask for permission to use HEALTHKIT DATA
