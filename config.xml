@@ -32,11 +32,31 @@
     <preference name="target-device" value="universal" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     
-    <!-- ios icons -->
+    <!-- ios icons  6.1 -->
+    <!-- iPhone / iPod Touch -->
     <icon src="icons/ios/apple-touch-icon-57-precomposed.png" gap:platform="ios" width="57" height="57"/>
+    <!-- iPad -->
     <icon src="icons/ios/apple-touch-icon-72-precomposed.png" gap:platform="ios" width="72" height="72"/>
+    <!-- ? -->
     <icon src="icons/ios/apple-touch-icon-114-precomposed.png" gap:platform="ios" width="114" height="114"/>
     
+    <!-- ios icons 7+ -->
+    <!-- iPhone / iPod Touch  -->
+	<icon src="icon-60.png" gap:platform="ios" width="60" height="60" />
+	<icon src="icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+	 
+	<!-- iPad -->
+	<icon src="icon-76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+	
+	<!-- Settings Icon -->
+	<icon src="icon-small.png" gap:platform="ios" width="29" height="29" />
+	<icon src="icon-small@2x.png" gap:platform="ios" width="58" height="58" />
+	
+	<!-- Spotlight Icon -->
+	<icon src="icon-40.png" gap:platform="ios" width="40" height="40" />
+	<icon src="icon-40@2x.png" gap:platform="ios" width="80" height="80" /> 
+
 	<!-- iPhone and iPod touch -->
 	<splash src="Default.png" platform="ios" width="320" height="480" />
 	<splash src="Default@2x.png" platform="ios" width="640" height="960" />
