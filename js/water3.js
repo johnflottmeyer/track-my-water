@@ -156,6 +156,8 @@ function phoneReady() {
     //Set it up if not set up / callback success is getSettings
 	dbShell.transaction(setupTable,dbErrorHandler,getSettings);     
 	/*** IOS 8 and up get permission to do badges, notifications, access healthkit ***/    
+	/*Statusbar*/
+	StatusBar.backgroundColorByHexString("#C0C0C0");
     //###Plugins - BADGE
     cordova.plugins.notification.badge.hasPermission(function (granted) { 
 	    //might not need to check since we are getting permission for the Notifications
