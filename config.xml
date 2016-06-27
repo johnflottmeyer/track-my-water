@@ -30,6 +30,7 @@
 	
 	<!-- ios preferences --> 
     <preference name="target-device" value="universal" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
     
     <!-- ios icons -->
     <icon src="icons/ios/apple-touch-icon-57-precomposed.png" gap:platform="ios" width="57" height="57"/>
