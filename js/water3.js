@@ -421,9 +421,6 @@ function renderGoal(tx,results){
 	       gethealthkitdata();
 	       healthkit = Number($(".healthkitval").text());//get the value to a div container
 	   }
-	   if(healthkit != ""){
-		   healthkit = 0;
-	   }
        
        //some inspiration messages
        if((s + healthkit) <= 3){
