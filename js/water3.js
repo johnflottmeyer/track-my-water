@@ -218,19 +218,20 @@ function getGoal() { /*GET GOAL ENTRIES*/
     }, dbErrorHandler);
     
 }
-function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
-	dbShell.transaction(function(tx) {
-		tx.executeSql("DROP TABLE goals",[], 
-    		function(tx,results){console.log("Successfully Dropped")},
-			function(tx,error){console.log("Could not delete")});
-	},rebuildDB, dbErrorHandler);
-    //tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
-}
 function rebuildDB(){
 	dbShell.transaction(function(tx) {
 		tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)");
 	}, dbErrorHandler);
 }
+function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
+	dbShell.transaction(function(tx) {
+		tx.executeSql("DROP TABLE goals",[], 
+    		function(tx,results){console.log("Successfully Dropped");rebuildDB();},
+			function(tx,error){console.log("Could not delete")});
+	}, dbErrorHandler);
+    //tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
+}
+
 
 /* RENDER THE SETTINGS TO THE SCREEN */
 function renderSettings(tx,results){
