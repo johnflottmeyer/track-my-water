@@ -376,7 +376,7 @@ function renderWater(tx,results){
        }
        if(reset > 0){ //clear and rebuild the database
 		   	resetTracked(); //remove the goals table
-		   	
+		   	reset = 0; //reset the reset var so we don't go here again
 		   	saveSettings(function() { //reset the tracked variable
 				getSettings(); //refresh what is saved to get the latest.
 	        });
@@ -917,6 +917,13 @@ $(document).ready(function() {
 	});
 	$.mobile.document.on( "click", ".option-addwater", function( evt ) {
 		addwater(4);
+	});
+	//temporary for testing
+	$.mobile.document.on( "click", "#clear-goal", function( evt ) {
+		resetTracked();
+		saveSettings(function() { //reset the tracked variable
+			getSettings(); //refresh what is saved to get the latest.
+        });
 	});
 	
 	
