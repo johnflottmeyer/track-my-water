@@ -1,5 +1,5 @@
 /************************************************************
-~~~~~~~~~ WATER APP 2.0 ~~~~~~~~~ 
+~~~~~~~~~ WATER APP 2.1.1 ~~~~~~~~~ 
 Written by Voila! Media Group for Gibsons Water Care, All Rights Reserved. 
 DB WRITTEN TO LOCAL DB
 PLUGINS INCLUDE
@@ -224,7 +224,7 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
     		function(tx,results){console.log("Successfully Dropped")},
 			function(tx,error){console.log("Could not delete")});
 	}, dbErrorHandler);
-    tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
+    //tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
 }
 
 /* RENDER THE SETTINGS TO THE SCREEN */
