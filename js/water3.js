@@ -221,8 +221,15 @@ function getGoal() { /*GET GOAL ENTRIES*/
 function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 	dbShell.transaction(function(tx) {
 		tx.executeSql("DROP TABLE goals",[], 
-    		function(tx,results){console.log("Successfully Dropped");
+    		function(tx,results){
+	    		console.log("Successfully Dropped");
 	    		tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
+	    		$(".showtotal .consumed").html(0); //reset the goals totals
+	    		reset = 0; //reset the reset flag
+	    		console.log("New Table Made");
+	    		saveSettings(function() { //reset the tracked variable
+					getSettings(); //refresh what is saved to get the latest.
+        		});
 	    	},
 			function(tx,error){
 				console.log("Could not delete")
@@ -347,7 +354,7 @@ function renderWater(tx,results){
 		$("#waterstatus").html("nothing saved.");//show what is saved 
 		$(".waterdata").html(""); //remove the current data
 		//reset the defaults
-		 $(".showtotal .consumed").html(0);
+		$(".showtotal .consumed").html(0);
     } else { //load and display the settings.
     	
     	var curdate = new Date();//check date then check records date
@@ -381,10 +388,6 @@ function renderWater(tx,results){
        }
        if(reset > 0){ //clear and rebuild the database
 		   	resetTracked(); //remove the goals table
-		   	reset = 0; //reset the reset var so we don't go here again
-		   	saveSettings(function() { //reset the tracked variable
-				getSettings(); //refresh what is saved to get the latest.
-	        });
 	   }
        $(".waterdata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Time</th><th>Amount</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");//show what is saved 
     }
@@ -926,9 +929,6 @@ $(document).ready(function() {
 	//temporary for testing
 	$.mobile.document.on( "click", "#clear-goal", function( evt ) {
 		resetTracked();
-		saveSettings(function() { //reset the tracked variable
-			getSettings(); //refresh what is saved to get the latest.
-        });
 	});
 	
 	
