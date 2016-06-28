@@ -218,10 +218,8 @@ function getGoal() { /*GET GOAL ENTRIES*/
     }, dbErrorHandler);
     
 }
-function rebuildDB(){
-	dbShell.transaction(function(tx) {
-		tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)");
-	}, dbErrorHandler);
+function rebuildDB(tx){
+	tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)");
 }
 function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 	dbShell.transaction(function(tx) {
