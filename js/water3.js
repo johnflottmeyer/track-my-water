@@ -120,11 +120,11 @@ function gethealthkitdata(){
 
 /*SAVE DATA TO HEALTHKIT*/
 function onAddDataSuccess(result) {
-  toastr.Success('Saved to Healthkit', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
+  console.log("Saved to Healthkit");
 };
 
 function onAddDataError(result) {
-  toastr.error('Healthkit Error', null, {target: $('.messages-water'),"timeOut": "3000","positionClass": "toast-top-full-width"}); 
+  console.log("Healthkit Error")
 };
 function addwater(amount,startdate,enddate){ // save the water data to the healthkit as well
 	if(amount){ //amount in mL
@@ -144,7 +144,7 @@ function addwater(amount,startdate,enddate){ // save the water data to the healt
 		  onAddDataError
 		);
 	}else{
-		alert("no amount set");
+		alert("Error: no amount set");
 	}
 }
 
@@ -399,6 +399,13 @@ function renderGoal(tx,results){
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
 		$(".donut-inner-text").html(0);//reset the middle number
+		//lets set up the chart if they are returning
+		healthkit = 0;
+        if(healthKitPermission && healthKit){
+	       gethealthkitdata();
+	       healthkit = Number($(".healthkitval").text());//get the value to a div container
+	    }
+		RenderChart(s,goal,healthkit);
     } else {//load and display the settings.
     	
     	//need to make sure that the goal is saved as such
