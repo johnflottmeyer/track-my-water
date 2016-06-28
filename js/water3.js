@@ -223,7 +223,7 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 		tx.executeSql("DROP TABLE goals",[], 
     		function(tx,results){console.log("Successfully Dropped")},
 			function(tx,error){console.log("Could not delete")});
-	},rebuildDB dbErrorHandler);
+	},rebuildDB, dbErrorHandler);
     //tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
 }
 function rebuildDB(){
