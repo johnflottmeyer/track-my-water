@@ -934,9 +934,9 @@ $(document).ready(function() {
 		addwater(4);
 	});
 	//temporary for testing
-	$.mobile.document.on( "click", "#clear-goal", function( evt ) {
+	/*$.mobile.document.on( "click", "#clear-goal", function( evt ) {
 		resetTracked();
-	});
+	});*/
 	
 	
 	
