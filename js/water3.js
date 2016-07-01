@@ -19,6 +19,7 @@ var frequency; //how often the alert should go
 var start; //variable for the start time
 var startmin; //variable for splitting the time
 var range; //variable returned from db
+var savedWater;
 /*Plugin Permissions*/
 var saveCalled = false; //This is a flag for determining when to set the alerts
 var healthKit = false; //This is a flag for IOS to check to see if healthkit exists
@@ -366,6 +367,7 @@ function renderWater(tx,results){
 		$(".waterdata").html(""); //remove the current data
 		//reset the defaults
 		//$(".showtotal .consumed").html(0);
+		savedWater = 0;
     } else { //load and display the settings.
     	
     	var curdate = new Date();//check date then check records date
@@ -394,6 +396,7 @@ function renderWater(tx,results){
 
 	   	 		reset ++; //remove 
 	   	 	}else{
+		   	 	savedWater += amount;//new way to track water amounts
 	   	 		s +=  "<tr><td>" + date + "</td><td>" + time + "</td><td>" + amount + "</td><td><a href='#' class='ui-btn ui-mini ui-btn-inline ui-btn-b editRecord' id=" + id + "><i class='icon-edit'></i></a><a href='#' class='ui-btn ui-mini ui-btn-inline ui-corner-all ui-btn-b deleteRecord' id=" + id + "><i class='icon-circledelete'></i></a></td></tr>";//print out the saved times with ID's  
 	   	 	}
        }
@@ -458,9 +461,7 @@ function renderGoal(tx,results){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        $(".inspiration").html(insp);//post the way to go message
-       $(".donut-inner-text").html(s + healthkit);
        $(".showtotal .total").html(goal);
-       console.log(s);
 	   RenderChart(s,goal,healthkit);
     }
 }
@@ -608,7 +609,8 @@ function checkAlerts(){
 
 /*SAVE TO DB*/
 function saveSettings(cb) {
-	total = $(".donut-inner-text").text(); //showtotal .consumed - turning this to 
+	
+	total = savedWater; //showtotal .consumed - turning this to savedWater
 	trackedNum = 1;
 	if(Number(total) == 0 || total == ""){ //added total == ""
 		trackedNum = 0;
@@ -623,10 +625,10 @@ function saveSettings(cb) {
         range:$("#endtime").val(),
         goal:$("#watergoal").val(),
         tracked:trackedNum,
-        totals:$(".donut-inner-text").text(),
+        totals:savedWater,
         id: 1 // Replace the one entry
     };
-	console.log("totals: " + totals + "tracked: " + trackedNum);
+	console.log("totals: " + savedWater + "tracked: " + trackedNum);
 	
     dbShell.transaction(function(tx) {
         tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, tracked=?, totals=?, updated=? where id=?",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals, new Date(), data.id]);
@@ -862,7 +864,6 @@ $(document).ready(function() {
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
-							getGoal(); //update the goal data
 							if(healthKitPermission && healthKit){
 								d = new Date();
 								date = d.setHours(0, 0, 0);
@@ -883,7 +884,7 @@ $(document).ready(function() {
 			}, dbErrorHandler);
 			//we need to make sure that the donut variable is updated before the save
 			
-			console.log($(".donut-inner-text").html());
+			console.log(savedWater);
 			//lets save the settings
 			saveSettings(function() {
 				//saveCalled = "true"; //send a flag to the render function to generate the notifcations.
