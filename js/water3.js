@@ -224,7 +224,7 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
     		function(tx,results){
 	    		console.log("Successfully Dropped");
 	    		tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
-	    		$(".showtotal .consumed").html(0); //reset the goals totals
+	    		//$(".showtotal .consumed").html(0); //reset the goals totals
 	    		console.log("New Table Made");
 	    		saveSettings(function() { //reset the tracked variable
 					getSettings(); //refresh what is saved to get the latest.
@@ -271,17 +271,11 @@ function renderSettings(tx,results){
 	 	 	}  
        }
        
-      
-       console.log("settings" + settings + " - onoff: " + $('#slider2').val());
        //switch on the alerts if the app is just loading and it is in the settings as on 
        if(settings == "on"){
 	       if($('#slider2').val() == "off"){
-	       		$('#slider2').val('on');
-		   		console.log('loading switched on alerts because they are on');
+	       		$('#slider2').val('on');//loading switched on alerts because they are on
 	       }
-	       console.log('settings say on - it is on');
-       }else{
-	       console.log('settings say off');
        }
        var healthkithome = 0;
    	   if(healthKitPermission && healthKit){//grab healthkit if available
@@ -371,7 +365,7 @@ function renderWater(tx,results){
 		$("#waterstatus").html("nothing saved.");//show what is saved 
 		$(".waterdata").html(""); //remove the current data
 		//reset the defaults
-		$(".showtotal .consumed").html(0);
+		//$(".showtotal .consumed").html(0);
     } else { //load and display the settings.
     	
     	var curdate = new Date();//check date then check records date
@@ -463,7 +457,7 @@ function renderGoal(tx,results){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        $(".inspiration").html(insp);//post the way to go message
-       $(".showtotal .consumed").html(s);
+       //$(".showtotal .consumed").html(s);
        $(".showtotal .total").html(goal);
        
 	   RenderChart(s,goal,healthkit);
@@ -613,22 +607,25 @@ function checkAlerts(){
 
 /*SAVE TO DB*/
 function saveSettings(cb) {
-	total = $(".showtotal .consumed").text();
+	total = $(".donut-inner-text").text(); //showtotal .consumed - turning this to 
 	trackedNum = 1;
 	if(Number(total) == 0 || total == ""){ //added total == ""
 		trackedNum = 0;
 	}
+	
 	console.log("trackedNum: " + trackedNum + " saveSettings called");
 	//save the current settings to the settings db
-    var data = {onoff:$('#slider2').val(), 
+    var data = {
+	    onoff:$('#slider2').val(), 
         frequency:$("#select-native-2 :radio:checked").val(),
         start:$("#starttime").val(),
         range:$("#endtime").val(),
         goal:$("#watergoal").val(),
         tracked:trackedNum,
-        totals:$(".showtotal .consumed").text(),
+        totals:$(".donut-inner-text").text(),
         id: 1 // Replace the one entry
     };
+	console.log("totals: " + totals + "tracked: " + trackedNum);
 	
     dbShell.transaction(function(tx) {
         tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, tracked=?, totals=?, updated=? where id=?",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals, new Date(), data.id]);
