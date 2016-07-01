@@ -604,6 +604,7 @@ function saveSettings(cb) {
 	if(Number(total) == 0 || total == ""){ //added total == ""
 		trackedNum = 0;
 	}
+	console.log("trackedNum: " + trackedNum + " saveSettings called");
 	//save the current settings to the settings db
     var data = {onoff:$('#slider2').val(), 
         frequency:$("#select-native-2 :radio:checked").val(),
