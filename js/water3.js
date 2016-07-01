@@ -457,7 +457,7 @@ function renderGoal(tx,results){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        $(".inspiration").html(insp);//post the way to go message
-       //$(".showtotal .consumed").html(s);
+       $(".donut-inner-text").html(s);
        $(".showtotal .total").html(goal);
        
 	   RenderChart(s,goal,healthkit);
@@ -882,6 +882,7 @@ $(document).ready(function() {
 			}, dbErrorHandler);
 			//we need to make sure that the donut variable is updated before the save
 			getGoal();
+			console.log($(".donut-inner-text").html());
 			//lets save the settings
 			saveSettings(function() {
 				//saveCalled = "true"; //send a flag to the render function to generate the notifcations.
