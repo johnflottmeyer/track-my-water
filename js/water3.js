@@ -406,6 +406,7 @@ function renderWater(tx,results){
 
 /* RENDER THE GOALS SAVED TO THE SCREEN */
 function renderGoal(tx,results){
+	console.log("renderGoal called");
     if (results.rows.length == 0) {//none set yet
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
@@ -457,9 +458,9 @@ function renderGoal(tx,results){
 	       insp = "Congratulations you've reached your daily goal of water.";
        }
        $(".inspiration").html(insp);//post the way to go message
-       $(".donut-inner-text").html(s);
+       $(".donut-inner-text").html(s + healthkit);
        $(".showtotal .total").html(goal);
-       
+       console.log(s);
 	   RenderChart(s,goal,healthkit);
     }
 }
@@ -861,7 +862,7 @@ $(document).ready(function() {
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
-							
+							getGoal(); //update the goal data
 							if(healthKitPermission && healthKit){
 								d = new Date();
 								date = d.setHours(0, 0, 0);
@@ -881,7 +882,7 @@ $(document).ready(function() {
 	            });
 			}, dbErrorHandler);
 			//we need to make sure that the donut variable is updated before the save
-			getGoal();
+			
 			console.log($(".donut-inner-text").html());
 			//lets save the settings
 			saveSettings(function() {
