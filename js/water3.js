@@ -270,7 +270,7 @@ function renderSettings(tx,results){
 		 	 	$("#watergoal").val("64");
 	 	 	}  
        }
-       console.log("settings" + settings);
+       console.log("settings" + settings + "onoff: " + $('#slider2').val());
        var healthkithome = 0;
    	   if(healthKitPermission && healthKit){//grab healthkit if available
 	       gethealthkitdata();
