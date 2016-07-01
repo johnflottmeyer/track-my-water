@@ -226,6 +226,7 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 	    		console.log("Successfully Dropped");
 	    		tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
 	    		//$(".showtotal .consumed").html(0); //reset the goals totals
+	    		savedWater = 0; //reset the water
 	    		console.log("New Table Made");
 	    		saveSettings(function() { //reset the tracked variable
 					getSettings(); //refresh what is saved to get the latest.
@@ -407,6 +408,12 @@ function renderWater(tx,results){
 	   }
        $(".waterdata").html("<table data-role='table' class='ui-responsive table-stroke table-alerts table-stripe' style='width:100%'><tr><thead><th>Date</th><th>Time</th><th>Amount</th><th>Options</th></thead></tr><tr><tbody>" + s + "</tbody></table>");//show what is saved 
     }
+    
+    //lets save the settings
+	saveSettings(function() {
+		//saveCalled = "true"; //send a flag to the render function to generate the notifcations.
+		getSettings(); //refresh what is saved to get the latest.
+    });
 }
 
 /* RENDER THE GOALS SAVED TO THE SCREEN */
@@ -886,12 +893,8 @@ $(document).ready(function() {
 			}, dbErrorHandler);
 			//we need to make sure that the donut variable is updated before the save
 			
-			console.log(savedWater);
-			//lets save the settings
-			saveSettings(function() {
-				//saveCalled = "true"; //send a flag to the render function to generate the notifcations.
-				getSettings(); //refresh what is saved to get the latest.
-	        });
+			console.log("savedWater" + savedWater);
+			
         }else{
 	        $("#popupError p").html("You need to pick a time!"); //populate the error window
 	        $("#popupDialog2").click(); //pop up error window
