@@ -19,7 +19,7 @@ var frequency; //how often the alert should go
 var start; //variable for the start time
 var startmin; //variable for splitting the time
 var range; //variable returned from db
-var savedWater;
+var savedWater = 0;
 /*Plugin Permissions*/
 var saveCalled = false; //This is a flag for determining when to set the alerts
 var healthKit = false; //This is a flag for IOS to check to see if healthkit exists
@@ -396,7 +396,7 @@ function renderWater(tx,results){
 
 	   	 		reset ++; //remove 
 	   	 	}else{
-		   	 	savedWater += amount;//new way to track water amounts
+		   	 	savedWater += Number(amount);//new way to track water amounts
 	   	 		s +=  "<tr><td>" + date + "</td><td>" + time + "</td><td>" + amount + "</td><td><a href='#' class='ui-btn ui-mini ui-btn-inline ui-btn-b editRecord' id=" + id + "><i class='icon-edit'></i></a><a href='#' class='ui-btn ui-mini ui-btn-inline ui-corner-all ui-btn-b deleteRecord' id=" + id + "><i class='icon-circledelete'></i></a></td></tr>";//print out the saved times with ID's  
 	   	 	}
        }
