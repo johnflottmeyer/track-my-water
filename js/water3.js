@@ -247,6 +247,7 @@ function renderSettings(tx,results){
 		console.log("setting up saved state"); 
 		getSettings(); //load it again
     } else { //load and display the settings.
+	   
        var s = "";
        for(var i=0; i<results.rows.length; i++) {
 	       	settings = results.rows.item(i).onoff;
@@ -269,6 +270,7 @@ function renderSettings(tx,results){
 		 	 	$("#watergoal").val("64");
 	 	 	}  
        }
+       console.log("settings" + settings);
        var healthkithome = 0;
    	   if(healthKitPermission && healthKit){//grab healthkit if available
 	       gethealthkitdata();
