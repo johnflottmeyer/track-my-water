@@ -275,8 +275,11 @@ function renderSettings(tx,results){
        console.log("settings" + settings + " - onoff: " + $('#slider2').val());
        //switch on the alerts if the app is just loading and it is in the settings as on 
        if(settings == "on"){
-	       $('#slider2').val('on');
-	       console.log('loading switched on alerts because they are on');
+	       if($('#slider2').val() == "off"){
+	       		$('#slider2').val('on');
+		   		console.log('loading switched on alerts because they are on');
+	       }
+	       console.log('settings say on - it is on');
        }else{
 	       console.log('settings say off');
        }
