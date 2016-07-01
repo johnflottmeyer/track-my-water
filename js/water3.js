@@ -270,12 +270,16 @@ function renderSettings(tx,results){
 		 	 	$("#watergoal").val("64");
 	 	 	}  
        }
+       
+      
+       console.log("settings" + settings + " - onoff: " + $('#slider2').val());
        //switch on the alerts if the app is just loading and it is in the settings as on 
        if(settings == "on"){
 	       $('#slider2').val('on');
 	       console.log('loading switched on alerts because they are on');
+       }else{
+	       console.log('settings say off');
        }
-       console.log("settings" + settings + "onoff: " + $('#slider2').val());
        var healthkithome = 0;
    	   if(healthKitPermission && healthKit){//grab healthkit if available
 	       gethealthkitdata();
