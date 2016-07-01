@@ -880,6 +880,8 @@ $(document).ready(function() {
 			        }
 	            });
 			}, dbErrorHandler);
+			//we need to make sure that the donut variable is updated before the save
+			getGoal();
 			//lets save the settings
 			saveSettings(function() {
 				//saveCalled = "true"; //send a flag to the render function to generate the notifcations.
