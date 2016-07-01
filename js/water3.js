@@ -940,6 +940,7 @@ $(document).ready(function() {
 	});
 	//temporary for testing
 	$.mobile.document.on( "click", "#clear-goal", function( evt ) {
+		console.log("reset pushed");
 		resetTracked();
 	});
 	
@@ -948,7 +949,7 @@ $(document).ready(function() {
     /*ON PAGE LOAD SHOW THE FOLLOWING*/
     $(document).on("pagecontainerbeforeshow", function( event, ui ) {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
-    	if(ThisPage == "landing"){getGoal();getAlerts();getSettings();//added getGoal and getAlert
+    	if(ThisPage == "landing"){getSettings();//added getGoal and getAlert
     	}else if(ThisPage == "alerts"){
 	    	if(settings == "on"){switchedON();checkAlerts();}
     	}else if(ThisPage == "track"){getWater();
