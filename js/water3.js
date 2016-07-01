@@ -418,7 +418,7 @@ function renderWater(tx,results){
 
 /* RENDER THE GOALS SAVED TO THE SCREEN */
 function renderGoal(tx,results){
-	console.log("renderGoal called");
+	//console.log("renderGoal called");
     if (results.rows.length == 0) {//none set yet
 		s = 0;
 		$(".inspiration").html("Be sure to track some water");
@@ -625,7 +625,7 @@ function saveSettings(cb) {
 		trackedNum = 0;
 	}
 	
-	console.log("trackedNum: " + trackedNum + " saveSettings called");
+	//console.log("trackedNum: " + trackedNum + " saveSettings called");
 	//save the current settings to the settings db
     var data = {
 	    onoff:$('#slider2').val(), 
@@ -637,7 +637,7 @@ function saveSettings(cb) {
         totals:savedWater,
         id: 1 // Replace the one entry
     };
-	console.log("totals: " + savedWater + "tracked: " + trackedNum);
+	//console.log("totals: " + savedWater + "tracked: " + trackedNum);
 	
     dbShell.transaction(function(tx) {
         tx.executeSql("update saved set onoff=?, frequency=?, start=?, range=?, goal=?, tracked=?, totals=?, updated=? where id=?",[data.onoff,data.frequency,data.start,data.range,data.goal,data.tracked,data.totals, new Date(), data.id]);
@@ -893,7 +893,7 @@ $(document).ready(function() {
 			}, dbErrorHandler);
 			//we need to make sure that the donut variable is updated before the save
 			
-			console.log("savedWater" + savedWater);
+			//console.log("savedWater" + savedWater);
 			
         }else{
 	        $("#popupError p").html("You need to pick a time!"); //populate the error window
@@ -958,10 +958,10 @@ $(document).ready(function() {
 		addwater(4);
 	});
 	//temporary for testing
-	$.mobile.document.on( "click", "#clear-goal", function( evt ) {
-		console.log("reset pushed");
+	/*$.mobile.document.on( "click", "#clear-goal", function( evt ) {
+		//console.log("reset pushed");
 		resetTracked();
-	});
+	});*/
 	
 	
 	
