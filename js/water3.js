@@ -387,6 +387,7 @@ function renderWater(tx,results){
        	 	amount = results.rows.item(i).amount;
        	 	var checksavedDate = date.split("/");//split it up now so that we can see how the dates compare
        	 	
+       	 	savedWater = 0; //reset saved water
 	   	 	///// NOW WE NEED TO COMPARE THE DATES TO SEE IF THE DATE IS IN THE PAST ////////
 	   	 	if(checksavedDate[0] != mday || checksavedDate[1] != mmo){
 	   	 		//remove this one
