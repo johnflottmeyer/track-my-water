@@ -225,11 +225,12 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 	    		console.log("Successfully Dropped");
 	    		tx.executeSql("CREATE TABLE IF NOT EXISTS goals(id INTEGER PRIMARY KEY,date,time,amount,updated)"); //recreate the table
 	    		$(".showtotal .consumed").html(0); //reset the goals totals
-	    		reset = 0; //reset the reset flag
 	    		console.log("New Table Made");
 	    		saveSettings(function() { //reset the tracked variable
 					getSettings(); //refresh what is saved to get the latest.
         		});
+        		reset = 0; //reset the reset flag
+        		console.log("Reset");
 	    	},
 			function(tx,error){
 				console.log("Could not delete")
@@ -242,7 +243,8 @@ function resetTracked(){ /*DELETE GOAL DB CONTENTS*/
 /* RENDER THE SETTINGS TO THE SCREEN */
 function renderSettings(tx,results){
     if (results.rows.length == 0) { //no settings found - create a default record
-		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, tracked, totals, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "0", "0", "default")'); 
+		tx.executeSql('INSERT INTO saved (id, onoff, frequency, start, range, goal, tracked, totals, updated) VALUES (1, "off", "1 hour", "8:00", "8-17", "64", "0", "0", "default")');
+		console.log("setting up saved state"); 
 		getSettings(); //load it again
     } else { //load and display the settings.
        var s = "";
@@ -934,9 +936,9 @@ $(document).ready(function() {
 		addwater(4);
 	});
 	//temporary for testing
-	/*$.mobile.document.on( "click", "#clear-goal", function( evt ) {
+	$.mobile.document.on( "click", "#clear-goal", function( evt ) {
 		resetTracked();
-	});*/
+	});
 	
 	
 	
