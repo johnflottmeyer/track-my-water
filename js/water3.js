@@ -258,6 +258,7 @@ function renderSettings(tx,results){
 	   	 	range = results.rows.item(i).range;
 	   	 	rangemin = range.split(":");
 	   	 	goal = results.rows.item(i).goal; 
+	   	 	
 	   	 	//new lets save the goal data
 	   	 	tracked = results.rows.item(i).tracked;
 	   	 	totals = results.rows.item(i).totals;
@@ -600,7 +601,7 @@ function checkAlerts(){
 function saveSettings(cb) {
 	total = $(".showtotal .consumed").text();
 	trackedNum = 1;
-	if(Number(total) == 0){
+	if(Number(total) == 0 || total == ""){ //added total == ""
 		trackedNum = 0;
 	}
 	//save the current settings to the settings db
