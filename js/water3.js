@@ -852,6 +852,7 @@ $(document).ready(function() {
 				        };
 						saveGoal(data,function() {
 							getWater(); //refresh what is saved to get the latest.
+							
 							if(healthKitPermission && healthKit){
 								d = new Date();
 								date = d.setHours(0, 0, 0);
@@ -947,7 +948,7 @@ $(document).ready(function() {
     /*ON PAGE LOAD SHOW THE FOLLOWING*/
     $(document).on("pagecontainerbeforeshow", function( event, ui ) {
     	var ThisPage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
-    	if(ThisPage == "landing"){getSettings();
+    	if(ThisPage == "landing"){getGoal();getAlerts();getSettings();//added getGoal and getAlert
     	}else if(ThisPage == "alerts"){
 	    	if(settings == "on"){switchedON();checkAlerts();}
     	}else if(ThisPage == "track"){getWater();
