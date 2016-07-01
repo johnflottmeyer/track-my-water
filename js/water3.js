@@ -270,6 +270,11 @@ function renderSettings(tx,results){
 		 	 	$("#watergoal").val("64");
 	 	 	}  
        }
+       //switch on the alerts if the app is just loading and it is in the settings as on 
+       if(settings == "on"){
+	       $('#slider2').val('on');
+	       console.log('loading switched on alerts because they are on');
+       }
        console.log("settings" + settings + "onoff: " + $('#slider2').val());
        var healthkithome = 0;
    	   if(healthKitPermission && healthKit){//grab healthkit if available
@@ -810,8 +815,6 @@ $(document).ready(function() {
 	$("#editNoteForm").on("submit",function(e) {
 		//need to validate that the date is set before this can be submitted.
 		if($("#starttime").val() == "" || $("#endtime").val() == ""){
-			//$("#mainpopupError p").html("You need to choose both a start and end time");
-			//$("#popupDialog3").click();
 			toastr.error('<strong>There were some errors: Please fix before saving</strong><ul>' + errors + '</ul>', null, {target: $('.messages-alerts'),"timeOut": "3000","positionClass": "toast-top-full-width"});
 		}else{
 			//save the current settings to the settings db
