@@ -53,4 +53,3 @@ Removed comma from splash screens
 
 ## V2.1.5
 Updated Phonegap Version
-Removed the setting that was removing the current hour when you saved.
