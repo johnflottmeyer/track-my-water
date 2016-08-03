@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "A8FETR73Y9.com.phonegap.gibsonswatertracker"
         versionCode = "10" 
-        version     = "2.1.4" >
+        version     = "2.1.5" >
 	
     <name>Gibson's Water Tracking</name>
     <description>
@@ -26,7 +26,7 @@
 	<gap:plugin name="com.telerik.plugins.healthkit" source="npm" />
 
     <!-- universal preferences -->
-    <preference name="phonegap-version"           value="cli-5.2.0" />         
+    <preference name="phonegap-version"           value="cli-6.3.0" />         
     <preference name="fullscreen"                 value="true" />
 	
 	<!-- ios preferences --> 
