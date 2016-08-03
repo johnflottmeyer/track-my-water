@@ -26,7 +26,7 @@
 	<gap:plugin name="com.telerik.plugins.healthkit" source="npm" />
 
     <!-- universal preferences -->
-    <preference name="phonegap-version"           value="cli-5.2.0" />         
+    <preference name="phonegap-version"           value="cli-6.2.0" />         
     <preference name="fullscreen"                 value="true" />
 	
 	<!-- ios preferences --> 
