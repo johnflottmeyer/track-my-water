@@ -541,11 +541,11 @@ function createNotifications(){
 	for(z=0;z<alertTimes.length;z++){
 		
 		if(alertTimes[z] == h){ //its the same hour as the time for the alert
-			if(m > startmin[1]){ //its past the set time//added to remove current hour
-				console.log(m + " : " + startmin[1] + " : " + alertTimes[z]);
-			}else{
+			////if(m < startmin[1]){ //shouldn't this one be included
+				////console.log(m + " : " + startmin[1] + " : " + alertTimes[z]);
+			////}else{
 				alertSet.push(alertTimes[z] + ":" + startmin[1]); //remove it from the list of alerts
-			}
+			////}
 		}else{
 			alertSet.push(alertTimes[z] + ":" + startmin[1]);
 		}
